@@ -2,11 +2,29 @@
 
 F2Asm learns exact NVIDIA SASS instruction encoders using linear algebra over
 the binary field F₂. It supports CUBIN disassembly and reassembly across recent
-NVIDIA data-center GPU architectures.
+NVIDIA data-center GPU architectures. A primary design goal of F2Asm is to
+provide a reliable machine-code backend for autonomous SASS coding agents that
+generate, optimize, and validate SASS.
+
+## Paper
+
+**[Learning Exact NVIDIA SASS Encoders with F₂ Linear
+Algebra](https://arxiv.org/abs/2608.20532)**
 
 > **Status:** Source release in preparation. This repository currently hosts
 > the public project page for F2Asm. The implementation and reproducibility
 > artifacts will be released after final qualification and licensing review.
+
+## Shared Rubin Encoder (Experimental)
+
+This artifact is a frozen F2Asm bit-linear model trained jointly for the NVIDIA
+Rubin GPU targets `sm_107`, `sm_107f`, and `sm_107a`. It contains 368
+instruction forms, 3,428 affine maps, and 54,957 basis rows. All 3,608
+controlled held-out CUBINs passed strict round-trip and reproduced every
+executable section exactly.
+
+- Artifact: `DefaultBitLinearRepos.sm_107_variants.experimental.json`
+- SHA-256: `2478cce78475e173673285092c42d6ed76097038bd6f9ad43cbe171596b1cdec`
 
 ## Evaluated targets
 
@@ -22,15 +40,5 @@ NVIDIA data-center GPU architectures.
 - training and qualification pipeline
 - unit tests and reproducibility manifests
 
-The training corpora and NVIDIA library binaries will not be redistributed.
-Reproduction scripts will operate on legally obtained CUDA installations and
-library packages.
-
-## Paper
-
-Preprint forthcoming.
-
-## Disclaimer
-
-F2Asm is an independent research project. It is not affiliated with or
-endorsed by NVIDIA.
+Training CUBINs and NVIDIA library binaries are not included in this
+repository.
