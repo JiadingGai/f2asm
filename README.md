@@ -31,8 +31,8 @@ executable section exactly.
 ## Evaluated targets
 
 - Hopper: `sm_90`, `sm_90a`
-- Blackwell: `sm_100`
-- Rubin: `sm_107`
+- Blackwell: `sm_100`, `sm_100f`, `sm_100a`, `sm_103`, `sm_103a`
+- Rubin: `sm_107`, `sm_107f`, `sm_107a`
 
 ## Planned release
 
