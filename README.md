@@ -15,10 +15,12 @@ Algebra](https://arxiv.org/abs/2608.20532)**
 > the public project page for F2Asm. The implementation and reproducibility
 > artifacts will be released after final qualification and licensing review.
 
-## Shared Rubin Encoder (Experimental)
+## Artifacts
 
-This artifact is a frozen F2Asm bit-linear model trained jointly for the NVIDIA
-Rubin GPU targets `sm_107`, `sm_107f`, and `sm_107a`. It contains 368
+### Shared Rubin Encoder (Experimental)
+
+We have released an experimental F2Asm encoder model trained jointly for the
+NVIDIA Rubin GPU targets `sm_107`, `sm_107f`, and `sm_107a`. It contains 368
 instruction forms, 3,428 affine maps, and 54,957 basis rows. All 3,608
 controlled held-out CUBINs passed strict round-trip and reproduced every
 executable section exactly.
