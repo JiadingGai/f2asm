@@ -1,0 +1,1139 @@
+# Explicit instruction/control source; compiler-derived ABI and benchmark template.
+# F2Asm is required to encode every instruction. No copied word fallback.
+# Static encoding qualification is NOT hardware semantic/timing validation.
+pc_0000:
+0x00711 | LDC R1, c[0x0][0x37c];
+pc_0010:
+0x00732 | S2R R0, SR_TID.X;
+pc_0020:
+0x017ed | ISETP.NE.U32.AND P0, PT, R0, RZ, PT;
+pc_0030:
+0x007f5 | @P0 EXIT;
+pc_0040:
+0x00731 | S2UR UR8, SR_CgaCtaId;
+pc_0050:
+0x007f1 | UMOV UR6, 0x400;
+pc_0060:
+0x007f1 | UMOV UR4, 0x1;
+pc_0070:
+0x007f2 | UIADD3 UR9, UPT, UPT, UR6, 0x600, URZ;
+pc_0080:
+0x007e4 | UIADD3 UR4, UPT, UPT, -UR4, 0x100000, URZ;
+pc_0090:
+0x007f2 | USHF.L.U32 UR5, UR4, 0xb, URZ;
+pc_00a0:
+0x007f1 | USHF.L.U32 UR4, UR4, 0x1, URZ;
+pc_00b0:
+0x00751 | S2R R7, SR_CTAID.X;
+pc_00c0:
+0x007f1 | IMAD.MOV.U32 R49, RZ, RZ, RZ;
+pc_00d0:
+0x00751 | LDC.64 R2, c[0x0][0x388];
+pc_00e0:
+0x007f1 | IMAD.MOV.U32 R8, RZ, RZ, RZ;
+pc_00f0:
+0x017f2 | ULEA UR9, UR8, UR9, 0x18;
+pc_0100:
+0x007f1 | ULEA UR8, UR8, UR6, 0x18;
+pc_0110:
+0x00739 | FENCE.VIEW.ASYNC.S;
+pc_0120:
+0x01172 | SYNCS.EXCH.64 URZ, [UR9], UR4;
+pc_0130:
+0x043f6 | MEMBAR.ALL.CTA;
+pc_0140:
+0x04771 | FENCE.VIEW.ASYNC.S;
+pc_0150:
+0x027f1 | IMAD.WIDE.U32 R2, R7, 0x620, R2;
+pc_0160:
+0x017f1 | UMOV UR4, URZ;
+pc_0170:
+0x007f1 | CS2R R12, SR_CLOCKLO;
+pc_0180:
+0x00731 | LDCU.64 UR12, c[0x0][0x358];
+pc_0190:
+0x047e5 | NOP;
+pc_01a0:
+0x02751 | LDCU UR5, c[0x0][0x394];
+pc_01b0:
+0x007f1 | IADD3 R0, PT, PT, R7, UR4, RZ;
+pc_01c0:
+0x00771 | LDCU.64 UR6, c[0x0][0x398];
+pc_01d0:
+0x007f1 | UIADD3 UR4, UPT, UPT, UR4, 0x1, URZ;
+pc_01e0:
+0x02751 | I2F.U32.RP R6, UR5;
+pc_01f0:
+0x007e7 | UISETP.NE.U32.AND UP1, UPT, UR5, URZ, UPT;
+pc_0200:
+0x02752 | MUFU.RCP R6, R6;
+pc_0210:
+0x027e6 | IADD3 R4, PT, PT, R6, 0xffffffe, RZ;
+pc_0220:
+0x00292 | F2I.FTZ.U32.TRUNC.NTZ R5, R4;
+pc_0230:
+0x027f2 | IMAD.MOV.U32 R4, RZ, RZ, RZ;
+pc_0240:
+0x087e4 | IMAD.MOV R9, RZ, RZ, -R5;
+pc_0250:
+0x007e4 | IMAD R9, R9, UR5, RZ;
+pc_0260:
+0x007f2 | IMAD.HI.U32 R5, R5, R9, R4;
+pc_0270:
+0x00754 | LDC R4, c[0x0][0x390];
+pc_0280:
+0x007e4 | IMAD.HI.U32 R5, R5, R0, RZ;
+pc_0290:
+0x007e4 | IMAD.MOV R5, RZ, RZ, -R5;
+pc_02a0:
+0x007f2 | IMAD R5, R5, UR5, R0;
+pc_02b0:
+0x007e3 | IMAD.MOV.U32 R0, RZ, RZ, 0x600;
+pc_02c0:
+0x007f1 | R2UR UR10, R5;
+pc_02d0:
+0x004f1 | SYNCS.ARRIVE.TRANS64 RZ, [UR9], R0;
+pc_02e0:
+0x027f1 | ISETP.LE.U32.AND P0, PT, R4, UR4, PT;
+pc_02f0:
+0x007f2 | IMAD.U32 R4, R8, -0x80000000, RZ;
+pc_0300:
+0x087e8 | HFMA2 R0, -RZ, RZ, 0, 0;
+pc_0310:
+0x007eb | UISETP.GE.U32.AND UP0, UPT, UR10, UR5, UPT;
+pc_0320:
+0x007e4 | @UP0 UIADD3 UR10, UPT, UPT, UR10, -UR5, URZ;
+pc_0330:
+0x007eb | UISETP.GE.U32.AND UP0, UPT, UR10, UR5, UPT;
+pc_0340:
+0x007f2 | @UP0 UIADD3 UR10, UPT, UPT, UR10, -UR5, URZ;
+pc_0350:
+0x007e4 | @!UP1 ULOP3.LUT UR10, URZ, UR5, URZ, 0x33, !UPT;
+pc_0360:
+0x007e9 | UIMAD UR10, UR10, 0xc0, URZ;
+pc_0370:
+0x042f2 | UTMALDG.1D [UR8], [UR6];
+pc_0380:
+0x027f1 | NOP;
+pc_0390:
+0x00752 | SYNCS.PHASECHK.TRANS64.TRYWAIT P1, [UR9], R4;
+pc_03a0:
+0x027f5 | @P1 BRA 0x410;
+pc_03b0:
+0x007e4 | IADD3 R0, PT, PT, R0, 0x1, RZ;
+pc_03c0:
+0x007ed | ISETP.GE.U32.AND P1, PT, R0, 0xf4240, PT;
+pc_03d0:
+0x007f5 | @!P1 BRA 0x390;
+pc_03e0:
+0x00fe5 | IMAD.MOV.U32 R1, RZ, RZ, 0x1;
+pc_03f0:
+0x012f1 | STG.E desc[UR12][R2.64+0xc], R1;
+pc_0400:
+0x007f5 | BPT.TRAP 0x1;
+pc_0410:
+0x00771 | LDS R0, [UR8];
+pc_0420:
+0x007f2 | LOP3.LUT R8, R8, 0x1, RZ, 0x3c, !PT;
+pc_0430:
+0x047f1 | LOP3.LUT R49, R49, R0, RZ, 0x3c, !PT;
+pc_0440:
+0x007f6 | @!P0 BRA 0x1a0;
+pc_0450:
+0x00771 | SYNCS.CCTL.IV [UR9];
+pc_0460:
+0x007f1 | CS2R R14, SR_CLOCKLO;
+pc_0470:
+0x04775 | LDS.128 R4, [UR8+0x10];
+pc_0480:
+0x007f1 | IADD3 R12, P0, PT, -R12, R14, RZ;
+pc_0490:
+0x00793 | LDS.128 R20, [UR8+0x20];
+pc_04a0:
+0x007f1 | IADD3.X R13, PT, PT, ~R13, R15, RZ, P0, !PT;
+pc_04b0:
+0x007b4 | LDS.128 R8, [UR8];
+pc_04c0:
+0x017f4 | STG.E.64 desc[UR12][R2.64], R12;
+pc_04d0:
+0x00734 | LDS.128 R24, [UR8+0x30];
+pc_04e0:
+0x00754 | LDS.128 R28, [UR8+0x40];
+pc_04f0:
+0x00714 | LDS.128 R44, [UR8+0x50];
+pc_0500:
+0x00714 | LDS.128 R40, [UR8+0x60];
+pc_0510:
+0x00714 | LDS.128 R36, [UR8+0x70];
+pc_0520:
+0x00714 | LDS.128 R32, [UR8+0x80];
+pc_0530:
+0x047f4 | STG.E desc[UR12][R2.64+0x30], R4;
+pc_0540:
+0x007f4 | STG.E desc[UR12][R2.64+0x34], R5;
+pc_0550:
+0x007f4 | STG.E desc[UR12][R2.64+0x38], R6;
+pc_0560:
+0x007f4 | STG.E desc[UR12][R2.64+0x3c], R7;
+pc_0570:
+0x087f4 | STG.E desc[UR12][R2.64+0x40], R20;
+pc_0580:
+0x007f4 | STG.E desc[UR12][R2.64+0x44], R21;
+pc_0590:
+0x007f4 | STG.E desc[UR12][R2.64+0x48], R22;
+pc_05a0:
+0x007f4 | STG.E desc[UR12][R2.64+0x4c], R23;
+pc_05b0:
+0x107f4 | STG.E desc[UR12][R2.64+0x20], R8;
+pc_05c0:
+0x007f4 | STG.E desc[UR12][R2.64+0x24], R9;
+pc_05d0:
+0x007f4 | STG.E desc[UR12][R2.64+0x28], R10;
+pc_05e0:
+0x007f4 | STG.E desc[UR12][R2.64+0x2c], R11;
+pc_05f0:
+0x00774 | LDS.128 R16, [UR8+0x90];
+pc_0600:
+0x00794 | LDS.128 R12, [UR8+0xa0];
+pc_0610:
+0x007b4 | LDS.128 R4, [UR8+0xc0];
+pc_0620:
+0x00714 | LDS.128 R20, [UR8+0xd0];
+pc_0630:
+0x00774 | LDS.128 R8, [UR8+0xb0];
+pc_0640:
+0x017f4 | STG.E desc[UR12][R2.64+0x50], R24;
+pc_0650:
+0x007f4 | STG.E desc[UR12][R2.64+0x54], R25;
+pc_0660:
+0x007f4 | STG.E desc[UR12][R2.64+0x58], R26;
+pc_0670:
+0x007f4 | STG.E desc[UR12][R2.64+0x5c], R27;
+pc_0680:
+0x027f4 | STG.E desc[UR12][R2.64+0x60], R28;
+pc_0690:
+0x007f4 | STG.E desc[UR12][R2.64+0x64], R29;
+pc_06a0:
+0x007f4 | STG.E desc[UR12][R2.64+0x68], R30;
+pc_06b0:
+0x007f4 | STG.E desc[UR12][R2.64+0x6c], R31;
+pc_06c0:
+0x00ff4 | STG.E desc[UR12][R2.64+0x70], R44;
+pc_06d0:
+0x007f4 | STG.E desc[UR12][R2.64+0x74], R45;
+pc_06e0:
+0x007f4 | STG.E desc[UR12][R2.64+0x78], R46;
+pc_06f0:
+0x007f4 | STG.E desc[UR12][R2.64+0x7c], R47;
+pc_0700:
+0x007f4 | STG.E desc[UR12][R2.64+0x80], R40;
+pc_0710:
+0x007f4 | STG.E desc[UR12][R2.64+0x84], R41;
+pc_0720:
+0x007f4 | STG.E desc[UR12][R2.64+0x88], R42;
+pc_0730:
+0x007f4 | STG.E desc[UR12][R2.64+0x8c], R43;
+pc_0740:
+0x007f4 | STG.E desc[UR12][R2.64+0x90], R36;
+pc_0750:
+0x007f4 | STG.E desc[UR12][R2.64+0x94], R37;
+pc_0760:
+0x007f4 | STG.E desc[UR12][R2.64+0x98], R38;
+pc_0770:
+0x007f4 | STG.E desc[UR12][R2.64+0x9c], R39;
+pc_0780:
+0x007f4 | STG.E desc[UR12][R2.64+0xa0], R32;
+pc_0790:
+0x007f4 | STG.E desc[UR12][R2.64+0xa4], R33;
+pc_07a0:
+0x007f4 | STG.E desc[UR12][R2.64+0xa8], R34;
+pc_07b0:
+0x007f4 | STG.E desc[UR12][R2.64+0xac], R35;
+pc_07c0:
+0x047f4 | STG.E desc[UR12][R2.64+0xb0], R16;
+pc_07d0:
+0x007f4 | STG.E desc[UR12][R2.64+0xb4], R17;
+pc_07e0:
+0x007f4 | STG.E desc[UR12][R2.64+0xb8], R18;
+pc_07f0:
+0x007f4 | STG.E desc[UR12][R2.64+0xbc], R19;
+pc_0800:
+0x087f4 | STG.E desc[UR12][R2.64+0xc0], R12;
+pc_0810:
+0x007f4 | STG.E desc[UR12][R2.64+0xc4], R13;
+pc_0820:
+0x007f4 | STG.E desc[UR12][R2.64+0xc8], R14;
+pc_0830:
+0x007f4 | STG.E desc[UR12][R2.64+0xcc], R15;
+pc_0840:
+0x107f4 | STG.E desc[UR12][R2.64+0xe0], R4;
+pc_0850:
+0x007f4 | STG.E desc[UR12][R2.64+0xe4], R5;
+pc_0860:
+0x007f4 | STG.E desc[UR12][R2.64+0xe8], R6;
+pc_0870:
+0x007f4 | STG.E desc[UR12][R2.64+0xec], R7;
+pc_0880:
+0x007f4 | STG.E desc[UR12][R2.64+0xf0], R20;
+pc_0890:
+0x007f4 | STG.E desc[UR12][R2.64+0xf4], R21;
+pc_08a0:
+0x007f4 | STG.E desc[UR12][R2.64+0xf8], R22;
+pc_08b0:
+0x007f4 | STG.E desc[UR12][R2.64+0xfc], R23;
+pc_08c0:
+0x00714 | LDS.128 R24, [UR8+0xe0];
+pc_08d0:
+0x00734 | LDS.128 R28, [UR8+0xf0];
+pc_08e0:
+0x00754 | LDS.128 R44, [UR8+0x100];
+pc_08f0:
+0x00774 | LDS.128 R40, [UR8+0x110];
+pc_0900:
+0x00794 | LDS.128 R36, [UR8+0x120];
+pc_0910:
+0x007f4 | STG.E desc[UR12][R2.64+0xd0], R8;
+pc_0920:
+0x007b4 | LDS.128 R32, [UR8+0x130];
+pc_0930:
+0x007f4 | STG.E desc[UR12][R2.64+0xd4], R9;
+pc_0940:
+0x007f4 | STG.E desc[UR12][R2.64+0xd8], R10;
+pc_0950:
+0x007f4 | STG.E desc[UR12][R2.64+0xdc], R11;
+pc_0960:
+0x00754 | LDS.128 R16, [UR8+0x140];
+pc_0970:
+0x00754 | LDS.128 R12, [UR8+0x150];
+pc_0980:
+0x00754 | LDS.128 R4, [UR8+0x170];
+pc_0990:
+0x00754 | LDS.128 R20, [UR8+0x180];
+pc_09a0:
+0x00774 | LDS.128 R8, [UR8+0x160];
+pc_09b0:
+0x00ff4 | STG.E desc[UR12][R2.64+0x100], R24;
+pc_09c0:
+0x007f4 | STG.E desc[UR12][R2.64+0x104], R25;
+pc_09d0:
+0x007f4 | STG.E desc[UR12][R2.64+0x108], R26;
+pc_09e0:
+0x007f4 | STG.E desc[UR12][R2.64+0x10c], R27;
+pc_09f0:
+0x017f4 | STG.E desc[UR12][R2.64+0x110], R28;
+pc_0a00:
+0x007f4 | STG.E desc[UR12][R2.64+0x114], R29;
+pc_0a10:
+0x007f4 | STG.E desc[UR12][R2.64+0x118], R30;
+pc_0a20:
+0x007f4 | STG.E desc[UR12][R2.64+0x11c], R31;
+pc_0a30:
+0x027f4 | STG.E desc[UR12][R2.64+0x120], R44;
+pc_0a40:
+0x007f4 | STG.E desc[UR12][R2.64+0x124], R45;
+pc_0a50:
+0x007f4 | STG.E desc[UR12][R2.64+0x128], R46;
+pc_0a60:
+0x007f4 | STG.E desc[UR12][R2.64+0x12c], R47;
+pc_0a70:
+0x047f4 | STG.E desc[UR12][R2.64+0x130], R40;
+pc_0a80:
+0x007f4 | STG.E desc[UR12][R2.64+0x134], R41;
+pc_0a90:
+0x007f4 | STG.E desc[UR12][R2.64+0x138], R42;
+pc_0aa0:
+0x007f4 | STG.E desc[UR12][R2.64+0x13c], R43;
+pc_0ab0:
+0x087f4 | STG.E desc[UR12][R2.64+0x140], R36;
+pc_0ac0:
+0x007f4 | STG.E desc[UR12][R2.64+0x144], R37;
+pc_0ad0:
+0x007f4 | STG.E desc[UR12][R2.64+0x148], R38;
+pc_0ae0:
+0x007f4 | STG.E desc[UR12][R2.64+0x14c], R39;
+pc_0af0:
+0x107f4 | STG.E desc[UR12][R2.64+0x150], R32;
+pc_0b00:
+0x007f4 | STG.E desc[UR12][R2.64+0x154], R33;
+pc_0b10:
+0x007f4 | STG.E desc[UR12][R2.64+0x158], R34;
+pc_0b20:
+0x007f4 | STG.E desc[UR12][R2.64+0x15c], R35;
+pc_0b30:
+0x007f4 | STG.E desc[UR12][R2.64+0x160], R16;
+pc_0b40:
+0x007f4 | STG.E desc[UR12][R2.64+0x164], R17;
+pc_0b50:
+0x007f4 | STG.E desc[UR12][R2.64+0x168], R18;
+pc_0b60:
+0x007f4 | STG.E desc[UR12][R2.64+0x16c], R19;
+pc_0b70:
+0x007f4 | STG.E desc[UR12][R2.64+0x170], R12;
+pc_0b80:
+0x007f4 | STG.E desc[UR12][R2.64+0x174], R13;
+pc_0b90:
+0x007f4 | STG.E desc[UR12][R2.64+0x178], R14;
+pc_0ba0:
+0x007f4 | STG.E desc[UR12][R2.64+0x17c], R15;
+pc_0bb0:
+0x007f4 | STG.E desc[UR12][R2.64+0x190], R4;
+pc_0bc0:
+0x007f4 | STG.E desc[UR12][R2.64+0x194], R5;
+pc_0bd0:
+0x007f4 | STG.E desc[UR12][R2.64+0x198], R6;
+pc_0be0:
+0x007f4 | STG.E desc[UR12][R2.64+0x19c], R7;
+pc_0bf0:
+0x007f4 | STG.E desc[UR12][R2.64+0x1a0], R20;
+pc_0c00:
+0x007f4 | STG.E desc[UR12][R2.64+0x1a4], R21;
+pc_0c10:
+0x007f4 | STG.E desc[UR12][R2.64+0x1a8], R22;
+pc_0c20:
+0x007f4 | STG.E desc[UR12][R2.64+0x1ac], R23;
+pc_0c30:
+0x00714 | LDS.128 R24, [UR8+0x190];
+pc_0c40:
+0x00734 | LDS.128 R28, [UR8+0x1a0];
+pc_0c50:
+0x00754 | LDS.128 R44, [UR8+0x1b0];
+pc_0c60:
+0x00774 | LDS.128 R40, [UR8+0x1c0];
+pc_0c70:
+0x00794 | LDS.128 R36, [UR8+0x1d0];
+pc_0c80:
+0x007b4 | LDS.128 R32, [UR8+0x1e0];
+pc_0c90:
+0x007f4 | STG.E desc[UR12][R2.64+0x180], R8;
+pc_0ca0:
+0x007f4 | STG.E desc[UR12][R2.64+0x184], R9;
+pc_0cb0:
+0x007f4 | STG.E desc[UR12][R2.64+0x188], R10;
+pc_0cc0:
+0x007f4 | STG.E desc[UR12][R2.64+0x18c], R11;
+pc_0cd0:
+0x00734 | LDS.128 R16, [UR8+0x1f0];
+pc_0ce0:
+0x00754 | LDS.128 R12, [UR8+0x200];
+pc_0cf0:
+0x00754 | LDS.128 R4, [UR8+0x220];
+pc_0d00:
+0x00754 | LDS.128 R20, [UR8+0x230];
+pc_0d10:
+0x00751 | LDS.128 R8, [UR8+0x210];
+pc_0d20:
+0x00773 | S2R R51, SR_VIRTUALSMID;
+pc_0d30:
+0x007f4 | STG.E desc[UR12][R2.64+0x8], R49;
+pc_0d40:
+0x00ff4 | STG.E desc[UR12][R2.64+0x1b0], R24;
+pc_0d50:
+0x007f4 | STG.E desc[UR12][R2.64+0x1b4], R25;
+pc_0d60:
+0x007f4 | STG.E desc[UR12][R2.64+0x1b8], R26;
+pc_0d70:
+0x007f4 | STG.E desc[UR12][R2.64+0x1bc], R27;
+pc_0d80:
+0x017f4 | STG.E desc[UR12][R2.64+0x1c0], R28;
+pc_0d90:
+0x007f4 | STG.E desc[UR12][R2.64+0x1c4], R29;
+pc_0da0:
+0x047f4 | STG.E desc[UR12][R2.64+0x10], R51;
+pc_0db0:
+0x007f4 | STG.E desc[UR12][R2.64+0x1c8], R30;
+pc_0dc0:
+0x007f4 | STG.E desc[UR12][R2.64+0x1cc], R31;
+pc_0dd0:
+0x027f4 | STG.E desc[UR12][R2.64+0x1d0], R44;
+pc_0de0:
+0x007f4 | STG.E desc[UR12][R2.64+0x1d4], R45;
+pc_0df0:
+0x007f4 | STG.E desc[UR12][R2.64+0x1d8], R46;
+pc_0e00:
+0x007f4 | STG.E desc[UR12][R2.64+0x1dc], R47;
+pc_0e10:
+0x007f4 | STG.E desc[UR12][R2.64+0x1e0], R40;
+pc_0e20:
+0x007f4 | STG.E desc[UR12][R2.64+0x1e4], R41;
+pc_0e30:
+0x007f4 | STG.E desc[UR12][R2.64+0x1e8], R42;
+pc_0e40:
+0x007f4 | STG.E desc[UR12][R2.64+0x1ec], R43;
+pc_0e50:
+0x087f4 | STG.E desc[UR12][R2.64+0x1f0], R36;
+pc_0e60:
+0x007f4 | STG.E desc[UR12][R2.64+0x1f4], R37;
+pc_0e70:
+0x007f4 | STG.E desc[UR12][R2.64+0x1f8], R38;
+pc_0e80:
+0x007f4 | STG.E desc[UR12][R2.64+0x1fc], R39;
+pc_0e90:
+0x107f4 | STG.E desc[UR12][R2.64+0x200], R32;
+pc_0ea0:
+0x007f4 | STG.E desc[UR12][R2.64+0x204], R33;
+pc_0eb0:
+0x007f4 | STG.E desc[UR12][R2.64+0x208], R34;
+pc_0ec0:
+0x007f4 | STG.E desc[UR12][R2.64+0x20c], R35;
+pc_0ed0:
+0x007f4 | STG.E desc[UR12][R2.64+0x210], R16;
+pc_0ee0:
+0x007f4 | STG.E desc[UR12][R2.64+0x214], R17;
+pc_0ef0:
+0x007f4 | STG.E desc[UR12][R2.64+0x218], R18;
+pc_0f00:
+0x007f4 | STG.E desc[UR12][R2.64+0x21c], R19;
+pc_0f10:
+0x007f4 | STG.E desc[UR12][R2.64+0x220], R12;
+pc_0f20:
+0x007f4 | STG.E desc[UR12][R2.64+0x224], R13;
+pc_0f30:
+0x007f4 | STG.E desc[UR12][R2.64+0x228], R14;
+pc_0f40:
+0x007f4 | STG.E desc[UR12][R2.64+0x22c], R15;
+pc_0f50:
+0x007f4 | STG.E desc[UR12][R2.64+0x240], R4;
+pc_0f60:
+0x007f4 | STG.E desc[UR12][R2.64+0x244], R5;
+pc_0f70:
+0x007f4 | STG.E desc[UR12][R2.64+0x248], R6;
+pc_0f80:
+0x007f4 | STG.E desc[UR12][R2.64+0x24c], R7;
+pc_0f90:
+0x007f4 | STG.E desc[UR12][R2.64+0x250], R20;
+pc_0fa0:
+0x007f4 | STG.E desc[UR12][R2.64+0x254], R21;
+pc_0fb0:
+0x007f4 | STG.E desc[UR12][R2.64+0x258], R22;
+pc_0fc0:
+0x007f4 | STG.E desc[UR12][R2.64+0x25c], R23;
+pc_0fd0:
+0x00714 | LDS.128 R24, [UR8+0x240];
+pc_0fe0:
+0x00734 | LDS.128 R28, [UR8+0x250];
+pc_0ff0:
+0x00754 | LDS.128 R44, [UR8+0x260];
+pc_1000:
+0x00774 | LDS.128 R40, [UR8+0x270];
+pc_1010:
+0x00794 | LDS.128 R36, [UR8+0x280];
+pc_1020:
+0x007f4 | STG.E desc[UR12][R2.64+0x230], R8;
+pc_1030:
+0x007b4 | LDS.128 R32, [UR8+0x290];
+pc_1040:
+0x007f4 | STG.E desc[UR12][R2.64+0x234], R9;
+pc_1050:
+0x007f4 | STG.E desc[UR12][R2.64+0x238], R10;
+pc_1060:
+0x007f4 | STG.E desc[UR12][R2.64+0x23c], R11;
+pc_1070:
+0x00734 | LDS.128 R48, [UR8+0x2a0];
+pc_1080:
+0x00734 | LDS.128 R16, [UR8+0x2b0];
+pc_1090:
+0x00734 | LDS.128 R12, [UR8+0x2c0];
+pc_10a0:
+0x00754 | LDS.128 R52, [UR8+0x2d0];
+pc_10b0:
+0x00754 | LDS.128 R4, [UR8+0x2e0];
+pc_10c0:
+0x00754 | LDS.128 R56, [UR8+0x2f0];
+pc_10d0:
+0x00754 | LDS.128 R20, [UR8+0x300];
+pc_10e0:
+0x00774 | LDS.128 R8, [UR8+0x310];
+pc_10f0:
+0x00ff4 | STG.E desc[UR12][R2.64+0x260], R24;
+pc_1100:
+0x007f4 | STG.E desc[UR12][R2.64+0x264], R25;
+pc_1110:
+0x007f4 | STG.E desc[UR12][R2.64+0x268], R26;
+pc_1120:
+0x007f4 | STG.E desc[UR12][R2.64+0x26c], R27;
+pc_1130:
+0x017f4 | STG.E desc[UR12][R2.64+0x270], R28;
+pc_1140:
+0x007f4 | STG.E desc[UR12][R2.64+0x274], R29;
+pc_1150:
+0x007f4 | STG.E desc[UR12][R2.64+0x278], R30;
+pc_1160:
+0x007f4 | STG.E desc[UR12][R2.64+0x27c], R31;
+pc_1170:
+0x027f4 | STG.E desc[UR12][R2.64+0x280], R44;
+pc_1180:
+0x007f4 | STG.E desc[UR12][R2.64+0x284], R45;
+pc_1190:
+0x007f4 | STG.E desc[UR12][R2.64+0x288], R46;
+pc_11a0:
+0x007f4 | STG.E desc[UR12][R2.64+0x28c], R47;
+pc_11b0:
+0x047f4 | STG.E desc[UR12][R2.64+0x290], R40;
+pc_11c0:
+0x007f4 | STG.E desc[UR12][R2.64+0x294], R41;
+pc_11d0:
+0x007f4 | STG.E desc[UR12][R2.64+0x298], R42;
+pc_11e0:
+0x007f4 | STG.E desc[UR12][R2.64+0x29c], R43;
+pc_11f0:
+0x087f4 | STG.E desc[UR12][R2.64+0x2a0], R36;
+pc_1200:
+0x007f4 | STG.E desc[UR12][R2.64+0x2a4], R37;
+pc_1210:
+0x007f4 | STG.E desc[UR12][R2.64+0x2a8], R38;
+pc_1220:
+0x007f4 | STG.E desc[UR12][R2.64+0x2ac], R39;
+pc_1230:
+0x107f4 | STG.E desc[UR12][R2.64+0x2b0], R32;
+pc_1240:
+0x007f4 | STG.E desc[UR12][R2.64+0x2b4], R33;
+pc_1250:
+0x007f4 | STG.E desc[UR12][R2.64+0x2b8], R34;
+pc_1260:
+0x007f4 | STG.E desc[UR12][R2.64+0x2bc], R35;
+pc_1270:
+0x007f4 | STG.E desc[UR12][R2.64+0x2c0], R48;
+pc_1280:
+0x007f4 | STG.E desc[UR12][R2.64+0x2c4], R49;
+pc_1290:
+0x007f4 | STG.E desc[UR12][R2.64+0x2c8], R50;
+pc_12a0:
+0x007f4 | STG.E desc[UR12][R2.64+0x2cc], R51;
+pc_12b0:
+0x007f4 | STG.E desc[UR12][R2.64+0x2d0], R16;
+pc_12c0:
+0x007f4 | STG.E desc[UR12][R2.64+0x2d4], R17;
+pc_12d0:
+0x007f4 | STG.E desc[UR12][R2.64+0x2d8], R18;
+pc_12e0:
+0x007f4 | STG.E desc[UR12][R2.64+0x2dc], R19;
+pc_12f0:
+0x007f4 | STG.E desc[UR12][R2.64+0x2e0], R12;
+pc_1300:
+0x007f4 | STG.E desc[UR12][R2.64+0x2e4], R13;
+pc_1310:
+0x007f4 | STG.E desc[UR12][R2.64+0x2e8], R14;
+pc_1320:
+0x007f4 | STG.E desc[UR12][R2.64+0x2ec], R15;
+pc_1330:
+0x007f4 | STG.E desc[UR12][R2.64+0x2f0], R52;
+pc_1340:
+0x007f4 | STG.E desc[UR12][R2.64+0x2f4], R53;
+pc_1350:
+0x007f4 | STG.E desc[UR12][R2.64+0x2f8], R54;
+pc_1360:
+0x007f4 | STG.E desc[UR12][R2.64+0x2fc], R55;
+pc_1370:
+0x007f4 | STG.E desc[UR12][R2.64+0x300], R4;
+pc_1380:
+0x007f4 | STG.E desc[UR12][R2.64+0x304], R5;
+pc_1390:
+0x007f4 | STG.E desc[UR12][R2.64+0x308], R6;
+pc_13a0:
+0x007f4 | STG.E desc[UR12][R2.64+0x30c], R7;
+pc_13b0:
+0x007f4 | STG.E desc[UR12][R2.64+0x310], R56;
+pc_13c0:
+0x007f4 | STG.E desc[UR12][R2.64+0x314], R57;
+pc_13d0:
+0x007f4 | STG.E desc[UR12][R2.64+0x318], R58;
+pc_13e0:
+0x007f4 | STG.E desc[UR12][R2.64+0x31c], R59;
+pc_13f0:
+0x007f4 | STG.E desc[UR12][R2.64+0x320], R20;
+pc_1400:
+0x007f4 | STG.E desc[UR12][R2.64+0x324], R21;
+pc_1410:
+0x007f4 | STG.E desc[UR12][R2.64+0x328], R22;
+pc_1420:
+0x007f4 | STG.E desc[UR12][R2.64+0x32c], R23;
+pc_1430:
+0x007f4 | STG.E desc[UR12][R2.64+0xc], RZ;
+pc_1440:
+0x007f4 | STG.E desc[UR12][R2.64+0x330], R8;
+pc_1450:
+0x007f4 | STG.E desc[UR12][R2.64+0x334], R9;
+pc_1460:
+0x007f4 | STG.E desc[UR12][R2.64+0x338], R10;
+pc_1470:
+0x007f4 | STG.E desc[UR12][R2.64+0x33c], R11;
+pc_1480:
+0x00714 | LDS.128 R12, [UR8+0x320];
+pc_1490:
+0x00734 | LDS.128 R24, [UR8+0x330];
+pc_14a0:
+0x00754 | LDS.128 R28, [UR8+0x340];
+pc_14b0:
+0x00774 | LDS.128 R44, [UR8+0x350];
+pc_14c0:
+0x00794 | LDS.128 R32, [UR8+0x360];
+pc_14d0:
+0x007b4 | LDS.128 R40, [UR8+0x370];
+pc_14e0:
+0x00754 | LDS.128 R36, [UR8+0x380];
+pc_14f0:
+0x00754 | LDS.128 R16, [UR8+0x390];
+pc_1500:
+0x00754 | LDS.128 R4, [UR8+0x3b0];
+pc_1510:
+0x00774 | LDS.128 R8, [UR8+0x3c0];
+pc_1520:
+0x00ff4 | STG.E desc[UR12][R2.64+0x340], R12;
+pc_1530:
+0x007f4 | STG.E desc[UR12][R2.64+0x344], R13;
+pc_1540:
+0x007f4 | STG.E desc[UR12][R2.64+0x348], R14;
+pc_1550:
+0x007f4 | STG.E desc[UR12][R2.64+0x34c], R15;
+pc_1560:
+0x017f4 | STG.E desc[UR12][R2.64+0x350], R24;
+pc_1570:
+0x007f4 | STG.E desc[UR12][R2.64+0x354], R25;
+pc_1580:
+0x007f4 | STG.E desc[UR12][R2.64+0x358], R26;
+pc_1590:
+0x007f4 | STG.E desc[UR12][R2.64+0x35c], R27;
+pc_15a0:
+0x027f4 | STG.E desc[UR12][R2.64+0x360], R28;
+pc_15b0:
+0x007f4 | STG.E desc[UR12][R2.64+0x364], R29;
+pc_15c0:
+0x007f4 | STG.E desc[UR12][R2.64+0x368], R30;
+pc_15d0:
+0x007f4 | STG.E desc[UR12][R2.64+0x36c], R31;
+pc_15e0:
+0x047f4 | STG.E desc[UR12][R2.64+0x370], R44;
+pc_15f0:
+0x007f4 | STG.E desc[UR12][R2.64+0x374], R45;
+pc_1600:
+0x007f4 | STG.E desc[UR12][R2.64+0x378], R46;
+pc_1610:
+0x007f4 | STG.E desc[UR12][R2.64+0x37c], R47;
+pc_1620:
+0x087f4 | STG.E desc[UR12][R2.64+0x380], R32;
+pc_1630:
+0x007f4 | STG.E desc[UR12][R2.64+0x384], R33;
+pc_1640:
+0x007f4 | STG.E desc[UR12][R2.64+0x388], R34;
+pc_1650:
+0x007f4 | STG.E desc[UR12][R2.64+0x38c], R35;
+pc_1660:
+0x107f4 | STG.E desc[UR12][R2.64+0x390], R40;
+pc_1670:
+0x007f4 | STG.E desc[UR12][R2.64+0x394], R41;
+pc_1680:
+0x007f4 | STG.E desc[UR12][R2.64+0x398], R42;
+pc_1690:
+0x007f4 | STG.E desc[UR12][R2.64+0x39c], R43;
+pc_16a0:
+0x007f4 | STG.E desc[UR12][R2.64+0x3a0], R36;
+pc_16b0:
+0x007f4 | STG.E desc[UR12][R2.64+0x3a4], R37;
+pc_16c0:
+0x007f4 | STG.E desc[UR12][R2.64+0x3a8], R38;
+pc_16d0:
+0x007f4 | STG.E desc[UR12][R2.64+0x3ac], R39;
+pc_16e0:
+0x007f4 | STG.E desc[UR12][R2.64+0x3b0], R16;
+pc_16f0:
+0x007f4 | STG.E desc[UR12][R2.64+0x3b4], R17;
+pc_1700:
+0x007f4 | STG.E desc[UR12][R2.64+0x3b8], R18;
+pc_1710:
+0x007f4 | STG.E desc[UR12][R2.64+0x3bc], R19;
+pc_1720:
+0x007f4 | STG.E desc[UR12][R2.64+0x3d0], R4;
+pc_1730:
+0x007f4 | STG.E desc[UR12][R2.64+0x3d4], R5;
+pc_1740:
+0x007f4 | STG.E desc[UR12][R2.64+0x3d8], R6;
+pc_1750:
+0x007f4 | STG.E desc[UR12][R2.64+0x3dc], R7;
+pc_1760:
+0x007f4 | STG.E desc[UR12][R2.64+0x3e0], R8;
+pc_1770:
+0x007f4 | STG.E desc[UR12][R2.64+0x3e4], R9;
+pc_1780:
+0x007f4 | STG.E desc[UR12][R2.64+0x3e8], R10;
+pc_1790:
+0x007f4 | STG.E desc[UR12][R2.64+0x3ec], R11;
+pc_17a0:
+0x00714 | LDS.128 R12, [UR8+0x3d0];
+pc_17b0:
+0x00734 | LDS.128 R20, [UR8+0x3e0];
+pc_17c0:
+0x00754 | LDS.128 R24, [UR8+0x3f0];
+pc_17d0:
+0x00774 | LDS.128 R28, [UR8+0x400];
+pc_17e0:
+0x00794 | LDS.128 R32, [UR8+0x410];
+pc_17f0:
+0x007b4 | LDS.128 R44, [UR8+0x420];
+pc_1800:
+0x00754 | LDS.128 R40, [UR8+0x430];
+pc_1810:
+0x00754 | LDS.128 R36, [UR8+0x440];
+pc_1820:
+0x00754 | LDS.128 R16, [UR8+0x450];
+pc_1830:
+0x00754 | LDS.128 R4, [UR8+0x460];
+pc_1840:
+0x00774 | LDS.128 R8, [UR8+0x470];
+pc_1850:
+0x00ff4 | STG.E desc[UR12][R2.64+0x3f0], R12;
+pc_1860:
+0x007f4 | STG.E desc[UR12][R2.64+0x3f4], R13;
+pc_1870:
+0x007f4 | STG.E desc[UR12][R2.64+0x3f8], R14;
+pc_1880:
+0x007f4 | STG.E desc[UR12][R2.64+0x3fc], R15;
+pc_1890:
+0x017f4 | STG.E desc[UR12][R2.64+0x400], R20;
+pc_18a0:
+0x007f4 | STG.E desc[UR12][R2.64+0x404], R21;
+pc_18b0:
+0x007f4 | STG.E desc[UR12][R2.64+0x408], R22;
+pc_18c0:
+0x007f4 | STG.E desc[UR12][R2.64+0x40c], R23;
+pc_18d0:
+0x027f4 | STG.E desc[UR12][R2.64+0x410], R24;
+pc_18e0:
+0x007f4 | STG.E desc[UR12][R2.64+0x414], R25;
+pc_18f0:
+0x007f4 | STG.E desc[UR12][R2.64+0x418], R26;
+pc_1900:
+0x007f4 | STG.E desc[UR12][R2.64+0x41c], R27;
+pc_1910:
+0x047f4 | STG.E desc[UR12][R2.64+0x420], R28;
+pc_1920:
+0x007f4 | STG.E desc[UR12][R2.64+0x424], R29;
+pc_1930:
+0x007f4 | STG.E desc[UR12][R2.64+0x428], R30;
+pc_1940:
+0x007f4 | STG.E desc[UR12][R2.64+0x42c], R31;
+pc_1950:
+0x087f4 | STG.E desc[UR12][R2.64+0x430], R32;
+pc_1960:
+0x007f4 | STG.E desc[UR12][R2.64+0x434], R33;
+pc_1970:
+0x007f4 | STG.E desc[UR12][R2.64+0x438], R34;
+pc_1980:
+0x007f4 | STG.E desc[UR12][R2.64+0x43c], R35;
+pc_1990:
+0x107f4 | STG.E desc[UR12][R2.64+0x440], R44;
+pc_19a0:
+0x007f4 | STG.E desc[UR12][R2.64+0x444], R45;
+pc_19b0:
+0x007f4 | STG.E desc[UR12][R2.64+0x448], R46;
+pc_19c0:
+0x007f4 | STG.E desc[UR12][R2.64+0x44c], R47;
+pc_19d0:
+0x007f4 | STG.E desc[UR12][R2.64+0x450], R40;
+pc_19e0:
+0x007f4 | STG.E desc[UR12][R2.64+0x454], R41;
+pc_19f0:
+0x007f4 | STG.E desc[UR12][R2.64+0x458], R42;
+pc_1a00:
+0x007f4 | STG.E desc[UR12][R2.64+0x45c], R43;
+pc_1a10:
+0x007f4 | STG.E desc[UR12][R2.64+0x460], R36;
+pc_1a20:
+0x007f4 | STG.E desc[UR12][R2.64+0x464], R37;
+pc_1a30:
+0x007f4 | STG.E desc[UR12][R2.64+0x468], R38;
+pc_1a40:
+0x007f4 | STG.E desc[UR12][R2.64+0x46c], R39;
+pc_1a50:
+0x007f4 | STG.E desc[UR12][R2.64+0x470], R16;
+pc_1a60:
+0x007f4 | STG.E desc[UR12][R2.64+0x474], R17;
+pc_1a70:
+0x007f4 | STG.E desc[UR12][R2.64+0x478], R18;
+pc_1a80:
+0x007f4 | STG.E desc[UR12][R2.64+0x47c], R19;
+pc_1a90:
+0x007f4 | STG.E desc[UR12][R2.64+0x480], R4;
+pc_1aa0:
+0x007f4 | STG.E desc[UR12][R2.64+0x484], R5;
+pc_1ab0:
+0x007f4 | STG.E desc[UR12][R2.64+0x488], R6;
+pc_1ac0:
+0x007f4 | STG.E desc[UR12][R2.64+0x48c], R7;
+pc_1ad0:
+0x007f4 | STG.E desc[UR12][R2.64+0x490], R8;
+pc_1ae0:
+0x007f4 | STG.E desc[UR12][R2.64+0x494], R9;
+pc_1af0:
+0x007f4 | STG.E desc[UR12][R2.64+0x498], R10;
+pc_1b00:
+0x007f4 | STG.E desc[UR12][R2.64+0x49c], R11;
+pc_1b10:
+0x00714 | LDS.128 R48, [UR8+0x3a0];
+pc_1b20:
+0x00734 | LDS.128 R12, [UR8+0x480];
+pc_1b30:
+0x00754 | LDS.128 R20, [UR8+0x490];
+pc_1b40:
+0x00774 | LDS.128 R24, [UR8+0x4a0];
+pc_1b50:
+0x00794 | LDS.128 R28, [UR8+0x4b0];
+pc_1b60:
+0x007b4 | LDS.128 R32, [UR8+0x4c0];
+pc_1b70:
+0x00734 | LDS.128 R44, [UR8+0x4d0];
+pc_1b80:
+0x00754 | LDS.128 R40, [UR8+0x4e0];
+pc_1b90:
+0x00754 | LDS.128 R36, [UR8+0x4f0];
+pc_1ba0:
+0x00754 | LDS.128 R16, [UR8+0x500];
+pc_1bb0:
+0x00754 | LDS.128 R4, [UR8+0x510];
+pc_1bc0:
+0x00774 | LDS.128 R8, [UR8+0x520];
+pc_1bd0:
+0x00ff4 | STG.E desc[UR12][R2.64+0x3c0], R48;
+pc_1be0:
+0x007f4 | STG.E desc[UR12][R2.64+0x3c4], R49;
+pc_1bf0:
+0x007f4 | STG.E desc[UR12][R2.64+0x3c8], R50;
+pc_1c00:
+0x007f4 | STG.E desc[UR12][R2.64+0x3cc], R51;
+pc_1c10:
+0x017f4 | STG.E desc[UR12][R2.64+0x4a0], R12;
+pc_1c20:
+0x007f4 | STG.E desc[UR12][R2.64+0x4a4], R13;
+pc_1c30:
+0x007f4 | STG.E desc[UR12][R2.64+0x4a8], R14;
+pc_1c40:
+0x007f4 | STG.E desc[UR12][R2.64+0x4ac], R15;
+pc_1c50:
+0x027f4 | STG.E desc[UR12][R2.64+0x4b0], R20;
+pc_1c60:
+0x007f4 | STG.E desc[UR12][R2.64+0x4b4], R21;
+pc_1c70:
+0x007f4 | STG.E desc[UR12][R2.64+0x4b8], R22;
+pc_1c80:
+0x007f4 | STG.E desc[UR12][R2.64+0x4bc], R23;
+pc_1c90:
+0x047f4 | STG.E desc[UR12][R2.64+0x4c0], R24;
+pc_1ca0:
+0x007f4 | STG.E desc[UR12][R2.64+0x4c4], R25;
+pc_1cb0:
+0x007f4 | STG.E desc[UR12][R2.64+0x4c8], R26;
+pc_1cc0:
+0x007f4 | STG.E desc[UR12][R2.64+0x4cc], R27;
+pc_1cd0:
+0x087f4 | STG.E desc[UR12][R2.64+0x4d0], R28;
+pc_1ce0:
+0x007f4 | STG.E desc[UR12][R2.64+0x4d4], R29;
+pc_1cf0:
+0x007f4 | STG.E desc[UR12][R2.64+0x4d8], R30;
+pc_1d00:
+0x007f4 | STG.E desc[UR12][R2.64+0x4dc], R31;
+pc_1d10:
+0x107f4 | STG.E desc[UR12][R2.64+0x4e0], R32;
+pc_1d20:
+0x007f4 | STG.E desc[UR12][R2.64+0x4e4], R33;
+pc_1d30:
+0x007f4 | STG.E desc[UR12][R2.64+0x4e8], R34;
+pc_1d40:
+0x007f4 | STG.E desc[UR12][R2.64+0x4ec], R35;
+pc_1d50:
+0x007f4 | STG.E desc[UR12][R2.64+0x4f0], R44;
+pc_1d60:
+0x007f4 | STG.E desc[UR12][R2.64+0x4f4], R45;
+pc_1d70:
+0x007f4 | STG.E desc[UR12][R2.64+0x4f8], R46;
+pc_1d80:
+0x007f4 | STG.E desc[UR12][R2.64+0x4fc], R47;
+pc_1d90:
+0x007f4 | STG.E desc[UR12][R2.64+0x500], R40;
+pc_1da0:
+0x007f4 | STG.E desc[UR12][R2.64+0x504], R41;
+pc_1db0:
+0x007f4 | STG.E desc[UR12][R2.64+0x508], R42;
+pc_1dc0:
+0x007f4 | STG.E desc[UR12][R2.64+0x50c], R43;
+pc_1dd0:
+0x007f4 | STG.E desc[UR12][R2.64+0x510], R36;
+pc_1de0:
+0x007f4 | STG.E desc[UR12][R2.64+0x514], R37;
+pc_1df0:
+0x007f4 | STG.E desc[UR12][R2.64+0x518], R38;
+pc_1e00:
+0x007f4 | STG.E desc[UR12][R2.64+0x51c], R39;
+pc_1e10:
+0x007f4 | STG.E desc[UR12][R2.64+0x520], R16;
+pc_1e20:
+0x007f4 | STG.E desc[UR12][R2.64+0x524], R17;
+pc_1e30:
+0x007f4 | STG.E desc[UR12][R2.64+0x528], R18;
+pc_1e40:
+0x007f4 | STG.E desc[UR12][R2.64+0x52c], R19;
+pc_1e50:
+0x007f4 | STG.E desc[UR12][R2.64+0x530], R4;
+pc_1e60:
+0x007f4 | STG.E desc[UR12][R2.64+0x534], R5;
+pc_1e70:
+0x007f4 | STG.E desc[UR12][R2.64+0x538], R6;
+pc_1e80:
+0x007f4 | STG.E desc[UR12][R2.64+0x53c], R7;
+pc_1e90:
+0x007f4 | STG.E desc[UR12][R2.64+0x540], R8;
+pc_1ea0:
+0x007f4 | STG.E desc[UR12][R2.64+0x544], R9;
+pc_1eb0:
+0x007f4 | STG.E desc[UR12][R2.64+0x548], R10;
+pc_1ec0:
+0x007f4 | STG.E desc[UR12][R2.64+0x54c], R11;
+pc_1ed0:
+0x00714 | LDS.128 R12, [UR8+0x530];
+pc_1ee0:
+0x00734 | LDS.128 R20, [UR8+0x540];
+pc_1ef0:
+0x00754 | LDS.128 R24, [UR8+0x550];
+pc_1f00:
+0x00774 | LDS.128 R28, [UR8+0x560];
+pc_1f10:
+0x00794 | LDS.128 R32, [UR8+0x570];
+pc_1f20:
+0x007b4 | LDS.128 R48, [UR8+0x580];
+pc_1f30:
+0x00734 | LDS.128 R44, [UR8+0x590];
+pc_1f40:
+0x00734 | LDS.128 R40, [UR8+0x5a0];
+pc_1f50:
+0x00754 | LDS.128 R36, [UR8+0x5b0];
+pc_1f60:
+0x00754 | LDS.128 R16, [UR8+0x5c0];
+pc_1f70:
+0x00754 | LDS.128 R52, [UR8+0x5d0];
+pc_1f80:
+0x00754 | LDS.128 R4, [UR8+0x5e0];
+pc_1f90:
+0x00774 | LDS.128 R8, [UR8+0x5f0];
+pc_1fa0:
+0x00ff4 | STG.E desc[UR12][R2.64+0x550], R12;
+pc_1fb0:
+0x007f4 | STG.E desc[UR12][R2.64+0x554], R13;
+pc_1fc0:
+0x007f4 | STG.E desc[UR12][R2.64+0x558], R14;
+pc_1fd0:
+0x007f4 | STG.E desc[UR12][R2.64+0x55c], R15;
+pc_1fe0:
+0x017f4 | STG.E desc[UR12][R2.64+0x560], R20;
+pc_1ff0:
+0x007f4 | STG.E desc[UR12][R2.64+0x564], R21;
+pc_2000:
+0x007f4 | STG.E desc[UR12][R2.64+0x568], R22;
+pc_2010:
+0x007f4 | STG.E desc[UR12][R2.64+0x56c], R23;
+pc_2020:
+0x027f4 | STG.E desc[UR12][R2.64+0x570], R24;
+pc_2030:
+0x007f4 | STG.E desc[UR12][R2.64+0x574], R25;
+pc_2040:
+0x007f4 | STG.E desc[UR12][R2.64+0x578], R26;
+pc_2050:
+0x007f4 | STG.E desc[UR12][R2.64+0x57c], R27;
+pc_2060:
+0x047f4 | STG.E desc[UR12][R2.64+0x580], R28;
+pc_2070:
+0x007f4 | STG.E desc[UR12][R2.64+0x584], R29;
+pc_2080:
+0x007f4 | STG.E desc[UR12][R2.64+0x588], R30;
+pc_2090:
+0x007f4 | STG.E desc[UR12][R2.64+0x58c], R31;
+pc_20a0:
+0x087f4 | STG.E desc[UR12][R2.64+0x590], R32;
+pc_20b0:
+0x007f4 | STG.E desc[UR12][R2.64+0x594], R33;
+pc_20c0:
+0x007f4 | STG.E desc[UR12][R2.64+0x598], R34;
+pc_20d0:
+0x007f4 | STG.E desc[UR12][R2.64+0x59c], R35;
+pc_20e0:
+0x107f4 | STG.E desc[UR12][R2.64+0x5a0], R48;
+pc_20f0:
+0x007f4 | STG.E desc[UR12][R2.64+0x5a4], R49;
+pc_2100:
+0x007f4 | STG.E desc[UR12][R2.64+0x5a8], R50;
+pc_2110:
+0x007f4 | STG.E desc[UR12][R2.64+0x5ac], R51;
+pc_2120:
+0x007f4 | STG.E desc[UR12][R2.64+0x5b0], R44;
+pc_2130:
+0x007f4 | STG.E desc[UR12][R2.64+0x5b4], R45;
+pc_2140:
+0x007f4 | STG.E desc[UR12][R2.64+0x5b8], R46;
+pc_2150:
+0x007f4 | STG.E desc[UR12][R2.64+0x5bc], R47;
+pc_2160:
+0x007f4 | STG.E desc[UR12][R2.64+0x5c0], R40;
+pc_2170:
+0x007f4 | STG.E desc[UR12][R2.64+0x5c4], R41;
+pc_2180:
+0x007f4 | STG.E desc[UR12][R2.64+0x5c8], R42;
+pc_2190:
+0x007f4 | STG.E desc[UR12][R2.64+0x5cc], R43;
+pc_21a0:
+0x007f4 | STG.E desc[UR12][R2.64+0x5d0], R36;
+pc_21b0:
+0x007f4 | STG.E desc[UR12][R2.64+0x5d4], R37;
+pc_21c0:
+0x007f4 | STG.E desc[UR12][R2.64+0x5d8], R38;
+pc_21d0:
+0x007f4 | STG.E desc[UR12][R2.64+0x5dc], R39;
+pc_21e0:
+0x007f4 | STG.E desc[UR12][R2.64+0x5e0], R16;
+pc_21f0:
+0x007f4 | STG.E desc[UR12][R2.64+0x5e4], R17;
+pc_2200:
+0x007f4 | STG.E desc[UR12][R2.64+0x5e8], R18;
+pc_2210:
+0x007f4 | STG.E desc[UR12][R2.64+0x5ec], R19;
+pc_2220:
+0x007f4 | STG.E desc[UR12][R2.64+0x5f0], R52;
+pc_2230:
+0x007f4 | STG.E desc[UR12][R2.64+0x5f4], R53;
+pc_2240:
+0x007f4 | STG.E desc[UR12][R2.64+0x5f8], R54;
+pc_2250:
+0x007f4 | STG.E desc[UR12][R2.64+0x5fc], R55;
+pc_2260:
+0x007f4 | STG.E desc[UR12][R2.64+0x600], R4;
+pc_2270:
+0x007f4 | STG.E desc[UR12][R2.64+0x604], R5;
+pc_2280:
+0x007f4 | STG.E desc[UR12][R2.64+0x608], R6;
+pc_2290:
+0x007f4 | STG.E desc[UR12][R2.64+0x60c], R7;
+pc_22a0:
+0x007f4 | STG.E desc[UR12][R2.64+0x610], R8;
+pc_22b0:
+0x007f4 | STG.E desc[UR12][R2.64+0x614], R9;
+pc_22c0:
+0x007f4 | STG.E desc[UR12][R2.64+0x618], R10;
+pc_22d0:
+0x007f1 | STG.E desc[UR12][R2.64+0x61c], R11;
+pc_22e0:
+0x007f5 | EXIT;
+pc_22f0:
+0x007e0 | BRA 0x22f0;
+pc_2300:
+0x007e0 | NOP;
+pc_2310:
+0x007e0 | NOP;
+pc_2320:
+0x007e0 | NOP;
+pc_2330:
+0x007e0 | NOP;
+pc_2340:
+0x007e0 | NOP;
+pc_2350:
+0x007e0 | NOP;
+pc_2360:
+0x007e0 | NOP;
+pc_2370:
+0x007e0 | NOP;

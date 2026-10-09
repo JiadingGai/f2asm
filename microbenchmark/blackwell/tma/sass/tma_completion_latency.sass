@@ -1,0 +1,163 @@
+# Explicit instruction/control source; compiler-derived ABI and benchmark template.
+# F2Asm is required to encode every instruction. No copied word fallback.
+# Static encoding qualification is NOT hardware semantic/timing validation.
+pc_0000:
+0x00711 | LDC R1, c[0x0][0x37c];
+pc_0010:
+0x00732 | S2R R0, SR_TID.X;
+pc_0020:
+0x017ed | ISETP.NE.U32.AND P0, PT, R0, RZ, PT;
+pc_0030:
+0x007f5 | @P0 EXIT;
+pc_0040:
+0x00731 | S2UR UR8, SR_CgaCtaId;
+pc_0050:
+0x007f1 | UMOV UR6, 0x400;
+pc_0060:
+0x007f1 | UMOV UR4, 0x1;
+pc_0070:
+0x007f2 | UIADD3 UR9, UPT, UPT, UR6, 0x10, URZ;
+pc_0080:
+0x007e4 | UIADD3 UR4, UPT, UPT, -UR4, 0x100000, URZ;
+pc_0090:
+0x007f2 | USHF.L.U32 UR5, UR4, 0xb, URZ;
+pc_00a0:
+0x007f1 | USHF.L.U32 UR4, UR4, 0x1, URZ;
+pc_00b0:
+0x00751 | S2R R5, SR_CTAID.X;
+pc_00c0:
+0x007f1 | IMAD.MOV.U32 R0, RZ, RZ, RZ;
+pc_00d0:
+0x00751 | LDC.64 R2, c[0x0][0x388];
+pc_00e0:
+0x017f2 | ULEA UR9, UR8, UR9, 0x18;
+pc_00f0:
+0x007f1 | ULEA UR8, UR8, UR6, 0x18;
+pc_0100:
+0x00739 | FENCE.VIEW.ASYNC.S;
+pc_0110:
+0x01172 | SYNCS.EXCH.64 URZ, [UR9], UR4;
+pc_0120:
+0x043f6 | MEMBAR.ALL.CTA;
+pc_0130:
+0x04771 | FENCE.VIEW.ASYNC.S;
+pc_0140:
+0x027f1 | IMAD.WIDE.U32 R2, R5, 0x30, R2;
+pc_0150:
+0x017f1 | UMOV UR4, URZ;
+pc_0160:
+0x007f1 | UMOV UR5, URZ;
+pc_0170:
+0x007f1 | CS2R R4, SR_CLOCKLO;
+pc_0180:
+0x00731 | LDCU.64 UR10, c[0x0][0x358];
+pc_0190:
+0x047e5 | NOP;
+pc_01a0:
+0x02751 | LDCU.64 UR6, c[0x0][0x380];
+pc_01b0:
+0x00771 | LDC R7, c[0x0][0x390];
+pc_01c0:
+0x007f1 | IMAD.MOV.U32 R6, RZ, RZ, 0x10;
+pc_01d0:
+0x007e3 | UIADD3 UR4, UPT, UPT, UR4, 0x1, URZ;
+pc_01e0:
+0x004f2 | SYNCS.ARRIVE.TRANS64 RZ, [UR9], R6;
+pc_01f0:
+0x087f1 | IMAD.MOV.U32 R6, RZ, RZ, RZ;
+pc_0200:
+0x027e3 | UIMAD.WIDE.U32 UR6, UR5, 0x10, UR6;
+pc_0210:
+0x007f1 | UMOV UR5, 0x1;
+pc_0220:
+0x047f1 | ISETP.LE.U32.AND P0, PT, R7, UR4, PT;
+pc_0230:
+0x007e4 | IMAD.U32 R7, R0, -0x80000000, RZ;
+pc_0240:
+0x002f2 | UBLKCP.S.G [UR8], [UR6], UR5;
+pc_0250:
+0x027e6 | NOP;
+pc_0260:
+0x00752 | SYNCS.PHASECHK.TRANS64.TRYWAIT P1, [UR9], R7;
+pc_0270:
+0x027f5 | @P1 BRA 0x2e0;
+pc_0280:
+0x007e5 | VIADD R6, R6, 0x1;
+pc_0290:
+0x007ed | ISETP.GE.U32.AND P1, PT, R6, 0xf4240, PT;
+pc_02a0:
+0x007f5 | @!P1 BRA 0x260;
+pc_02b0:
+0x00fe5 | IMAD.MOV.U32 R1, RZ, RZ, 0x1;
+pc_02c0:
+0x012f1 | STG.E desc[UR10][R2.64+0xc], R1;
+pc_02d0:
+0x007f5 | BPT.TRAP 0x1;
+pc_02e0:
+0x00771 | LDS R9, [UR8];
+pc_02f0:
+0x007f2 | LOP3.LUT R0, R0, 0x1, RZ, 0x3c, !PT;
+pc_0300:
+0x047f1 | R2UR UR5, R9;
+pc_0310:
+0x007ee | @!P0 BRA 0x1a0;
+pc_0320:
+0x00771 | SYNCS.CCTL.IV [UR9];
+pc_0330:
+0x007f1 | CS2R R6, SR_CLOCKLO;
+pc_0340:
+0x04775 | LDS.128 R12, [UR8];
+pc_0350:
+0x007f1 | IADD3 R4, P0, PT, -R4, R6, RZ;
+pc_0360:
+0x00794 | S2R R11, SR_VIRTUALSMID;
+pc_0370:
+0x007f1 | IMAD.X R5, R7, 0x1, ~R5, P0;
+pc_0380:
+0x017f4 | STG.E desc[UR10][R2.64+0x8], R9;
+pc_0390:
+0x007f4 | STG.E.64 desc[UR10][R2.64], R4;
+pc_03a0:
+0x007f4 | STG.E desc[UR10][R2.64+0xc], RZ;
+pc_03b0:
+0x087f4 | STG.E desc[UR10][R2.64+0x10], R11;
+pc_03c0:
+0x047f4 | STG.E desc[UR10][R2.64+0x20], R12;
+pc_03d0:
+0x007f4 | STG.E desc[UR10][R2.64+0x24], R13;
+pc_03e0:
+0x007f4 | STG.E desc[UR10][R2.64+0x28], R14;
+pc_03f0:
+0x007f1 | STG.E desc[UR10][R2.64+0x2c], R15;
+pc_0400:
+0x007f5 | EXIT;
+pc_0410:
+0x007e0 | BRA 0x410;
+pc_0420:
+0x007e0 | NOP;
+pc_0430:
+0x007e0 | NOP;
+pc_0440:
+0x007e0 | NOP;
+pc_0450:
+0x007e0 | NOP;
+pc_0460:
+0x007e0 | NOP;
+pc_0470:
+0x007e0 | NOP;
+pc_0480:
+0x007e0 | NOP;
+pc_0490:
+0x007e0 | NOP;
+pc_04a0:
+0x007e0 | NOP;
+pc_04b0:
+0x007e0 | NOP;
+pc_04c0:
+0x007e0 | NOP;
+pc_04d0:
+0x007e0 | NOP;
+pc_04e0:
+0x007e0 | NOP;
+pc_04f0:
+0x007e0 | NOP;

@@ -1,0 +1,723 @@
+# Explicit instruction/control source; compiler-derived ABI and benchmark template.
+# F2Asm is required to encode every instruction. No copied word fallback.
+# Static encoding qualification is NOT hardware semantic/timing validation.
+pc_0000:
+0x00711 | LDC R1, c[0x0][0x37c];
+pc_0010:
+0x00732 | S2R R0, SR_TID.X;
+pc_0020:
+0x017ed | ISETP.NE.U32.AND P0, PT, R0, RZ, PT;
+pc_0030:
+0x007f5 | @P0 EXIT;
+pc_0040:
+0x00731 | S2UR UR6, SR_CgaCtaId;
+pc_0050:
+0x007f1 | UMOV UR8, 0x400;
+pc_0060:
+0x007f1 | UMOV UR4, 0x1;
+pc_0070:
+0x007f2 | UIADD3 UR9, UPT, UPT, UR8, 0x2000, URZ;
+pc_0080:
+0x007e4 | UIADD3 UR4, UPT, UPT, -UR4, 0x100000, URZ;
+pc_0090:
+0x007f2 | USHF.L.U32 UR5, UR4, 0xb, URZ;
+pc_00a0:
+0x007f1 | USHF.L.U32 UR4, UR4, 0x1, URZ;
+pc_00b0:
+0x00751 | S2R R11, SR_CTAID.X;
+pc_00c0:
+0x007f1 | IMAD.MOV.U32 R9, RZ, RZ, RZ;
+pc_00d0:
+0x00751 | LDC.64 R2, c[0x0][0x388];
+pc_00e0:
+0x007f1 | IMAD.MOV.U32 R10, RZ, RZ, RZ;
+pc_00f0:
+0x017f2 | ULEA UR9, UR6, UR9, 0x18;
+pc_0100:
+0x007f1 | ULEA UR8, UR6, UR8, 0x18;
+pc_0110:
+0x00739 | FENCE.VIEW.ASYNC.S;
+pc_0120:
+0x01172 | SYNCS.EXCH.64 URZ, [UR9], UR4;
+pc_0130:
+0x043f6 | MEMBAR.ALL.CTA;
+pc_0140:
+0x04771 | FENCE.VIEW.ASYNC.S;
+pc_0150:
+0x027f1 | IMAD.WIDE.U32 R2, R11, 0x2020, R2;
+pc_0160:
+0x017f1 | UMOV UR4, URZ;
+pc_0170:
+0x007f1 | CS2R R4, SR_CLOCKLO;
+pc_0180:
+0x00731 | LDCU.64 UR14, c[0x0][0x358];
+pc_0190:
+0x047e5 | NOP;
+pc_01a0:
+0x02751 | LDCU UR5, c[0x0][0x394];
+pc_01b0:
+0x007f1 | VIADD R0, R11, UR4;
+pc_01c0:
+0x00771 | LDCU.64 UR6, c[0x0][0x398];
+pc_01d0:
+0x007f1 | UMOV UR11, URZ;
+pc_01e0:
+0x007f1 | UMOV UR12, URZ;
+pc_01f0:
+0x007f1 | UIADD3 UR4, UPT, UPT, UR4, 0x1, URZ;
+pc_0200:
+0x02751 | I2F.U32.RP R8, UR5;
+pc_0210:
+0x007e7 | UISETP.NE.U32.AND UP1, UPT, UR5, URZ, UPT;
+pc_0220:
+0x02752 | MUFU.RCP R8, R8;
+pc_0230:
+0x027e6 | VIADD R6, R8, 0xffffffe;
+pc_0240:
+0x00292 | F2I.FTZ.U32.TRUNC.NTZ R7, R6;
+pc_0250:
+0x027f1 | IMAD.MOV.U32 R6, RZ, RZ, RZ;
+pc_0260:
+0x087e5 | IADD3 R13, PT, PT, RZ, -R7, RZ;
+pc_0270:
+0x007e4 | IMAD R13, R13, UR5, RZ;
+pc_0280:
+0x007f2 | IMAD.HI.U32 R7, R7, R13, R6;
+pc_0290:
+0x00754 | LDC R6, c[0x0][0x390];
+pc_02a0:
+0x007e4 | IMAD.HI.U32 R7, R7, R0, RZ;
+pc_02b0:
+0x007e4 | IMAD.MOV R7, RZ, RZ, -R7;
+pc_02c0:
+0x007f2 | IMAD R7, R7, UR5, R0;
+pc_02d0:
+0x007e3 | HFMA2 R0, -RZ, RZ, 0, 0.0078125;
+pc_02e0:
+0x007f1 | R2UR UR10, R7;
+pc_02f0:
+0x004f1 | SYNCS.ARRIVE.TRANS64 RZ, [UR9], R0;
+pc_0300:
+0x027f1 | ISETP.LE.U32.AND P1, PT, R6, UR4, PT;
+pc_0310:
+0x007f2 | IMAD.U32 R6, R10, -0x80000000, RZ;
+pc_0320:
+0x087e8 | IMAD.MOV.U32 R0, RZ, RZ, RZ;
+pc_0330:
+0x007eb | UISETP.GE.U32.AND UP0, UPT, UR10, UR5, UPT;
+pc_0340:
+0x007e4 | @UP0 UIADD3 UR10, UPT, UPT, UR10, -UR5, URZ;
+pc_0350:
+0x007eb | UISETP.GE.U32.AND UP0, UPT, UR10, UR5, UPT;
+pc_0360:
+0x007f2 | @UP0 UIADD3 UR10, UPT, UPT, UR10, -UR5, URZ;
+pc_0370:
+0x007e4 | @!UP1 ULOP3.LUT UR10, URZ, UR5, URZ, 0x33, !UPT;
+pc_0380:
+0x007e9 | USHF.L.U32 UR10, UR10, 0x4, URZ;
+pc_0390:
+0x042f2 | UTMALDG.3D [UR8], [UR6];
+pc_03a0:
+0x027f1 | NOP;
+pc_03b0:
+0x00752 | SYNCS.PHASECHK.TRANS64.TRYWAIT P0, [UR9], R6;
+pc_03c0:
+0x027f5 | @P0 BRA 0x430;
+pc_03d0:
+0x007e5 | VIADD R0, R0, 0x1;
+pc_03e0:
+0x007ed | ISETP.GE.U32.AND P0, PT, R0, 0xf4240, PT;
+pc_03f0:
+0x007f5 | @!P0 BRA 0x3b0;
+pc_0400:
+0x00fe5 | HFMA2 R1, -RZ, RZ, 0, 5.9604644775390625e-08;
+pc_0410:
+0x012f1 | STG.E desc[UR14][R2.64+0xc], R1;
+pc_0420:
+0x007f5 | BPT.TRAP 0x1;
+pc_0430:
+0x00771 | LDS R0, [UR8];
+pc_0440:
+0x007f2 | LOP3.LUT R10, R10, 0x1, RZ, 0x3c, !PT;
+pc_0450:
+0x047f1 | LOP3.LUT R9, R9, R0, RZ, 0x3c, !PT;
+pc_0460:
+0x007f6 | @!P1 BRA 0x1a0;
+pc_0470:
+0x00771 | SYNCS.CCTL.IV [UR9];
+pc_0480:
+0x007f1 | CS2R R6, SR_CLOCKLO;
+pc_0490:
+0x04775 | LDS.128 R12, [UR8];
+pc_04a0:
+0x007f1 | IADD3 R6, P0, PT, -R4, R6, RZ;
+pc_04b0:
+0x00794 | LDS.128 R16, [UR8+0x10];
+pc_04c0:
+0x007f1 | IMAD.X R7, R7, 0x1, ~R5, P0;
+pc_04d0:
+0x007b1 | S2R R11, SR_VIRTUALSMID;
+pc_04e0:
+0x007f1 | IMAD.MOV.U32 R5, RZ, RZ, 0x20;
+pc_04f0:
+0x011f4 | STG.E desc[UR14][R2.64+0x8], R9;
+pc_0500:
+0x001f4 | STG.E.64 desc[UR14][R2.64], R6;
+pc_0510:
+0x001f4 | STG.E desc[UR14][R2.64+0xc], RZ;
+pc_0520:
+0x101f4 | STG.E desc[UR14][R2.64+0x10], R11;
+pc_0530:
+0x041f4 | STG.E desc[UR14][R2.64+0x20], R12;
+pc_0540:
+0x001f4 | STG.E desc[UR14][R2.64+0x24], R13;
+pc_0550:
+0x001f4 | STG.E desc[UR14][R2.64+0x28], R14;
+pc_0560:
+0x001f4 | STG.E desc[UR14][R2.64+0x2c], R15;
+pc_0570:
+0x081f4 | STG.E desc[UR14][R2.64+0x30], R16;
+pc_0580:
+0x001f4 | STG.E desc[UR14][R2.64+0x34], R17;
+pc_0590:
+0x001f4 | STG.E desc[UR14][R2.64+0x38], R18;
+pc_05a0:
+0x001f2 | STG.E desc[UR14][R2.64+0x3c], R19;
+pc_05b0:
+0x05731 | LDS R13, [R5+UR8];
+pc_05c0:
+0x007f1 | IADD3 R6, P0, PT, R2.reuse, R5, RZ;
+pc_05d0:
+0x007f1 | VIADD R11, R5.reuse, 0x8;
+pc_05e0:
+0x007f1 | IADD3 R9, PT, PT, R5.reuse, 0x4, RZ;
+pc_05f0:
+0x00771 | LDS R15, [R5+UR8+0x4];
+pc_0600:
+0x007f1 | VIADD R19, R5.reuse, 0xc;
+pc_0610:
+0x007f1 | IADD3 R39, PT, PT, R5.reuse, 0x24, RZ;
+pc_0620:
+0x007f1 | IMAD.X R7, RZ, RZ, R3.reuse, P0;
+pc_0630:
+0x00791 | LDS R17, [R5+UR8+0x8];
+pc_0640:
+0x007f1 | VIADD R23, R5.reuse, 0x10;
+pc_0650:
+0x007f1 | IADD3 R8, P0, PT, R2.reuse, R9, RZ;
+pc_0660:
+0x007f1 | VIADD R31, R5.reuse, 0x1c;
+pc_0670:
+0x007b1 | LDS R21, [R5+UR8+0xc];
+pc_0680:
+0x007f1 | IADD3 R10, P1, PT, R2.reuse, R11, RZ;
+pc_0690:
+0x007f1 | VIADD R35, R5, 0x20;
+pc_06a0:
+0x007f1 | IADD3.X R9, PT, PT, RZ, R3, RZ, P0, !PT;
+pc_06b0:
+0x00751 | LDS R25, [R5+UR8+0x10];
+pc_06c0:
+0x007f1 | IADD3 R12, P0, PT, R2, R23, RZ;
+pc_06d0:
+0x007e2 | IMAD.X R11, RZ, RZ, R3, P1;
+pc_06e0:
+0x00711 | LDS R27, [R5+UR8+0x14];
+pc_06f0:
+0x007e3 | VIADD R23, R5, 0x18;
+pc_0700:
+0x00714 | LDS R29, [R5+UR8+0x18];
+pc_0710:
+0x00714 | LDS R33, [R5+UR8+0x1c];
+pc_0720:
+0x00714 | LDS R37, [R5+UR8+0x20];
+pc_0730:
+0x00714 | LDS R41, [R5+UR8+0x24];
+pc_0740:
+0x011f4 | STG.E desc[UR14][R6.64+0x20], R13;
+pc_0750:
+0x043f4 | STG.E desc[UR14][R8.64+0x20], R15;
+pc_0760:
+0x084f1 | STG.E desc[UR14][R10.64+0x20], R17;
+pc_0770:
+0x017f1 | IADD3 R6, P2, PT, R2.reuse, R19, RZ;
+pc_0780:
+0x007f1 | IMAD.X R13, RZ, RZ, R3.reuse, P0;
+pc_0790:
+0x007f1 | IADD3 R19, PT, PT, R5.reuse, 0x14, RZ;
+pc_07a0:
+0x00732 | LDS R43, [R5+UR8+0x28];
+pc_07b0:
+0x007f1 | IMAD.X R7, RZ, RZ, R3, P2;
+pc_07c0:
+0x047f1 | IADD3 R8, P0, PT, R2, R19, RZ;
+pc_07d0:
+0x007f1 | LDS R45, [R5+UR8+0x30];
+pc_07e0:
+0x087e3 | VIADD R17, R5, 0x28;
+pc_07f0:
+0x103f1 | STG.E desc[UR14][R6.64+0x20], R21;
+pc_0800:
+0x007f1 | IMAD.X R9, RZ, RZ, R3.reuse, P0;
+pc_0810:
+0x007f2 | IADD3 R10, P0, PT, R2.reuse, R31, RZ;
+pc_0820:
+0x00793 | LDS R19, [R5+UR8+0x2c];
+pc_0830:
+0x007f1 | IMAD.X R11, RZ, RZ, R3.reuse, P0;
+pc_0840:
+0x022f4 | STG.E desc[UR14][R12.64+0x20], R25;
+pc_0850:
+0x007b1 | LDS R25, [R5+UR8+0x34];
+pc_0860:
+0x047f1 | IADD3 R6, P1, PT, R2.reuse, R23, RZ;
+pc_0870:
+0x007f1 | VIADD R23, R5.reuse, 0x34;
+pc_0880:
+0x007f1 | IADD3 R21, PT, PT, R5.reuse, 0x30, RZ;
+pc_0890:
+0x00772 | LDS R31, [R5+UR8+0x38];
+pc_08a0:
+0x007f1 | IMAD.X R7, RZ, RZ, R3, P1;
+pc_08b0:
+0x007f1 | IADD3 R14, P1, PT, R2.reuse, R39, RZ;
+pc_08c0:
+0x008f1 | STG.E desc[UR14][R8.64+0x20], R27;
+pc_08d0:
+0x027f1 | IADD3 R12, P2, PT, R2, R35, RZ;
+pc_08e0:
+0x007e2 | VIADD R35, R5, 0x48;
+pc_08f0:
+0x00751 | LDS R27, [R5+UR8+0x3c];
+pc_0900:
+0x007f1 | IADD3.X R13, PT, PT, RZ, R3, RZ, P2, !PT;
+pc_0910:
+0x007f2 | IMAD.X R15, RZ, RZ, R3, P1;
+pc_0920:
+0x001f4 | STG.E desc[UR14][R6.64+0x20], R29;
+pc_0930:
+0x00751 | LDS R29, [R5+UR8+0x40];
+pc_0940:
+0x00fe3 | VIADD R9, R5, 0x2c;
+pc_0950:
+0x000f2 | STG.E desc[UR14][R10.64+0x20], R33;
+pc_0960:
+0x007f2 | IADD3 R8, P1, PT, R2.reuse, R9, RZ;
+pc_0970:
+0x004f1 | STG.E desc[UR14][R12.64+0x20], R37;
+pc_0980:
+0x017f1 | IADD3 R6, P0, PT, R2.reuse, R17, RZ;
+pc_0990:
+0x007f2 | VIADD R17, R5, 0x3c;
+pc_09a0:
+0x00731 | LDS R33, [R5+UR8+0x44];
+pc_09b0:
+0x007f2 | IMAD.X R9, RZ, RZ, R3.reuse, P1;
+pc_09c0:
+0x007f1 | IMAD.X R7, RZ, RZ, R3, P0;
+pc_09d0:
+0x00731 | LDS R37, [R5+UR8+0x48];
+pc_09e0:
+0x00fe2 | IADD3 R10, P2, PT, R2, R21, RZ;
+pc_09f0:
+0x007f1 | IADD3 R21, PT, PT, R5.reuse, 0x40, RZ;
+pc_0a00:
+0x00711 | LDS R39, [R5+UR8+0x4c];
+pc_0a10:
+0x087f1 | IADD3 R12, P0, PT, R2, R23, RZ;
+pc_0a20:
+0x007f1 | VIADD R23, R5.reuse, 0x44;
+pc_0a30:
+0x007f1 | IADD3.X R11, PT, PT, RZ, R3, RZ, P2, !PT;
+pc_0a40:
+0x004f2 | STG.E desc[UR14][R14.64+0x20], R41;
+pc_0a50:
+0x007f2 | IMAD.X R13, RZ, RZ, R3, P0;
+pc_0a60:
+0x002f4 | STG.E desc[UR14][R6.64+0x20], R43;
+pc_0a70:
+0x002f1 | STG.E desc[UR14][R8.64+0x20], R19;
+pc_0a80:
+0x087e3 | VIADD R15, R5, 0x38;
+pc_0a90:
+0x004f4 | STG.E desc[UR14][R10.64+0x20], R45;
+pc_0aa0:
+0x00711 | LDS R41, [R5+UR8+0x50];
+pc_0ab0:
+0x027f2 | IADD3 R6, P0, PT, R2.reuse, R15, RZ;
+pc_0ac0:
+0x007f1 | IADD3 R8, P1, PT, R2.reuse, R17, RZ;
+pc_0ad0:
+0x102f1 | STG.E desc[UR14][R12.64+0x20], R25;
+pc_0ae0:
+0x007f1 | IADD3 R17, PT, PT, R5.reuse, 0x4c, RZ;
+pc_0af0:
+0x007f1 | IMAD.X R7, RZ, RZ, R3, P0;
+pc_0b00:
+0x007f1 | IADD3.X R9, PT, PT, RZ, R3, RZ, P1, !PT;
+pc_0b10:
+0x007b1 | LDS R43, [R5+UR8+0x54];
+pc_0b20:
+0x087f1 | IADD3 R10, P0, PT, R2.reuse, R21, RZ;
+pc_0b30:
+0x007f1 | VIADD R19, R5.reuse, 0x54;
+pc_0b40:
+0x007f1 | IADD3 R14, P1, PT, R2, R35, RZ;
+pc_0b50:
+0x00791 | LDS R25, [R5+UR8+0x58];
+pc_0b60:
+0x007e2 | VIADD R21, R5, 0x58;
+pc_0b70:
+0x007f1 | IMAD.X R11, RZ, RZ, R3.reuse, P0;
+pc_0b80:
+0x027f1 | IADD3 R12, P2, PT, R2, R23, RZ;
+pc_0b90:
+0x042f1 | STG.E desc[UR14][R6.64+0x20], R31;
+pc_0ba0:
+0x007e3 | IMAD.X R15, RZ, RZ, R3, P1;
+pc_0bb0:
+0x00771 | LDS R23, [R5+UR8+0x5c];
+pc_0bc0:
+0x007e3 | IMAD.X R13, RZ, RZ, R3, P2;
+pc_0bd0:
+0x00771 | LDS R31, [R5+UR8+0x60];
+pc_0be0:
+0x027f1 | VIADD R7, R5.reuse, 0x50;
+pc_0bf0:
+0x007f2 | IADD3 R6, P0, PT, R2, R17, RZ;
+pc_0c00:
+0x002f1 | STG.E desc[UR14][R8.64+0x20], R27;
+pc_0c10:
+0x007e3 | VIADD R17, R5, 0x60;
+pc_0c20:
+0x000f4 | STG.E desc[UR14][R10.64+0x20], R29;
+pc_0c30:
+0x00771 | LDS R27, [R5+UR8+0x64];
+pc_0c40:
+0x027e3 | IADD3 R8, P1, PT, R2, R7, RZ;
+pc_0c50:
+0x00751 | LDS R29, [R5+UR8+0x68];
+pc_0c60:
+0x007f2 | IADD3.X R7, PT, PT, RZ, R3, RZ, P0, !PT;
+pc_0c70:
+0x00ff1 | IADD3 R10, P2, PT, R2, R19, RZ;
+pc_0c80:
+0x010f1 | STG.E desc[UR14][R12.64+0x20], R33;
+pc_0c90:
+0x007f2 | IMAD.X R9, RZ, RZ, R3.reuse, P1;
+pc_0ca0:
+0x007f1 | VIADD R19, R5, 0x64;
+pc_0cb0:
+0x00731 | LDS R35, [R5+UR8+0x6c];
+pc_0cc0:
+0x007e3 | IMAD.X R11, RZ, RZ, R3, P2;
+pc_0cd0:
+0x004f4 | STG.E desc[UR14][R14.64+0x20], R37;
+pc_0ce0:
+0x005f1 | STG.E desc[UR14][R6.64+0x20], R39;
+pc_0cf0:
+0x00ff1 | IADD3 R12, P0, PT, R2, R21, RZ;
+pc_0d00:
+0x007f1 | VIADD R21, R5.reuse, 0x68;
+pc_0d10:
+0x007f1 | IADD3 R33, PT, PT, R5, 0x6c, RZ;
+pc_0d20:
+0x00712 | LDS R37, [R5+UR8+0x70];
+pc_0d30:
+0x007e2 | IMAD.X R13, RZ, RZ, R3, P0;
+pc_0d40:
+0x00711 | LDS R39, [R5+UR8+0x74];
+pc_0d50:
+0x087e3 | IADD3 R15, PT, PT, R5, 0x5c, RZ;
+pc_0d60:
+0x004f1 | STG.E desc[UR14][R8.64+0x20], R41;
+pc_0d70:
+0x107e3 | IADD3 R6, P0, PT, R2, R15, RZ;
+pc_0d80:
+0x005f2 | STG.E desc[UR14][R10.64+0x20], R43;
+pc_0d90:
+0x007f2 | IMAD.X R7, RZ, RZ, R3, P0;
+pc_0da0:
+0x001f1 | STG.E desc[UR14][R12.64+0x20], R25;
+pc_0db0:
+0x087e3 | IADD3 R8, P1, PT, R2, R17, RZ;
+pc_0dc0:
+0x00791 | LDS R41, [R5+UR8+0x78];
+pc_0dd0:
+0x007f1 | VIADD R17, R5.reuse, 0x70;
+pc_0de0:
+0x107f2 | IADD3 R10, P0, PT, R2.reuse, R19, RZ;
+pc_0df0:
+0x007b1 | LDS R25, [R5+UR8+0x7c];
+pc_0e00:
+0x007f1 | IMAD.X R9, RZ, RZ, R3.reuse, P1;
+pc_0e10:
+0x007f2 | IADD3 R14, P1, PT, R2.reuse, R33, RZ;
+pc_0e20:
+0x043f1 | STG.E desc[UR14][R6.64+0x20], R23;
+pc_0e30:
+0x017f1 | IADD3 R12, P2, PT, R2, R21, RZ;
+pc_0e40:
+0x007f1 | IMAD.X R11, RZ, RZ, R3.reuse, P0;
+pc_0e50:
+0x007f1 | IADD3 R19, PT, PT, R5.reuse, 0x78, RZ;
+pc_0e60:
+0x00731 | LDS R33, [R5+UR8+0x80];
+pc_0e70:
+0x007f1 | IMAD.X R15, RZ, RZ, R3, P1;
+pc_0e80:
+0x007f1 | IADD3.X R13, PT, PT, RZ, R3, RZ, P2, !PT;
+pc_0e90:
+0x007f1 | VIADD R21, R5.reuse, 0x7c;
+pc_0ea0:
+0x000f1 | STG.E desc[UR14][R8.64+0x20], R31;
+pc_0eb0:
+0x047e3 | VIADD R7, R5, 0x74;
+pc_0ec0:
+0x00771 | LDS R23, [R5+UR8+0x84];
+pc_0ed0:
+0x007f1 | IADD3 R6, P0, PT, R2.reuse, R17, RZ;
+pc_0ee0:
+0x007f2 | VIADD R17, R5, 0x84;
+pc_0ef0:
+0x00731 | LDS R31, [R5+UR8+0x88];
+pc_0f00:
+0x00ff1 | IADD3 R8, P1, PT, R2, R7, RZ;
+pc_0f10:
+0x007f2 | IMAD.X R7, RZ, RZ, R3.reuse, P0;
+pc_0f20:
+0x000f2 | STG.E desc[UR14][R10.64+0x20], R27;
+pc_0f30:
+0x007e2 | IMAD.X R9, RZ, RZ, R3, P1;
+pc_0f40:
+0x022f4 | STG.E desc[UR14][R12.64+0x20], R29;
+pc_0f50:
+0x004f4 | STG.E desc[UR14][R14.64+0x20], R35;
+pc_0f60:
+0x00731 | LDS R27, [R5+UR8+0x8c];
+pc_0f70:
+0x00ff2 | IADD3 R10, P2, PT, R2.reuse, R19, RZ;
+pc_0f80:
+0x007f1 | IADD3 R19, PT, PT, R5.reuse, 0x88, RZ;
+pc_0f90:
+0x00711 | LDS R35, [R5+UR8+0x90];
+pc_0fa0:
+0x027f1 | IADD3 R12, P0, PT, R2, R21, RZ;
+pc_0fb0:
+0x007f1 | VIADD R29, R5.reuse, 0x90;
+pc_0fc0:
+0x007f1 | IADD3.X R11, PT, PT, RZ, R3, RZ, P2, !PT;
+pc_0fd0:
+0x002f1 | STG.E desc[UR14][R6.64+0x20], R37;
+pc_0fe0:
+0x087e2 | VIADD R15, R5, 0x80;
+pc_0ff0:
+0x007f1 | IMAD.X R13, RZ, RZ, R3, P0;
+pc_1000:
+0x00791 | LDS R43, [R5+UR8+0x94];
+pc_1010:
+0x007e3 | VIADD R21, R5, 0x8c;
+pc_1020:
+0x003f4 | STG.E desc[UR14][R8.64+0x20], R39;
+pc_1030:
+0x00711 | LDS R37, [R5+UR8+0x98];
+pc_1040:
+0x027e3 | IADD3 R6, P0, PT, R2, R15, RZ;
+pc_1050:
+0x00752 | LDS R39, [R5+UR8+0x9c];
+pc_1060:
+0x007f1 | IMAD.X R7, RZ, RZ, R3, P0;
+pc_1070:
+0x047f1 | IADD3 R8, P1, PT, R2.reuse, R17, RZ;
+pc_1080:
+0x003f1 | STG.E desc[UR14][R10.64+0x20], R41;
+pc_1090:
+0x007f2 | IADD3 R17, PT, PT, R5, 0x94, RZ;
+pc_10a0:
+0x007f1 | IADD3.X R9, PT, PT, RZ, R3, RZ, P1, !PT;
+pc_10b0:
+0x105f1 | STG.E desc[UR14][R12.64+0x20], R25;
+pc_10c0:
+0x007e3 | IADD3 R14, P1, PT, R2, R29, RZ;
+pc_10d0:
+0x00712 | LDS R25, [R5+UR8+0xa0];
+pc_10e0:
+0x007f1 | IMAD.X R15, RZ, RZ, R3.reuse, P1;
+pc_10f0:
+0x047f1 | IADD3 R10, P0, PT, R2.reuse, R19, RZ;
+pc_1100:
+0x00771 | LDS R29, [R5+UR8+0xa4];
+pc_1110:
+0x007f1 | VIADD R19, R5.reuse, 0x98;
+pc_1120:
+0x107f2 | IADD3 R12, P2, PT, R2, R21, RZ;
+pc_1130:
+0x011f1 | STG.E desc[UR14][R6.64+0x20], R33;
+pc_1140:
+0x007f1 | IMAD.X R11, RZ, RZ, R3, P0;
+pc_1150:
+0x007e2 | IADD3 R21, PT, PT, R5, 0xa0, RZ;
+pc_1160:
+0x007b1 | LDS R33, [R5+UR8+0xa8];
+pc_1170:
+0x007e3 | IMAD.X R13, RZ, RZ, R3, P2;
+pc_1180:
+0x002f1 | STG.E desc[UR14][R8.64+0x20], R23;
+pc_1190:
+0x017f1 | VIADD R7, R5.reuse, 0x9c;
+pc_11a0:
+0x007f2 | IADD3 R6, P0, PT, R2, R17, RZ;
+pc_11b0:
+0x001f1 | STG.E desc[UR14][R10.64+0x20], R31;
+pc_11c0:
+0x007e3 | IADD3 R17, PT, PT, R5, 0xa8, RZ;
+pc_11d0:
+0x00771 | LDS R23, [R5+UR8+0xac];
+pc_11e0:
+0x027e3 | IADD3 R8, P1, PT, R2, R19, RZ;
+pc_11f0:
+0x00752 | LDS R31, [R5+UR8+0xb0];
+pc_1200:
+0x007f1 | IMAD.X R9, RZ, RZ, R3.reuse, P1;
+pc_1210:
+0x017f1 | IADD3 R10, P2, PT, R2.reuse, R7, RZ;
+pc_1220:
+0x007f1 | IMAD.X R7, RZ, RZ, R3, P0;
+pc_1230:
+0x001f2 | STG.E desc[UR14][R12.64+0x20], R27;
+pc_1240:
+0x007f2 | IADD3.X R11, PT, PT, RZ, R3, RZ, P2, !PT;
+pc_1250:
+0x008f4 | STG.E desc[UR14][R14.64+0x20], R35;
+pc_1260:
+0x00754 | LDS R41, [R5+UR8+0xb4];
+pc_1270:
+0x084f1 | STG.E desc[UR14][R6.64+0x20], R43;
+pc_1280:
+0x017f1 | IADD3 R12, P0, PT, R2, R21, RZ;
+pc_1290:
+0x007e2 | VIADD R21, R5, 0xac;
+pc_12a0:
+0x00731 | LDS R45, [R5+UR8+0xb8];
+pc_12b0:
+0x00ff1 | VIADD R15, R5.reuse, 0xa4;
+pc_12c0:
+0x007f1 | IADD3 R35, PT, PT, R5.reuse, 0xb4, RZ;
+pc_12d0:
+0x007f1 | IMAD.X R13, RZ, RZ, R3, P0;
+pc_12e0:
+0x000f1 | STG.E desc[UR14][R8.64+0x20], R37;
+pc_12f0:
+0x007e3 | VIADD R27, R5, 0xb0;
+pc_1300:
+0x00731 | LDS R43, [R5+UR8+0xbc];
+pc_1310:
+0x087e3 | IADD3 R6, P0, PT, R2, R15, RZ;
+pc_1320:
+0x004f2 | STG.E desc[UR14][R10.64+0x20], R39;
+pc_1330:
+0x007f2 | IMAD.X R7, RZ, RZ, R3.reuse, P0;
+pc_1340:
+0x00731 | LDS R37, [R5+UR8+0xc0];
+pc_1350:
+0x00ff2 | IADD3 R8, P1, PT, R2.reuse, R17, RZ;
+pc_1360:
+0x007f1 | IADD3 R17, PT, PT, R5.reuse, 0xb8, RZ;
+pc_1370:
+0x00712 | LDS R39, [R5+UR8+0xc4];
+pc_1380:
+0x007f1 | IMAD.X R9, RZ, RZ, R3, P1;
+pc_1390:
+0x007f1 | IADD3 R14, P1, PT, R2.reuse, R35, RZ;
+pc_13a0:
+0x00711 | LDS R19, [R5+UR8+0xc8];
+pc_13b0:
+0x087f1 | IADD3 R10, P0, PT, R2, R21, RZ;
+pc_13c0:
+0x007e2 | VIADD R21, R5, 0xbc;
+pc_13d0:
+0x004f1 | STG.E desc[UR14][R12.64+0x20], R25;
+pc_13e0:
+0x007f1 | IMAD.X R15, RZ, RZ, R3, P1;
+pc_13f0:
+0x007f2 | IADD3.X R11, PT, PT, RZ, R3, RZ, P0, !PT;
+pc_1400:
+0x043f4 | STG.E desc[UR14][R6.64+0x20], R29;
+pc_1410:
+0x105f1 | STG.E desc[UR14][R8.64+0x20], R33;
+pc_1420:
+0x087f1 | IADD3 R12, P2, PT, R2, R27, RZ;
+pc_1430:
+0x007e2 | VIADD R25, R5, 0xc0;
+pc_1440:
+0x004f1 | STG.E desc[UR14][R10.64+0x20], R23;
+pc_1450:
+0x007f1 | VIADD R27, R5.reuse, 0xc8;
+pc_1460:
+0x047f1 | IADD3 R6, P1, PT, R2.reuse, R17, RZ;
+pc_1470:
+0x007f1 | IMAD.X R13, RZ, RZ, R3.reuse, P2;
+pc_1480:
+0x007f1 | IADD3 R17, PT, PT, R5.reuse, 0xc4, RZ;
+pc_1490:
+0x007f1 | VIADD R5, R5, 0xcc;
+pc_14a0:
+0x107f1 | IADD3 R8, P0, PT, R2.reuse, R21, RZ;
+pc_14b0:
+0x007f1 | IMAD.X R7, RZ, RZ, R3, P1;
+pc_14c0:
+0x022f1 | STG.E desc[UR14][R12.64+0x20], R31;
+pc_14d0:
+0x007f2 | IADD3 R16, P3, PT, R2.reuse, R27, RZ;
+pc_14e0:
+0x007f1 | IADD3.X R9, PT, PT, RZ, R3, RZ, P0, !PT;
+pc_14f0:
+0x003f1 | STG.E desc[UR14][R14.64+0x20], R41;
+pc_1500:
+0x087e2 | IADD3 R10, P1, PT, R2, R25, RZ;
+pc_1510:
+0x007f1 | ISETP.GE.U32.AND P0, PT, R5, 0x2000, PT;
+pc_1520:
+0x013f2 | STG.E desc[UR14][R6.64+0x20], R45;
+pc_1530:
+0x007f1 | IMAD.X R11, RZ, RZ, R3, P1;
+pc_1540:
+0x027f1 | IADD3 R12, P2, PT, R2, R17, RZ;
+pc_1550:
+0x003f1 | STG.E desc[UR14][R8.64+0x20], R43;
+pc_1560:
+0x007e3 | IADD3.X R17, PT, PT, RZ, R3, RZ, P3, !PT;
+pc_1570:
+0x007f1 | IMAD.X R13, RZ, RZ, R3, P2;
+pc_1580:
+0x003f4 | STG.E desc[UR14][R10.64+0x20], R37;
+pc_1590:
+0x00bf4 | STG.E desc[UR14][R12.64+0x20], R39;
+pc_15a0:
+0x003f1 | STG.E desc[UR14][R16.64+0x20], R19;
+pc_15b0:
+0x007f5 | @!P0 BRA 0x5b0;
+pc_15c0:
+0x007f5 | EXIT;
+pc_15d0:
+0x007e0 | BRA 0x15d0;
+pc_15e0:
+0x007e0 | NOP;
+pc_15f0:
+0x007e0 | NOP;
+pc_1600:
+0x007e0 | NOP;
+pc_1610:
+0x007e0 | NOP;
+pc_1620:
+0x007e0 | NOP;
+pc_1630:
+0x007e0 | NOP;
+pc_1640:
+0x007e0 | NOP;
+pc_1650:
+0x007e0 | NOP;
+pc_1660:
+0x007e0 | NOP;
+pc_1670:
+0x007e0 | NOP;

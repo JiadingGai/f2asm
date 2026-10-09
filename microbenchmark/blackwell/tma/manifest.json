@@ -1,0 +1,595 @@
+{
+  "schema": "f2asm-tma-baseline-v1",
+  "source_commit": "5d910e01d32d2c2faa87475e650d0ee96e3f12b9",
+  "target": "sm_100a",
+  "model_sha256": "911a2782abded58497455c243515ce08a59e416685a36df4dc3cf9f8db4bc929",
+  "supplement_sha256": "cdcb9d008ee4815fc73f2c0de2e60e30fb408a87a1cc407216894e2ee9aea94b",
+  "hardware_correctness": "NOT_RUN",
+  "performance": "NOT_MEASURED",
+  "variants": [
+    {
+      "id": "tma_completion_latency",
+      "case": "tma_completion_latency",
+      "family": "tma",
+      "parameters": {
+        "transfer_bytes": 16,
+        "shape": [],
+        "element_bytes": 4,
+        "fine": true
+      },
+      "source_sha256": "c2259e03d230a69307be33ac0fd2af8291e25da8c8ea5212c5ef783963b3b3bf",
+      "candidate_sha256": "12999ef78944a9717fa0332a4c4040d999b9a3f74e930a5d1ea9873885766bcd",
+      "instruction_words": 80,
+      "base_model_words": 75,
+      "compiler_evidence_words": 5,
+      "ptx_sha256": "df8b4aa877209457791989894058e7210feb2723ec8b56329365a0e815bb38dd"
+    },
+    {
+      "id": "tma_bulk_throughput--1024",
+      "case": "tma_bulk_throughput",
+      "family": "tma",
+      "parameters": {
+        "transfer_bytes": 1024,
+        "shape": [],
+        "element_bytes": 4,
+        "fine": false
+      },
+      "source_sha256": "0610f0c9adb2057c8beb524eb3df28668ca286a07e37ebb3bb552f32d16d724a",
+      "candidate_sha256": "408217c000f1ef975b27412a6b4273db8d145bef8426510f794754e5e35b0564",
+      "instruction_words": 416,
+      "base_model_words": 411,
+      "compiler_evidence_words": 5,
+      "ptx_sha256": "54a548b014a567066f71feea20bf92e3533d3f24c7937a736de99d8402f9e0f9"
+    },
+    {
+      "id": "tma_bulk_throughput--2048",
+      "case": "tma_bulk_throughput",
+      "family": "tma",
+      "parameters": {
+        "transfer_bytes": 2048,
+        "shape": [],
+        "element_bytes": 4,
+        "fine": false
+      },
+      "source_sha256": "b7cac326f91492474a487b5e6f8018ce4e0c998a312739e928763983abb05f77",
+      "candidate_sha256": "7cefb928437bf1706f4888c1761dba3d68e4283d43b00b1312fddfb743d59cb5",
+      "instruction_words": 352,
+      "base_model_words": 346,
+      "compiler_evidence_words": 6,
+      "ptx_sha256": "43c8af83ea053375153649b97f874c768133a45feb0a54ffefb0110a8dde49d4"
+    },
+    {
+      "id": "tma_bulk_throughput--4096",
+      "case": "tma_bulk_throughput",
+      "family": "tma",
+      "parameters": {
+        "transfer_bytes": 4096,
+        "shape": [],
+        "element_bytes": 4,
+        "fine": false
+      },
+      "source_sha256": "b82c0ba91994d83fc1ffa6ee23c236b9d01ede41899410c46d99b6838fc05e37",
+      "candidate_sha256": "073a85104de976d8f3b3364835a8e7ca3503060a561277491d7ff8eac3d17df7",
+      "instruction_words": 352,
+      "base_model_words": 346,
+      "compiler_evidence_words": 6,
+      "ptx_sha256": "1ab4996b805410576cd1904ecc7d7df9a5f6d2a5047a90037ed279a7062ebd01"
+    },
+    {
+      "id": "tma_bulk_throughput--8192",
+      "case": "tma_bulk_throughput",
+      "family": "tma",
+      "parameters": {
+        "transfer_bytes": 8192,
+        "shape": [],
+        "element_bytes": 4,
+        "fine": false
+      },
+      "source_sha256": "41b61e950a977c9c8c235b350f32630c46d31f4c5e9dfe1a0dd7ca16bd4c86a0",
+      "candidate_sha256": "2d1d054caa8fd036a4e78f1be880ca2d1a855167477d4e5fa3b23423509bc60f",
+      "instruction_words": 360,
+      "base_model_words": 354,
+      "compiler_evidence_words": 6,
+      "ptx_sha256": "2f9159dbff898d232356378b0cab0f9583ef8b7122472a09ea64508f4b4f3a94"
+    },
+    {
+      "id": "tma_bulk_throughput--12288",
+      "case": "tma_bulk_throughput",
+      "family": "tma",
+      "parameters": {
+        "transfer_bytes": 12288,
+        "shape": [],
+        "element_bytes": 4,
+        "fine": false
+      },
+      "source_sha256": "c1fa29eea67cc7607b1d126955f3aebfaa6e8644a0d87a66ac72424b9eeff4dc",
+      "candidate_sha256": "01c329c706ed97eab69115a3fa1448724d432253f364dd94679b32fb85185b0a",
+      "instruction_words": 320,
+      "base_model_words": 314,
+      "compiler_evidence_words": 6,
+      "ptx_sha256": "b07c175b74f7feae975a1ea491be588ba8438196a4d1eca079aaac7661d4700e"
+    },
+    {
+      "id": "tma_bulk_throughput--16384",
+      "case": "tma_bulk_throughput",
+      "family": "tma",
+      "parameters": {
+        "transfer_bytes": 16384,
+        "shape": [],
+        "element_bytes": 4,
+        "fine": false
+      },
+      "source_sha256": "e2f2d1c833f1d716b0f8a26aad16c1147e4be248607a0cb978232e0d07847441",
+      "candidate_sha256": "3ec75aa6d480a126469091f335dfd04f801e2125e975fb806a8cf54f2e061c5e",
+      "instruction_words": 336,
+      "base_model_words": 331,
+      "compiler_evidence_words": 5,
+      "ptx_sha256": "af16368a3f215314165a6306b59e033252a7b940377844f589b77acca65eb5da"
+    },
+    {
+      "id": "tma_tensor_1d_throughput--64",
+      "case": "tma_tensor_1d_throughput",
+      "family": "tma",
+      "parameters": {
+        "shape": [
+          64
+        ],
+        "transfer_bytes": 512,
+        "element_bytes": 8,
+        "fine": false
+      },
+      "source_sha256": "f6041e60bdb3a623e18ea3fb72f94ab181421c5aa739c414dd9022ed8939ef1b",
+      "candidate_sha256": "59d52e69cee0b1ac694b1198040d04a605a842fe674b30ffab4d9b32b953fbc3",
+      "instruction_words": 248,
+      "base_model_words": 243,
+      "compiler_evidence_words": 5,
+      "ptx_sha256": "00a0383d7538989967c5206c8332319b684151673082d871a1d76600acb021c3"
+    },
+    {
+      "id": "tma_tensor_1d_throughput--96",
+      "case": "tma_tensor_1d_throughput",
+      "family": "tma",
+      "parameters": {
+        "shape": [
+          96
+        ],
+        "transfer_bytes": 768,
+        "element_bytes": 8,
+        "fine": false
+      },
+      "source_sha256": "b97354588abe2d2651d295a5f21f80cd092da68d336b1624ef89a42c5f0c5aa1",
+      "candidate_sha256": "5ec80941206446ee9e20f52c8cb5bf73309f862095720d13d7d719a84215d5d9",
+      "instruction_words": 328,
+      "base_model_words": 323,
+      "compiler_evidence_words": 5,
+      "ptx_sha256": "4224e0814605263b1e8c31eef47aae045c325fe1c707f99b3060850e97dce2a7"
+    },
+    {
+      "id": "tma_tensor_1d_throughput--128",
+      "case": "tma_tensor_1d_throughput",
+      "family": "tma",
+      "parameters": {
+        "shape": [
+          128
+        ],
+        "transfer_bytes": 1024,
+        "element_bytes": 8,
+        "fine": false
+      },
+      "source_sha256": "9b2e1051f1b64b770ea649c5c54deda463fa3c9826e2b58436b86657aa480af4",
+      "candidate_sha256": "1eb2a4a8a25a80ca07ae284332b804c7d047264ac82dd6bc4ee1bc8f12329e27",
+      "instruction_words": 408,
+      "base_model_words": 403,
+      "compiler_evidence_words": 5,
+      "ptx_sha256": "0c477e29e34a6d34aa88058294d7d13359c4069e7ca634b8620e3875b4573f4b"
+    },
+    {
+      "id": "tma_tensor_1d_throughput--160",
+      "case": "tma_tensor_1d_throughput",
+      "family": "tma",
+      "parameters": {
+        "shape": [
+          160
+        ],
+        "transfer_bytes": 1280,
+        "element_bytes": 8,
+        "fine": false
+      },
+      "source_sha256": "952b12b6b3a3512358f5a3d71ecc0505a0dfe6675c8e57c3672b9464ff924678",
+      "candidate_sha256": "32c03bf4eb47607f6cb92f0a8a24a2ec2e65f1899dee048526652d2d34a6419d",
+      "instruction_words": 488,
+      "base_model_words": 483,
+      "compiler_evidence_words": 5,
+      "ptx_sha256": "06135e00df9549f56541bd716fc0777babe35a725e2a24a416fd9e30798e5a19"
+    },
+    {
+      "id": "tma_tensor_1d_throughput--192",
+      "case": "tma_tensor_1d_throughput",
+      "family": "tma",
+      "parameters": {
+        "shape": [
+          192
+        ],
+        "transfer_bytes": 1536,
+        "element_bytes": 8,
+        "fine": false
+      },
+      "source_sha256": "2bfed62adfada3d1449ab213e4763b6d6345dad874bf790e42cdbf29da204d92",
+      "candidate_sha256": "a7a3ba7c192a7f6324ae0b4cdfdc44f64f6c0c0090f802a58049f0e2dca54a66",
+      "instruction_words": 568,
+      "base_model_words": 563,
+      "compiler_evidence_words": 5,
+      "ptx_sha256": "b0ab639afbf6c4cef2d7071cf7173e8d802629285ab7b956eaa4e6b14d96700c"
+    },
+    {
+      "id": "tma_tensor_1d_throughput--256",
+      "case": "tma_tensor_1d_throughput",
+      "family": "tma",
+      "parameters": {
+        "shape": [
+          256
+        ],
+        "transfer_bytes": 2048,
+        "element_bytes": 8,
+        "fine": false
+      },
+      "source_sha256": "8cec5fb16126e6dade6ab045c715c42e809923bb73d744be9152b2cef476138e",
+      "candidate_sha256": "10ec94c2be8488c79d2193151f15a7195219cdd9c0013814b78d8223bd82e606",
+      "instruction_words": 352,
+      "base_model_words": 347,
+      "compiler_evidence_words": 5,
+      "ptx_sha256": "f054d8b18db6aecb610b6363815f0922011264671a6e142ad469d096fd8043b2"
+    },
+    {
+      "id": "tma_tensor_2d_throughput--16x16",
+      "case": "tma_tensor_2d_throughput",
+      "family": "tma",
+      "parameters": {
+        "shape": [
+          16,
+          16
+        ],
+        "transfer_bytes": 1024,
+        "element_bytes": 4,
+        "fine": false
+      },
+      "source_sha256": "697bb5e2409a1b9101c5925c103df23f889ad0474ed5d776c11cf374dd650f87",
+      "candidate_sha256": "786d5218dbbbf5ec69f09b9b5d21a118e7cce714739be51fdbfaf6584d4cf86a",
+      "instruction_words": 416,
+      "base_model_words": 412,
+      "compiler_evidence_words": 4,
+      "ptx_sha256": "b6c6f420bcb3475bbee82ae9c8c59eef36afa9e060911c050001daa6df903ad4"
+    },
+    {
+      "id": "tma_tensor_2d_throughput--32x16",
+      "case": "tma_tensor_2d_throughput",
+      "family": "tma",
+      "parameters": {
+        "shape": [
+          32,
+          16
+        ],
+        "transfer_bytes": 2048,
+        "element_bytes": 4,
+        "fine": false
+      },
+      "source_sha256": "62a9963ecb99cda9e88863be6fd31ff8f74286be60efe7a6f1308c72b835fada",
+      "candidate_sha256": "ff43b9079d5943d5d4e8c81e6a116995e03fdfdc5ee8df7c7aa00c7c04ee49e5",
+      "instruction_words": 352,
+      "base_model_words": 348,
+      "compiler_evidence_words": 4,
+      "ptx_sha256": "89e4e61b4fe3fe87ef252176cd6ad8e1c4c8ea070128e0b3def4063f0f8c6a3b"
+    },
+    {
+      "id": "tma_tensor_2d_throughput--32x32",
+      "case": "tma_tensor_2d_throughput",
+      "family": "tma",
+      "parameters": {
+        "shape": [
+          32,
+          32
+        ],
+        "transfer_bytes": 4096,
+        "element_bytes": 4,
+        "fine": false
+      },
+      "source_sha256": "9639b0915ca1c49865ec82530c050d97f9393fd4a57c2bff03a97051d9e164eb",
+      "candidate_sha256": "d75b2fd54ea777262e2b72147094eab429160aa22db536319fbaac8d10186eb9",
+      "instruction_words": 352,
+      "base_model_words": 348,
+      "compiler_evidence_words": 4,
+      "ptx_sha256": "5f3e93cca2b998690bac6a370a455489eef65622bda24147eb2045b08024f6e2"
+    },
+    {
+      "id": "tma_tensor_2d_throughput--64x32",
+      "case": "tma_tensor_2d_throughput",
+      "family": "tma",
+      "parameters": {
+        "shape": [
+          64,
+          32
+        ],
+        "transfer_bytes": 8192,
+        "element_bytes": 4,
+        "fine": false
+      },
+      "source_sha256": "3e90143329cff675cd6783e4201bd9c3f463a87aacb82eff35dfc82b2608b8ef",
+      "candidate_sha256": "0d5cbd79440999e5abbd201e032c52624d385303d7d77a6593dc1a5a6402c44c",
+      "instruction_words": 360,
+      "base_model_words": 356,
+      "compiler_evidence_words": 4,
+      "ptx_sha256": "f9df742bb01f08fa3196ee45ff5293755aa7f6f0383d34db991afcbc204fb32a"
+    },
+    {
+      "id": "tma_tensor_2d_throughput--96x32",
+      "case": "tma_tensor_2d_throughput",
+      "family": "tma",
+      "parameters": {
+        "shape": [
+          96,
+          32
+        ],
+        "transfer_bytes": 12288,
+        "element_bytes": 4,
+        "fine": false
+      },
+      "source_sha256": "f64e130a0901c546e0786ce65102c2a67272c76ca7921b12a91f172960f15f21",
+      "candidate_sha256": "5a21f3c8e40b7480ab5f6491f1e98510567738cc886eb48697a1734a51a35fb6",
+      "instruction_words": 320,
+      "base_model_words": 316,
+      "compiler_evidence_words": 4,
+      "ptx_sha256": "310601c6a8a36662d38dbefa270b804b2724c5dee47740583d6abe8b62ab9587"
+    },
+    {
+      "id": "tma_tensor_2d_throughput--64x64",
+      "case": "tma_tensor_2d_throughput",
+      "family": "tma",
+      "parameters": {
+        "shape": [
+          64,
+          64
+        ],
+        "transfer_bytes": 16384,
+        "element_bytes": 4,
+        "fine": false
+      },
+      "source_sha256": "4e614b64e326b90467c73c16fda048cd74104156c2b982b4a9ef1ae8c2663c36",
+      "candidate_sha256": "9945dadead70d583352c072681e66f7e834e93b6726e69c695b4ee1a8c6d8daa",
+      "instruction_words": 336,
+      "base_model_words": 332,
+      "compiler_evidence_words": 4,
+      "ptx_sha256": "4e8c5267e2189e7cf9984a87ce3668cc991117dc48edc255624df12196dc19a7"
+    },
+    {
+      "id": "tma_tensor_3d_throughput--8x8x4",
+      "case": "tma_tensor_3d_throughput",
+      "family": "tma",
+      "parameters": {
+        "shape": [
+          8,
+          8,
+          4
+        ],
+        "transfer_bytes": 1024,
+        "element_bytes": 4,
+        "fine": false
+      },
+      "source_sha256": "d37216ac1f6bf3b49d41bdf3cabcfaf6876e1cfbeeb377379ecdfb362c1597b8",
+      "candidate_sha256": "5ccad11b46131e3da4cb8c95106512ca2d6b3a8f45076347819cde7c55b5b74a",
+      "instruction_words": 416,
+      "base_model_words": 412,
+      "compiler_evidence_words": 4,
+      "ptx_sha256": "fc2c3eb9171d9dee9be9e0a847d656d03495df19056de095a6f0cef3014a208a"
+    },
+    {
+      "id": "tma_tensor_3d_throughput--8x8x8",
+      "case": "tma_tensor_3d_throughput",
+      "family": "tma",
+      "parameters": {
+        "shape": [
+          8,
+          8,
+          8
+        ],
+        "transfer_bytes": 2048,
+        "element_bytes": 4,
+        "fine": false
+      },
+      "source_sha256": "0aca105ecec8e811838186ab3e99df8937a45e06a041a920aa680b8fe39f0d50",
+      "candidate_sha256": "2c5629b7a4318ea177c70f1b6e59fdb2d4a64e3be804d7e6b805ec9059514c3c",
+      "instruction_words": 352,
+      "base_model_words": 348,
+      "compiler_evidence_words": 4,
+      "ptx_sha256": "c1f861ebe270cf10ad2407f20f8ba942734c4e482906d19fae1d41ada8d1771c"
+    },
+    {
+      "id": "tma_tensor_3d_throughput--16x8x8",
+      "case": "tma_tensor_3d_throughput",
+      "family": "tma",
+      "parameters": {
+        "shape": [
+          16,
+          8,
+          8
+        ],
+        "transfer_bytes": 4096,
+        "element_bytes": 4,
+        "fine": false
+      },
+      "source_sha256": "2d6985729361e32e3d0a5ba184c193f9b163d607b55ce54f592877069aae0e91",
+      "candidate_sha256": "3c8915516894d45ab0503dbe39724601284db33a7baf6d8d8718e652fde206fc",
+      "instruction_words": 360,
+      "base_model_words": 356,
+      "compiler_evidence_words": 4,
+      "ptx_sha256": "e4567701f5187856024b61c3091bb09e5fed57f8761ec04d3cdcb703930d6e15"
+    },
+    {
+      "id": "tma_tensor_3d_throughput--16x16x8",
+      "case": "tma_tensor_3d_throughput",
+      "family": "tma",
+      "parameters": {
+        "shape": [
+          16,
+          16,
+          8
+        ],
+        "transfer_bytes": 8192,
+        "element_bytes": 4,
+        "fine": false
+      },
+      "source_sha256": "857d15ca84b08552e9e92b02970a599d0ee1766d1adc8dd144323d90f33a2df7",
+      "candidate_sha256": "2ecdc3b0b01d10619629144d6cf9c94f57ac0c94c4a2704443b9116711f86590",
+      "instruction_words": 360,
+      "base_model_words": 356,
+      "compiler_evidence_words": 4,
+      "ptx_sha256": "e688d49de4daf47adcc7f95410afd0aae677f8f13e5bcae77967b976bf2f5da5"
+    },
+    {
+      "id": "tma_tensor_3d_throughput--16x16x12",
+      "case": "tma_tensor_3d_throughput",
+      "family": "tma",
+      "parameters": {
+        "shape": [
+          16,
+          16,
+          12
+        ],
+        "transfer_bytes": 12288,
+        "element_bytes": 4,
+        "fine": false
+      },
+      "source_sha256": "5972f0b060299df187dcb1103d31ea815115203ce86e52713cc0d2027b105531",
+      "candidate_sha256": "35fa7bf37ea897178772c347fe62f3724cc2d11f3eaf582af37654de91c7ec7d",
+      "instruction_words": 320,
+      "base_model_words": 316,
+      "compiler_evidence_words": 4,
+      "ptx_sha256": "0b810abffeacdc5fe83bf957ea977f93ccb9a55160e5f648a82e866ba6579c6e"
+    },
+    {
+      "id": "tma_tensor_3d_throughput--16x16x16",
+      "case": "tma_tensor_3d_throughput",
+      "family": "tma",
+      "parameters": {
+        "shape": [
+          16,
+          16,
+          16
+        ],
+        "transfer_bytes": 16384,
+        "element_bytes": 4,
+        "fine": false
+      },
+      "source_sha256": "7bf11632f8ae3ff3e1044e1dfa96017f3f7f2c319824094a497f0de59a5e433e",
+      "candidate_sha256": "65e896dc551ec4e14414d8169751a3d4e6413dd7159bcbde3e708a3469cb76c6",
+      "instruction_words": 344,
+      "base_model_words": 340,
+      "compiler_evidence_words": 4,
+      "ptx_sha256": "5f436c68aaa6713523877780da8cc68dca8377bfbd2772307c2d194fda68365d"
+    },
+    {
+      "id": "tma_equal_bytes_shape_sweep--16x16x16",
+      "case": "tma_equal_bytes_shape_sweep",
+      "family": "tma",
+      "parameters": {
+        "shape": [
+          16,
+          16,
+          16
+        ],
+        "transfer_bytes": 16384,
+        "element_bytes": 4,
+        "fine": false
+      },
+      "source_sha256": "7bf11632f8ae3ff3e1044e1dfa96017f3f7f2c319824094a497f0de59a5e433e",
+      "candidate_sha256": "65e896dc551ec4e14414d8169751a3d4e6413dd7159bcbde3e708a3469cb76c6",
+      "instruction_words": 344,
+      "base_model_words": 340,
+      "compiler_evidence_words": 4,
+      "ptx_sha256": "5f436c68aaa6713523877780da8cc68dca8377bfbd2772307c2d194fda68365d"
+    },
+    {
+      "id": "tma_equal_bytes_shape_sweep--64x64x1",
+      "case": "tma_equal_bytes_shape_sweep",
+      "family": "tma",
+      "parameters": {
+        "shape": [
+          64,
+          64,
+          1
+        ],
+        "transfer_bytes": 16384,
+        "element_bytes": 4,
+        "fine": false
+      },
+      "source_sha256": "7e37b86e3737202981a1d8f05a6372efdcd71eb7bec883dd5ac6b39b79805943",
+      "candidate_sha256": "51a44d88db06ecf0d0131ca625b69e97bf5fdd8f5ea293504a118fcaefeb09ba",
+      "instruction_words": 344,
+      "base_model_words": 340,
+      "compiler_evidence_words": 4,
+      "ptx_sha256": "52808d1c8eed777ec97e16787f41cc3fee237174fa9729a1571abc9dc4ce6960"
+    },
+    {
+      "id": "tma_equal_bytes_shape_sweep--256x16x1",
+      "case": "tma_equal_bytes_shape_sweep",
+      "family": "tma",
+      "parameters": {
+        "shape": [
+          256,
+          16,
+          1
+        ],
+        "transfer_bytes": 16384,
+        "element_bytes": 4,
+        "fine": false
+      },
+      "source_sha256": "8cda4c92827dbf473c0d8e6edd2b45f39016bd4c4c5a2e273489b4a572d4d0a9",
+      "candidate_sha256": "d2c17af99361e07842d5ab202618efeb0420c08db8ca5f5f886583b19d246e78",
+      "instruction_words": 344,
+      "base_model_words": 340,
+      "compiler_evidence_words": 4,
+      "ptx_sha256": "7b2bd94a544773454f7b7f25059cf4122f5f1314113f7cad91c18988ff22c7cd"
+    },
+    {
+      "id": "tma_equal_bytes_shape_sweep--16x256x1",
+      "case": "tma_equal_bytes_shape_sweep",
+      "family": "tma",
+      "parameters": {
+        "shape": [
+          16,
+          256,
+          1
+        ],
+        "transfer_bytes": 16384,
+        "element_bytes": 4,
+        "fine": false
+      },
+      "source_sha256": "7bf11632f8ae3ff3e1044e1dfa96017f3f7f2c319824094a497f0de59a5e433e",
+      "candidate_sha256": "65e896dc551ec4e14414d8169751a3d4e6413dd7159bcbde3e708a3469cb76c6",
+      "instruction_words": 344,
+      "base_model_words": 340,
+      "compiler_evidence_words": 4,
+      "ptx_sha256": "5f436c68aaa6713523877780da8cc68dca8377bfbd2772307c2d194fda68365d"
+    },
+    {
+      "id": "tma_equal_bytes_shape_sweep--4x4x256",
+      "case": "tma_equal_bytes_shape_sweep",
+      "family": "tma",
+      "parameters": {
+        "shape": [
+          4,
+          4,
+          256
+        ],
+        "transfer_bytes": 16384,
+        "element_bytes": 4,
+        "fine": false
+      },
+      "source_sha256": "8a586b2ba4a6a51f0e83e4ca8bac16ba805f34be6dc93196c820e74cd9324f98",
+      "candidate_sha256": "f1417510e8cd135717c6c545bcad6a9fee9c3b43af57abb161422f5b954c03ab",
+      "instruction_words": 344,
+      "base_model_words": 340,
+      "compiler_evidence_words": 4,
+      "ptx_sha256": "b5020fb117f9c77b40e7d6eafbe82c6902264a1ff9e15ab69248f6b4bc1977ed"
+    }
+  ]
+}

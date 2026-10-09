@@ -1,0 +1,746 @@
+{
+  "schema": "f2asm-benchmark-import-v1",
+  "source_repository": "blackwell-microbench",
+  "source_commit": "5d910e01d32d2c2faa87475e650d0ee96e3f12b9",
+  "destination_base_commit": "8f684e69edb1374a211f3df68f51bec60b018e59",
+  "destination_root": "microbenchmark/blackwell",
+  "scope": "TMA only; no measurement protocol fixes, no other benchmark families",
+  "baseline_policy": "Immutable initial import hashes. Review source and destination drift before any later import. Never automatically overwrite common helpers or refresh hashes to hide changes.",
+  "evidence": {
+    "original_build_report_sha256": "bc309479b532aacf6503d220179415e07e0b9f98f63b0a6ecca4fac32bf194f2",
+    "original_qualification_report_sha256": "3809be0a6493f6163a9ad9ef4fa14e99ff51b575af11ef3261c337e2dcc9ea81",
+    "extraction_qualification_report_sha256": "7cab38898169d7d954add9fdb8f4971b8dfc5405e17d5a4dfbaf18047e26edc1"
+  },
+  "source_files": {
+    "README.md": "dcdcbd3007ddc9a1278523e45d615bb7f8d74a137fd8565d1a17bf3df97710fc",
+    "build.py": "56e598316b1ba09a7194035e2050518cc4b4771427bcd0f99d912bbea0f3a9ce",
+    "catalog.py": "0e23a67a2783b313c7eae22b314e4dbfa0fc8e7854a8583f0cffa30a6682842b",
+    "cuda_driver.py": "fe1abdb3cf0cb0dc7686e4aa3c6382ee75bb6b299557528b20c5456b48347190",
+    "inputs.py": "ec71c73f22ae015073f13b5aadbe25993f8b5ceba7662df58233ad485a935112",
+    "kernels/sm_100a/manifest.json": "7dc4b7319d086e308ffc87e2ba2ffbdc3b7c5fa64842b029ad8fb3a66262aad8",
+    "kernels/sm_100a/tma_bulk_throughput--1024.sass": "0610f0c9adb2057c8beb524eb3df28668ca286a07e37ebb3bb552f32d16d724a",
+    "kernels/sm_100a/tma_bulk_throughput--12288.sass": "c1fa29eea67cc7607b1d126955f3aebfaa6e8644a0d87a66ac72424b9eeff4dc",
+    "kernels/sm_100a/tma_bulk_throughput--16384.sass": "e2f2d1c833f1d716b0f8a26aad16c1147e4be248607a0cb978232e0d07847441",
+    "kernels/sm_100a/tma_bulk_throughput--2048.sass": "b7cac326f91492474a487b5e6f8018ce4e0c998a312739e928763983abb05f77",
+    "kernels/sm_100a/tma_bulk_throughput--4096.sass": "b82c0ba91994d83fc1ffa6ee23c236b9d01ede41899410c46d99b6838fc05e37",
+    "kernels/sm_100a/tma_bulk_throughput--8192.sass": "41b61e950a977c9c8c235b350f32630c46d31f4c5e9dfe1a0dd7ca16bd4c86a0",
+    "kernels/sm_100a/tma_completion_latency.sass": "c2259e03d230a69307be33ac0fd2af8291e25da8c8ea5212c5ef783963b3b3bf",
+    "kernels/sm_100a/tma_equal_bytes_shape_sweep--16x16x16.sass": "7bf11632f8ae3ff3e1044e1dfa96017f3f7f2c319824094a497f0de59a5e433e",
+    "kernels/sm_100a/tma_equal_bytes_shape_sweep--16x256x1.sass": "7bf11632f8ae3ff3e1044e1dfa96017f3f7f2c319824094a497f0de59a5e433e",
+    "kernels/sm_100a/tma_equal_bytes_shape_sweep--256x16x1.sass": "8cda4c92827dbf473c0d8e6edd2b45f39016bd4c4c5a2e273489b4a572d4d0a9",
+    "kernels/sm_100a/tma_equal_bytes_shape_sweep--4x4x256.sass": "8a586b2ba4a6a51f0e83e4ca8bac16ba805f34be6dc93196c820e74cd9324f98",
+    "kernels/sm_100a/tma_equal_bytes_shape_sweep--64x64x1.sass": "7e37b86e3737202981a1d8f05a6372efdcd71eb7bec883dd5ac6b39b79805943",
+    "kernels/sm_100a/tma_tensor_1d_throughput--128.sass": "9b2e1051f1b64b770ea649c5c54deda463fa3c9826e2b58436b86657aa480af4",
+    "kernels/sm_100a/tma_tensor_1d_throughput--160.sass": "952b12b6b3a3512358f5a3d71ecc0505a0dfe6675c8e57c3672b9464ff924678",
+    "kernels/sm_100a/tma_tensor_1d_throughput--192.sass": "2bfed62adfada3d1449ab213e4763b6d6345dad874bf790e42cdbf29da204d92",
+    "kernels/sm_100a/tma_tensor_1d_throughput--256.sass": "8cec5fb16126e6dade6ab045c715c42e809923bb73d744be9152b2cef476138e",
+    "kernels/sm_100a/tma_tensor_1d_throughput--64.sass": "f6041e60bdb3a623e18ea3fb72f94ab181421c5aa739c414dd9022ed8939ef1b",
+    "kernels/sm_100a/tma_tensor_1d_throughput--96.sass": "b97354588abe2d2651d295a5f21f80cd092da68d336b1624ef89a42c5f0c5aa1",
+    "kernels/sm_100a/tma_tensor_2d_throughput--16x16.sass": "697bb5e2409a1b9101c5925c103df23f889ad0474ed5d776c11cf374dd650f87",
+    "kernels/sm_100a/tma_tensor_2d_throughput--32x16.sass": "62a9963ecb99cda9e88863be6fd31ff8f74286be60efe7a6f1308c72b835fada",
+    "kernels/sm_100a/tma_tensor_2d_throughput--32x32.sass": "9639b0915ca1c49865ec82530c050d97f9393fd4a57c2bff03a97051d9e164eb",
+    "kernels/sm_100a/tma_tensor_2d_throughput--64x32.sass": "3e90143329cff675cd6783e4201bd9c3f463a87aacb82eff35dfc82b2608b8ef",
+    "kernels/sm_100a/tma_tensor_2d_throughput--64x64.sass": "4e614b64e326b90467c73c16fda048cd74104156c2b982b4a9ef1ae8c2663c36",
+    "kernels/sm_100a/tma_tensor_2d_throughput--96x32.sass": "f64e130a0901c546e0786ce65102c2a67272c76ca7921b12a91f172960f15f21",
+    "kernels/sm_100a/tma_tensor_3d_throughput--16x16x12.sass": "5972f0b060299df187dcb1103d31ea815115203ce86e52713cc0d2027b105531",
+    "kernels/sm_100a/tma_tensor_3d_throughput--16x16x16.sass": "7bf11632f8ae3ff3e1044e1dfa96017f3f7f2c319824094a497f0de59a5e433e",
+    "kernels/sm_100a/tma_tensor_3d_throughput--16x16x8.sass": "857d15ca84b08552e9e92b02970a599d0ee1766d1adc8dd144323d90f33a2df7",
+    "kernels/sm_100a/tma_tensor_3d_throughput--16x8x8.sass": "2d6985729361e32e3d0a5ba184c193f9b163d607b55ce54f592877069aae0e91",
+    "kernels/sm_100a/tma_tensor_3d_throughput--8x8x4.sass": "d37216ac1f6bf3b49d41bdf3cabcfaf6876e1cfbeeb377379ecdfb362c1597b8",
+    "kernels/sm_100a/tma_tensor_3d_throughput--8x8x8.sass": "0aca105ecec8e811838186ab3e99df8937a45e06a041a920aa680b8fe39f0d50",
+    "metrics.py": "7fe25bdc8dc83b222a5be8525f6614b0e23edf9ceb6eaa2c01377331a148e237",
+    "oracles.py": "bd77a98e8b1245945c0948df9b2f81d364a29e4bbb0b049d251fbbe77e3e2a90",
+    "protocols.py": "9f8d4018e17fc285315e9de5506d2248ca7c9cd74d5e640eef3e05d67925106b",
+    "qualify.py": "f7f88416b5e076b3b02119c0615957709b51260cb4d46cdef1f222d1abc8fc40",
+    "run.py": "573be032aff8e0c8aa11852bf63824d0ef9a51907a7f7b1f3f369ef9b594075a",
+    "sass_analysis.py": "63f4676eb321619d90c8c482d91b1d50be82de081de8f0d38262ee126fee012b",
+    "seeds.py": "d5deba166012fdab506329798c9c11ff48b6ff46395f304f39484672eadb3b50",
+    "sweeps.py": "7ce74ae109535200eede511f663a61eb8cdcc48c8507dcd7d2e074f94920c227",
+    "test_suite.py": "1825790b2c3aec9d0aa5b99b60b5af044d5e15afe3374be0afcfcd35210edd3e"
+  },
+  "files": {
+    ".gitignore": {
+      "sha256": "7f35e942a7dbd7b8156101ec253139a68d7ebf8a0294b0df8ace34bf088a98e7",
+      "kind": "new",
+      "ownership": "tma import",
+      "sources": []
+    },
+    "README.md": {
+      "sha256": "23f2115a67944e781608c3e76f911bf27faff9272bdc35c34dc653319edd5c05",
+      "kind": "adapted",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "README.md",
+          "symbols": [
+            "New incremental-import policy informed by source scope"
+          ]
+        }
+      ]
+    },
+    "__init__.py": {
+      "sha256": "9532f07c25319a824cb3bb44cff4e5719071d82580c32a95ffb989967b40f46b",
+      "kind": "new",
+      "ownership": "tma import",
+      "sources": []
+    },
+    "common/__init__.py": {
+      "sha256": "f44822cf3e49d1e84929a2aa33ed84ab7de49053d0083314b48f82d42a3bb7d4",
+      "kind": "new",
+      "ownership": "shared; review changes separately, never blindly recopy",
+      "sources": []
+    },
+    "common/artifacts.py": {
+      "sha256": "ef66bb0a988d237eeb9203a273bdee1bcc09b6775febc64c6d0fd3a67eef6a13",
+      "kind": "adapted",
+      "ownership": "shared; review changes separately, never blindly recopy",
+      "sources": [
+        {
+          "path": "run.py",
+          "symbols": [
+            "sha",
+            "authenticated_candidate"
+          ]
+        },
+        {
+          "path": "qualify.py",
+          "symbols": [
+            "checked_files"
+          ]
+        }
+      ]
+    },
+    "common/cuda_driver.py": {
+      "sha256": "fe1abdb3cf0cb0dc7686e4aa3c6382ee75bb6b299557528b20c5456b48347190",
+      "kind": "verbatim",
+      "ownership": "shared; review changes separately, never blindly recopy",
+      "sources": [
+        {
+          "path": "cuda_driver.py",
+          "symbols": [
+            "Driver (unchanged)"
+          ]
+        }
+      ]
+    },
+    "common/metrics.py": {
+      "sha256": "21e6303cdd16c0718a381fa69acc1f00f4a0b4275d57e8fd8bd16fd8285ea5e8",
+      "kind": "adapted",
+      "ownership": "shared; review changes separately, never blindly recopy",
+      "sources": [
+        {
+          "path": "metrics.py",
+          "symbols": [
+            "summarize",
+            "rates"
+          ]
+        }
+      ]
+    },
+    "common/provenance.py": {
+      "sha256": "e6d573647d3d5a804977ccc9df992d3da2e0f69811e8954cbfe7dbb86741ef55",
+      "kind": "new",
+      "ownership": "shared; review changes separately, never blindly recopy",
+      "sources": []
+    },
+    "common/sass.py": {
+      "sha256": "8cb65827001aafe68baba3d65ec6303dea321ec5d03a9e11700f50bc97daa556",
+      "kind": "adapted",
+      "ownership": "shared; review changes separately, never blindly recopy",
+      "sources": [
+        {
+          "path": "sass_analysis.py",
+          "symbols": [
+            "records",
+            "parse_source",
+            "cfg",
+            "audit (non-TMA family-specific addition removed)"
+          ]
+        }
+      ]
+    },
+    "common/telemetry.py": {
+      "sha256": "6fb0f645f49c9654f6899f409ec54103c3a25ca0db6a0e37c0da099136d27739",
+      "kind": "adapted",
+      "ownership": "shared; review changes separately, never blindly recopy",
+      "sources": [
+        {
+          "path": "run.py",
+          "symbols": [
+            "telemetry"
+          ]
+        }
+      ]
+    },
+    "tma/README.md": {
+      "sha256": "d8fc357b2f987e416d0d44f32f69f8d8a6a0de9395b233e304d168c3973fac8e",
+      "kind": "adapted",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "README.md",
+          "symbols": [
+            "TMA-only workflow and original validation limits"
+          ]
+        }
+      ]
+    },
+    "tma/VALIDATION.json": {
+      "sha256": "bb07a2486f0fb0b25f2d939a002b5d52f4a297a711837ad0b6a248e3f0dfa207",
+      "kind": "new",
+      "ownership": "tma import",
+      "sources": []
+    },
+    "tma/__init__.py": {
+      "sha256": "af88d23fb353a24c03f448efb7939f938be15ae0a63cc608b4399dce15e01ed8",
+      "kind": "new",
+      "ownership": "tma import",
+      "sources": []
+    },
+    "tma/build.py": {
+      "sha256": "d19fae65000406b9672463fcb8dc81265302adc5a31f90f1bde917bb4a527ae4",
+      "kind": "adapted",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "build.py",
+          "symbols": [
+            "main: TMA-only sequential compilation"
+          ]
+        },
+        {
+          "path": "qualify.py",
+          "symbols": [
+            "main: explicit existing models; automatic training removed"
+          ]
+        }
+      ]
+    },
+    "tma/catalog.py": {
+      "sha256": "5dee50382abb124a738b3e46dfea6a36d7a59c13882ac9347f623817fc81f74b",
+      "kind": "adapted",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "catalog.py",
+          "symbols": [
+            "Variant",
+            "variants: TMA-only construction"
+          ]
+        }
+      ]
+    },
+    "tma/inputs.py": {
+      "sha256": "3ed56255d8180438f5a26fe461c910abdfa1728f2f1fa9043271b6479f930b6e",
+      "kind": "adapted",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "oracles.py",
+          "symbols": [
+            "Launch",
+            "cycle",
+            "validate_launch: TMA branch"
+          ]
+        },
+        {
+          "path": "inputs.py",
+          "symbols": [
+            "tma_tile",
+            "prepare: TMA branch",
+            "check: TMA branch"
+          ]
+        }
+      ]
+    },
+    "tma/manifest.json": {
+      "sha256": "60a9a72564b07c674c6713e67fae7be3db605f0836c46177ee31d92211cceb19",
+      "kind": "adapted",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "catalog.py",
+          "symbols": [
+            "variants"
+          ]
+        },
+        {
+          "path": "kernels/sm_100a/manifest.json",
+          "symbols": [
+            "TMA subset"
+          ]
+        }
+      ]
+    },
+    "tma/protocols.py": {
+      "sha256": "a770ff403924d74913885d981fa89ae5abceeefe055114b256052224512890a4",
+      "kind": "adapted",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "protocols.py",
+          "symbols": [
+            "inspect: common and TMA checks"
+          ]
+        }
+      ]
+    },
+    "tma/run.py": {
+      "sha256": "2875dc3261d103b32a1ebd6c256c82a43dc86212d33d5f145cd845aadaa6c3ca",
+      "kind": "adapted",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "run.py",
+          "symbols": [
+            "main",
+            "execute: TMA-only workflow; unrelated families and power campaigns removed"
+          ]
+        },
+        {
+          "path": "metrics.py",
+          "symbols": [
+            "work: TMA branch"
+          ]
+        }
+      ]
+    },
+    "tma/sass/tma_bulk_throughput--1024.sass": {
+      "sha256": "0610f0c9adb2057c8beb524eb3df28668ca286a07e37ebb3bb552f32d16d724a",
+      "kind": "verbatim",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "kernels/sm_100a/tma_bulk_throughput--1024.sass",
+          "symbols": [
+            "complete file, byte-identical"
+          ]
+        }
+      ]
+    },
+    "tma/sass/tma_bulk_throughput--12288.sass": {
+      "sha256": "c1fa29eea67cc7607b1d126955f3aebfaa6e8644a0d87a66ac72424b9eeff4dc",
+      "kind": "verbatim",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "kernels/sm_100a/tma_bulk_throughput--12288.sass",
+          "symbols": [
+            "complete file, byte-identical"
+          ]
+        }
+      ]
+    },
+    "tma/sass/tma_bulk_throughput--16384.sass": {
+      "sha256": "e2f2d1c833f1d716b0f8a26aad16c1147e4be248607a0cb978232e0d07847441",
+      "kind": "verbatim",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "kernels/sm_100a/tma_bulk_throughput--16384.sass",
+          "symbols": [
+            "complete file, byte-identical"
+          ]
+        }
+      ]
+    },
+    "tma/sass/tma_bulk_throughput--2048.sass": {
+      "sha256": "b7cac326f91492474a487b5e6f8018ce4e0c998a312739e928763983abb05f77",
+      "kind": "verbatim",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "kernels/sm_100a/tma_bulk_throughput--2048.sass",
+          "symbols": [
+            "complete file, byte-identical"
+          ]
+        }
+      ]
+    },
+    "tma/sass/tma_bulk_throughput--4096.sass": {
+      "sha256": "b82c0ba91994d83fc1ffa6ee23c236b9d01ede41899410c46d99b6838fc05e37",
+      "kind": "verbatim",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "kernels/sm_100a/tma_bulk_throughput--4096.sass",
+          "symbols": [
+            "complete file, byte-identical"
+          ]
+        }
+      ]
+    },
+    "tma/sass/tma_bulk_throughput--8192.sass": {
+      "sha256": "41b61e950a977c9c8c235b350f32630c46d31f4c5e9dfe1a0dd7ca16bd4c86a0",
+      "kind": "verbatim",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "kernels/sm_100a/tma_bulk_throughput--8192.sass",
+          "symbols": [
+            "complete file, byte-identical"
+          ]
+        }
+      ]
+    },
+    "tma/sass/tma_completion_latency.sass": {
+      "sha256": "c2259e03d230a69307be33ac0fd2af8291e25da8c8ea5212c5ef783963b3b3bf",
+      "kind": "verbatim",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "kernels/sm_100a/tma_completion_latency.sass",
+          "symbols": [
+            "complete file, byte-identical"
+          ]
+        }
+      ]
+    },
+    "tma/sass/tma_equal_bytes_shape_sweep--16x16x16.sass": {
+      "sha256": "7bf11632f8ae3ff3e1044e1dfa96017f3f7f2c319824094a497f0de59a5e433e",
+      "kind": "verbatim",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "kernels/sm_100a/tma_equal_bytes_shape_sweep--16x16x16.sass",
+          "symbols": [
+            "complete file, byte-identical"
+          ]
+        }
+      ]
+    },
+    "tma/sass/tma_equal_bytes_shape_sweep--16x256x1.sass": {
+      "sha256": "7bf11632f8ae3ff3e1044e1dfa96017f3f7f2c319824094a497f0de59a5e433e",
+      "kind": "verbatim",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "kernels/sm_100a/tma_equal_bytes_shape_sweep--16x256x1.sass",
+          "symbols": [
+            "complete file, byte-identical"
+          ]
+        }
+      ]
+    },
+    "tma/sass/tma_equal_bytes_shape_sweep--256x16x1.sass": {
+      "sha256": "8cda4c92827dbf473c0d8e6edd2b45f39016bd4c4c5a2e273489b4a572d4d0a9",
+      "kind": "verbatim",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "kernels/sm_100a/tma_equal_bytes_shape_sweep--256x16x1.sass",
+          "symbols": [
+            "complete file, byte-identical"
+          ]
+        }
+      ]
+    },
+    "tma/sass/tma_equal_bytes_shape_sweep--4x4x256.sass": {
+      "sha256": "8a586b2ba4a6a51f0e83e4ca8bac16ba805f34be6dc93196c820e74cd9324f98",
+      "kind": "verbatim",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "kernels/sm_100a/tma_equal_bytes_shape_sweep--4x4x256.sass",
+          "symbols": [
+            "complete file, byte-identical"
+          ]
+        }
+      ]
+    },
+    "tma/sass/tma_equal_bytes_shape_sweep--64x64x1.sass": {
+      "sha256": "7e37b86e3737202981a1d8f05a6372efdcd71eb7bec883dd5ac6b39b79805943",
+      "kind": "verbatim",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "kernels/sm_100a/tma_equal_bytes_shape_sweep--64x64x1.sass",
+          "symbols": [
+            "complete file, byte-identical"
+          ]
+        }
+      ]
+    },
+    "tma/sass/tma_tensor_1d_throughput--128.sass": {
+      "sha256": "9b2e1051f1b64b770ea649c5c54deda463fa3c9826e2b58436b86657aa480af4",
+      "kind": "verbatim",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "kernels/sm_100a/tma_tensor_1d_throughput--128.sass",
+          "symbols": [
+            "complete file, byte-identical"
+          ]
+        }
+      ]
+    },
+    "tma/sass/tma_tensor_1d_throughput--160.sass": {
+      "sha256": "952b12b6b3a3512358f5a3d71ecc0505a0dfe6675c8e57c3672b9464ff924678",
+      "kind": "verbatim",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "kernels/sm_100a/tma_tensor_1d_throughput--160.sass",
+          "symbols": [
+            "complete file, byte-identical"
+          ]
+        }
+      ]
+    },
+    "tma/sass/tma_tensor_1d_throughput--192.sass": {
+      "sha256": "2bfed62adfada3d1449ab213e4763b6d6345dad874bf790e42cdbf29da204d92",
+      "kind": "verbatim",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "kernels/sm_100a/tma_tensor_1d_throughput--192.sass",
+          "symbols": [
+            "complete file, byte-identical"
+          ]
+        }
+      ]
+    },
+    "tma/sass/tma_tensor_1d_throughput--256.sass": {
+      "sha256": "8cec5fb16126e6dade6ab045c715c42e809923bb73d744be9152b2cef476138e",
+      "kind": "verbatim",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "kernels/sm_100a/tma_tensor_1d_throughput--256.sass",
+          "symbols": [
+            "complete file, byte-identical"
+          ]
+        }
+      ]
+    },
+    "tma/sass/tma_tensor_1d_throughput--64.sass": {
+      "sha256": "f6041e60bdb3a623e18ea3fb72f94ab181421c5aa739c414dd9022ed8939ef1b",
+      "kind": "verbatim",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "kernels/sm_100a/tma_tensor_1d_throughput--64.sass",
+          "symbols": [
+            "complete file, byte-identical"
+          ]
+        }
+      ]
+    },
+    "tma/sass/tma_tensor_1d_throughput--96.sass": {
+      "sha256": "b97354588abe2d2651d295a5f21f80cd092da68d336b1624ef89a42c5f0c5aa1",
+      "kind": "verbatim",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "kernels/sm_100a/tma_tensor_1d_throughput--96.sass",
+          "symbols": [
+            "complete file, byte-identical"
+          ]
+        }
+      ]
+    },
+    "tma/sass/tma_tensor_2d_throughput--16x16.sass": {
+      "sha256": "697bb5e2409a1b9101c5925c103df23f889ad0474ed5d776c11cf374dd650f87",
+      "kind": "verbatim",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "kernels/sm_100a/tma_tensor_2d_throughput--16x16.sass",
+          "symbols": [
+            "complete file, byte-identical"
+          ]
+        }
+      ]
+    },
+    "tma/sass/tma_tensor_2d_throughput--32x16.sass": {
+      "sha256": "62a9963ecb99cda9e88863be6fd31ff8f74286be60efe7a6f1308c72b835fada",
+      "kind": "verbatim",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "kernels/sm_100a/tma_tensor_2d_throughput--32x16.sass",
+          "symbols": [
+            "complete file, byte-identical"
+          ]
+        }
+      ]
+    },
+    "tma/sass/tma_tensor_2d_throughput--32x32.sass": {
+      "sha256": "9639b0915ca1c49865ec82530c050d97f9393fd4a57c2bff03a97051d9e164eb",
+      "kind": "verbatim",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "kernels/sm_100a/tma_tensor_2d_throughput--32x32.sass",
+          "symbols": [
+            "complete file, byte-identical"
+          ]
+        }
+      ]
+    },
+    "tma/sass/tma_tensor_2d_throughput--64x32.sass": {
+      "sha256": "3e90143329cff675cd6783e4201bd9c3f463a87aacb82eff35dfc82b2608b8ef",
+      "kind": "verbatim",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "kernels/sm_100a/tma_tensor_2d_throughput--64x32.sass",
+          "symbols": [
+            "complete file, byte-identical"
+          ]
+        }
+      ]
+    },
+    "tma/sass/tma_tensor_2d_throughput--64x64.sass": {
+      "sha256": "4e614b64e326b90467c73c16fda048cd74104156c2b982b4a9ef1ae8c2663c36",
+      "kind": "verbatim",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "kernels/sm_100a/tma_tensor_2d_throughput--64x64.sass",
+          "symbols": [
+            "complete file, byte-identical"
+          ]
+        }
+      ]
+    },
+    "tma/sass/tma_tensor_2d_throughput--96x32.sass": {
+      "sha256": "f64e130a0901c546e0786ce65102c2a67272c76ca7921b12a91f172960f15f21",
+      "kind": "verbatim",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "kernels/sm_100a/tma_tensor_2d_throughput--96x32.sass",
+          "symbols": [
+            "complete file, byte-identical"
+          ]
+        }
+      ]
+    },
+    "tma/sass/tma_tensor_3d_throughput--16x16x12.sass": {
+      "sha256": "5972f0b060299df187dcb1103d31ea815115203ce86e52713cc0d2027b105531",
+      "kind": "verbatim",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "kernels/sm_100a/tma_tensor_3d_throughput--16x16x12.sass",
+          "symbols": [
+            "complete file, byte-identical"
+          ]
+        }
+      ]
+    },
+    "tma/sass/tma_tensor_3d_throughput--16x16x16.sass": {
+      "sha256": "7bf11632f8ae3ff3e1044e1dfa96017f3f7f2c319824094a497f0de59a5e433e",
+      "kind": "verbatim",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "kernels/sm_100a/tma_tensor_3d_throughput--16x16x16.sass",
+          "symbols": [
+            "complete file, byte-identical"
+          ]
+        }
+      ]
+    },
+    "tma/sass/tma_tensor_3d_throughput--16x16x8.sass": {
+      "sha256": "857d15ca84b08552e9e92b02970a599d0ee1766d1adc8dd144323d90f33a2df7",
+      "kind": "verbatim",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "kernels/sm_100a/tma_tensor_3d_throughput--16x16x8.sass",
+          "symbols": [
+            "complete file, byte-identical"
+          ]
+        }
+      ]
+    },
+    "tma/sass/tma_tensor_3d_throughput--16x8x8.sass": {
+      "sha256": "2d6985729361e32e3d0a5ba184c193f9b163d607b55ce54f592877069aae0e91",
+      "kind": "verbatim",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "kernels/sm_100a/tma_tensor_3d_throughput--16x8x8.sass",
+          "symbols": [
+            "complete file, byte-identical"
+          ]
+        }
+      ]
+    },
+    "tma/sass/tma_tensor_3d_throughput--8x8x4.sass": {
+      "sha256": "d37216ac1f6bf3b49d41bdf3cabcfaf6876e1cfbeeb377379ecdfb362c1597b8",
+      "kind": "verbatim",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "kernels/sm_100a/tma_tensor_3d_throughput--8x8x4.sass",
+          "symbols": [
+            "complete file, byte-identical"
+          ]
+        }
+      ]
+    },
+    "tma/sass/tma_tensor_3d_throughput--8x8x8.sass": {
+      "sha256": "0aca105ecec8e811838186ab3e99df8937a45e06a041a920aa680b8fe39f0d50",
+      "kind": "verbatim",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "kernels/sm_100a/tma_tensor_3d_throughput--8x8x8.sass",
+          "symbols": [
+            "complete file, byte-identical"
+          ]
+        }
+      ]
+    },
+    "tma/seeds.py": {
+      "sha256": "07a8fc15ad22209e0848db06f46ffa447d0a85ef48887771b7d332c970e2da05",
+      "kind": "adapted",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "seeds.py",
+          "symbols": [
+            "entry (unchanged)",
+            "tma (unchanged)",
+            "generate: TMA-only dispatch"
+          ]
+        }
+      ]
+    },
+    "tma/sweeps.py": {
+      "sha256": "7d843d0b11a9c636bf770035a1e267c7ceb8d1be109c2f79e00f49e7d27783a0",
+      "kind": "adapted",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "sweeps.py",
+          "symbols": [
+            "plan: TMA branch"
+          ]
+        }
+      ]
+    },
+    "tma/tests/__init__.py": {
+      "sha256": "85377c8ef2ee819e20e0877a56560ba9e7598f28f6536a95bb82589e1d2e20d9",
+      "kind": "new",
+      "ownership": "tma import",
+      "sources": []
+    },
+    "tma/tests/test_tma.py": {
+      "sha256": "8f717e64ca0271b958a0f48fcc2ef3e72bf4cf94b2149d3eb93ff7fea16d0a15",
+      "kind": "adapted",
+      "ownership": "tma import",
+      "sources": [
+        {
+          "path": "test_suite.py",
+          "symbols": [
+            "TMA oracle, launch bounds and artifact tests; new extraction/ABI/host tests"
+          ]
+        }
+      ]
+    }
+  }
+}
