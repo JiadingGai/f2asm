@@ -1,0 +1,217 @@
+figure,series,job_id,input_bytes,transfer_bytes,blocks,shape,metric,median,samples
+2,B200 (ordinary LDG),memory-memory_l1_pointer_chase-682cdacb6f1f,256,,1,,cycles_per_iteration_median,41.25016498565674,5
+2,B200 (ordinary LDG),memory-memory_l1_pointer_chase-2c00d851c915,512,,1,,cycles_per_iteration_median,41.25016498565674,5
+2,B200 (ordinary LDG),memory-memory_l1_pointer_chase-9c89dfa74440,1024,,1,,cycles_per_iteration_median,41.25016498565674,5
+2,B200 (ordinary LDG),memory-memory_l1_pointer_chase-8e186b5582ea,2048,,1,,cycles_per_iteration_median,41.25016498565674,5
+2,B200 (ordinary LDG),memory-memory_l1_pointer_chase-8e2d29acaaad,4096,,1,,cycles_per_iteration_median,41.25016498565674,5
+2,B200 (ordinary LDG),memory-memory_l1_pointer_chase-736a21d4c3f6,8192,,1,,cycles_per_iteration_median,41.25016498565674,5
+2,B200 (ordinary LDG),memory-memory_l1_pointer_chase-52eb7be599b0,16384,,1,,cycles_per_iteration_median,41.25016498565674,5
+2,B200 (ordinary LDG),memory-memory_l1_pointer_chase-56c786cd2928,32768,,1,,cycles_per_iteration_median,41.25016498565674,5
+2,B200 (ordinary LDG),memory-memory_l1_pointer_chase-2e1077628059,65536,,1,,cycles_per_iteration_median,41.25016498565674,5
+2,B200 (ordinary LDG),memory-memory_l1_pointer_chase-c84f339f6547,131072,,1,,cycles_per_iteration_median,41.25016498565674,5
+2,B200 (ordinary LDG),memory-memory_l1_pointer_chase-068a899a708b,262144,,1,,cycles_per_iteration_median,224.07598400115967,5
+2,B200 (ordinary LDG),memory-memory_l1_pointer_chase-d572ece4179e,524288,,1,,cycles_per_iteration_median,286.89966011047363,5
+2,B200 (ordinary LDG),memory-memory_l1_pointer_chase-10d99b4d972b,1048576,,1,,cycles_per_iteration_median,291.0163459777832,5
+2,B200 (ordinary LDG),memory-memory_l1_pointer_chase-45f3c4f1e2e0,2097152,,1,,cycles_per_iteration_median,291.8454179763794,5
+2,B200 (ordinary LDG),memory-memory_l1_pointer_chase-2aa7a754958b,4194304,,1,,cycles_per_iteration_median,292.4081106185913,5
+2,B200 (ordinary LDG),memory-memory_l1_pointer_chase-8d02d82fc76d,8388608,,1,,cycles_per_iteration_median,292.61124897003174,5
+2,B200 (ordinary LDG),memory-memory_l1_pointer_chase-e323d3cc1db3,16777216,,1,,cycles_per_iteration_median,292.63715267181396,5
+2,B200 (ordinary LDG),memory-memory_l1_pointer_chase-97dff71aac7a,33554432,,1,,cycles_per_iteration_median,292.6554307937622,5
+2,B200 (ordinary LDG),memory-memory_l1_pointer_chase-75d369a09b08,67108864,,1,,cycles_per_iteration_median,323.103045463562,5
+2,B200 (ordinary LDG),memory-memory_l1_pointer_chase-8fbb68f250dd,134217728,,1,,cycles_per_iteration_median,527.6807346343994,5
+2,B200 (ordinary LDG),memory-memory_l1_pointer_chase-d94545bd88f3,268435456,,1,,cycles_per_iteration_median,698.2891874313354,5
+2,B200 (TMA),tma-tma_completion_latency-2c00d851c915,256,16,1,,cycles_per_iteration_median,348.85315322875977,5
+2,B200 (TMA),tma-tma_completion_latency-9c89dfa74440,512,16,1,,cycles_per_iteration_median,349.36047554016113,5
+2,B200 (TMA),tma-tma_completion_latency-8e186b5582ea,1024,16,1,,cycles_per_iteration_median,349.36901473999023,5
+2,B200 (TMA),tma-tma_completion_latency-8e2d29acaaad,2048,16,1,,cycles_per_iteration_median,344.2319002151489,5
+2,B200 (TMA),tma-tma_completion_latency-736a21d4c3f6,4096,16,1,,cycles_per_iteration_median,341.8275737762451,5
+2,B200 (TMA),tma-tma_completion_latency-52eb7be599b0,8192,16,1,,cycles_per_iteration_median,354.16382026672363,5
+2,B200 (TMA),tma-tma_completion_latency-56c786cd2928,16384,16,1,,cycles_per_iteration_median,362.8657464981079,5
+2,B200 (TMA),tma-tma_completion_latency-2e1077628059,32768,16,1,,cycles_per_iteration_median,366.9268102645874,5
+2,B200 (TMA),tma-tma_completion_latency-c84f339f6547,65536,16,1,,cycles_per_iteration_median,366.60777759552,5
+2,B200 (TMA),tma-tma_completion_latency-068a899a708b,131072,16,1,,cycles_per_iteration_median,366.59235858917236,5
+2,B200 (TMA),tma-tma_completion_latency-d572ece4179e,262144,16,1,,cycles_per_iteration_median,366.4871664047241,5
+2,B200 (TMA),tma-tma_completion_latency-10d99b4d972b,524288,16,1,,cycles_per_iteration_median,367.89366149902344,5
+2,B200 (TMA),tma-tma_completion_latency-45f3c4f1e2e0,1048576,16,1,,cycles_per_iteration_median,368.0338821411133,5
+2,B200 (TMA),tma-tma_completion_latency-2aa7a754958b,2097152,16,1,,cycles_per_iteration_median,368.05341243743896,5
+2,B200 (TMA),tma-tma_completion_latency-8d02d82fc76d,4194304,16,1,,cycles_per_iteration_median,368.08512115478516,5
+2,B200 (TMA),tma-tma_completion_latency-e323d3cc1db3,8388608,16,1,,cycles_per_iteration_median,368.16623878479004,5
+2,B200 (TMA),tma-tma_completion_latency-97dff71aac7a,16777216,16,1,,cycles_per_iteration_median,368.1776695251465,5
+2,B200 (TMA),tma-tma_completion_latency-75d369a09b08,33554432,16,1,,cycles_per_iteration_median,368.1727876663208,5
+2,B200 (TMA),tma-tma_completion_latency-8fbb68f250dd,67108864,16,1,,cycles_per_iteration_median,384.9806489944458,5
+2,B200 (TMA),tma-tma_completion_latency-d94545bd88f3,134217728,16,1,,cycles_per_iteration_median,567.7490472793579,5
+2,B200 (TMA),tma-tma_completion_latency-689f94b5add3,268435456,16,1,,cycles_per_iteration_median,679.5718088150024,5
+3,148 blocks (1S),tma-tma_bulk_throughput--1024-51221481b326,536870912,1024,148,,requested_gbps_median,548.8272173304542,5
+3,148 blocks (1S),tma-tma_bulk_throughput--2048-2a30fc222af3,536870912,2048,148,,requested_gbps_median,1075.8134118516484,5
+3,148 blocks (1S),tma-tma_bulk_throughput--4096-458a45a68a83,536870912,4096,148,,requested_gbps_median,2022.7736382264586,5
+3,148 blocks (1S),tma-tma_bulk_throughput--8192-5e66dc85175c,536870912,8192,148,,requested_gbps_median,3624.0696560047845,5
+3,148 blocks (1S),tma-tma_bulk_throughput--12288-28b69467d426,536862720,12288,148,,requested_gbps_median,5110.79136346971,5
+3,148 blocks (1S),tma-tma_bulk_throughput--16384-b9227ea84148,536870912,16384,148,,requested_gbps_median,6171.597698418715,5
+3,296 blocks (2S),tma-tma_bulk_throughput--1024-2dc8e1c592ec,536870912,1024,296,,requested_gbps_median,1094.693754766179,5
+3,296 blocks (2S),tma-tma_bulk_throughput--2048-b57e35f805c9,536870912,2048,296,,requested_gbps_median,2109.9692004976737,5
+3,296 blocks (2S),tma-tma_bulk_throughput--4096-b02aab0d9959,536870912,4096,296,,requested_gbps_median,3810.3920572248526,5
+3,296 blocks (2S),tma-tma_bulk_throughput--8192-c45e1139fdbf,536870912,8192,296,,requested_gbps_median,6573.627596891557,5
+3,296 blocks (2S),tma-tma_bulk_throughput--12288-20362ad889ae,536862720,12288,296,,requested_gbps_median,8751.952788442683,5
+3,296 blocks (2S),tma-tma_bulk_throughput--16384-62fa7f41b71d,536870912,16384,296,,requested_gbps_median,10704.657111157858,5
+3,444 blocks (3S),tma-tma_bulk_throughput--1024-ef98a5fdeb05,536870912,1024,444,,requested_gbps_median,1619.3644718127348,5
+3,444 blocks (3S),tma-tma_bulk_throughput--2048-1674d08aee25,536870912,2048,444,,requested_gbps_median,3079.77696131149,5
+3,444 blocks (3S),tma-tma_bulk_throughput--4096-3f8b347572dd,536870912,4096,444,,requested_gbps_median,5456.2687967007405,5
+3,444 blocks (3S),tma-tma_bulk_throughput--8192-720f42837224,536870912,8192,444,,requested_gbps_median,9140.317530110513,5
+3,444 blocks (3S),tma-tma_bulk_throughput--12288-7e0e7957a739,536862720,12288,444,,requested_gbps_median,12490.674507735512,5
+3,444 blocks (3S),tma-tma_bulk_throughput--16384-122828666740,536870912,16384,444,,requested_gbps_median,12759.50623379282,5
+3,592 blocks (4S),tma-tma_bulk_throughput--1024-c22df68079c1,536870912,1024,592,,requested_gbps_median,2129.0504178054075,5
+3,592 blocks (4S),tma-tma_bulk_throughput--2048-a2bf42167070,536870912,2048,592,,requested_gbps_median,3923.260641473985,5
+3,592 blocks (4S),tma-tma_bulk_throughput--4096-83a6d09f030a,536870912,4096,592,,requested_gbps_median,7008.823510293654,5
+3,592 blocks (4S),tma-tma_bulk_throughput--8192-5ea21ab5dced,536870912,8192,592,,requested_gbps_median,11212.48325974175,5
+3,592 blocks (4S),tma-tma_bulk_throughput--12288-e00c347d8e31,536862720,12288,592,,requested_gbps_median,13111.409439080273,5
+3,592 blocks (4S),tma-tma_bulk_throughput--16384-e03e1c2089fa,536870912,16384,592,,requested_gbps_median,14382.11739483063,5
+3,740 blocks (5S),tma-tma_bulk_throughput--1024-0fb621ec220e,536870912,1024,740,,requested_gbps_median,2625.7503329516844,5
+3,740 blocks (5S),tma-tma_bulk_throughput--2048-0a2e58352d99,536870912,2048,740,,requested_gbps_median,4831.532736160517,5
+3,740 blocks (5S),tma-tma_bulk_throughput--4096-664f4f853ba4,536870912,4096,740,,requested_gbps_median,8318.722356292506,5
+3,740 blocks (5S),tma-tma_bulk_throughput--8192-9e01200d3fda,536870912,8192,740,,requested_gbps_median,12320.69376662253,5
+3,740 blocks (5S),tma-tma_bulk_throughput--12288-23d66b4e27aa,536862720,12288,740,,requested_gbps_median,14606.355161545256,5
+3,740 blocks (5S),tma-tma_bulk_throughput--16384-35a61ec44821,536870912,16384,740,,requested_gbps_median,13636.208666170138,5
+3,888 blocks (6S),tma-tma_bulk_throughput--1024-8edd45c0e0f6,536870912,1024,888,,requested_gbps_median,3112.7542329693947,5
+3,888 blocks (6S),tma-tma_bulk_throughput--2048-b2b9b9baf435,536870912,2048,888,,requested_gbps_median,5693.811365819209,5
+3,888 blocks (6S),tma-tma_bulk_throughput--4096-7178e481f477,536870912,4096,888,,requested_gbps_median,9542.84867652957,5
+3,888 blocks (6S),tma-tma_bulk_throughput--8192-a43fef52e1f7,536870912,8192,888,,requested_gbps_median,13736.585481175109,5
+3,888 blocks (6S),tma-tma_bulk_throughput--12288-b8d2219966e0,536862720,12288,888,,requested_gbps_median,14529.672409963254,5
+3,888 blocks (6S),tma-tma_bulk_throughput--16384-5da040708bab,536870912,16384,888,,requested_gbps_median,14673.20750202141,5
+3,148 blocks (1S),tma-tma_tensor_1d_throughput--64-1b8dcaf29092,536870912,512,148,64,requested_gbps_median,282.6417357435603,5
+3,148 blocks (1S),tma-tma_tensor_1d_throughput--96-a659ea9f0ab3,536870400,768,148,96,requested_gbps_median,415.8554192301057,5
+3,148 blocks (1S),tma-tma_tensor_1d_throughput--128-51221481b326,536870912,1024,148,128,requested_gbps_median,546.7626982523178,5
+3,148 blocks (1S),tma-tma_tensor_1d_throughput--160-09cf232ea7de,536870400,1280,148,160,requested_gbps_median,682.6765358128455,5
+3,148 blocks (1S),tma-tma_tensor_1d_throughput--192-780b47e63d98,536870400,1536,148,192,requested_gbps_median,813.7567000935306,5
+3,148 blocks (1S),tma-tma_tensor_1d_throughput--256-2a30fc222af3,536870912,2048,148,256,requested_gbps_median,1069.6638168177885,5
+3,296 blocks (2S),tma-tma_tensor_1d_throughput--64-0a61b94b118c,536870912,512,296,64,requested_gbps_median,562.4993810227932,5
+3,296 blocks (2S),tma-tma_tensor_1d_throughput--96-1232921eef59,536870400,768,296,96,requested_gbps_median,821.7867839780406,5
+3,296 blocks (2S),tma-tma_tensor_1d_throughput--128-2dc8e1c592ec,536870912,1024,296,128,requested_gbps_median,1093.8029364979072,5
+3,296 blocks (2S),tma-tma_tensor_1d_throughput--160-cab44dd2ba00,536870400,1280,296,160,requested_gbps_median,1349.1341208345564,5
+3,296 blocks (2S),tma-tma_tensor_1d_throughput--192-f0f5ebf61b94,536870400,1536,296,192,requested_gbps_median,1594.5554854546117,5
+3,296 blocks (2S),tma-tma_tensor_1d_throughput--256-b57e35f805c9,536870912,2048,296,256,requested_gbps_median,2109.5062946399557,5
+3,444 blocks (3S),tma-tma_tensor_1d_throughput--64-54df8d8894d2,536870912,512,444,64,requested_gbps_median,837.8261614358935,5
+3,444 blocks (3S),tma-tma_tensor_1d_throughput--96-cbf65ee61b6e,536870400,768,444,96,requested_gbps_median,1231.593785151926,5
+3,444 blocks (3S),tma-tma_tensor_1d_throughput--128-ef98a5fdeb05,536870912,1024,444,128,requested_gbps_median,1622.24364901914,5
+3,444 blocks (3S),tma-tma_tensor_1d_throughput--160-3ab0fe5b3242,536870400,1280,444,160,requested_gbps_median,1990.6472089544973,5
+3,444 blocks (3S),tma-tma_tensor_1d_throughput--192-097831089c85,536870400,1536,444,192,requested_gbps_median,2390.7784480507216,5
+3,444 blocks (3S),tma-tma_tensor_1d_throughput--256-1674d08aee25,536870912,2048,444,256,requested_gbps_median,3074.7770040657756,5
+3,592 blocks (4S),tma-tma_tensor_1d_throughput--64-458fa8af42dc,536870912,512,592,64,requested_gbps_median,1107.8691836705657,5
+3,592 blocks (4S),tma-tma_tensor_1d_throughput--96-bb2625895288,536870400,768,592,96,requested_gbps_median,1625.1119890502887,5
+3,592 blocks (4S),tma-tma_tensor_1d_throughput--128-c22df68079c1,536870912,1024,592,128,requested_gbps_median,2134.6490599266413,5
+3,592 blocks (4S),tma-tma_tensor_1d_throughput--160-434fea0d0bb1,536870400,1280,592,160,requested_gbps_median,2612.689008981723,5
+3,592 blocks (4S),tma-tma_tensor_1d_throughput--192-a5bb8a9e0629,536870400,1536,592,192,requested_gbps_median,3086.544819009411,5
+3,592 blocks (4S),tma-tma_tensor_1d_throughput--256-a2bf42167070,536870912,2048,592,256,requested_gbps_median,4015.6217200671476,5
+3,740 blocks (5S),tma-tma_tensor_1d_throughput--64-61c7d136c1a1,536870912,512,740,64,requested_gbps_median,1369.5764296012346,5
+3,740 blocks (5S),tma-tma_tensor_1d_throughput--96-6804e0141c1c,536870400,768,740,96,requested_gbps_median,2015.2927771311565,5
+3,740 blocks (5S),tma-tma_tensor_1d_throughput--128-0fb621ec220e,536870912,1024,740,128,requested_gbps_median,2618.819301822525,5
+3,740 blocks (5S),tma-tma_tensor_1d_throughput--160-6b387f6956ef,536870400,1280,740,160,requested_gbps_median,3213.5535091612187,5
+3,740 blocks (5S),tma-tma_tensor_1d_throughput--192-7a8988d23b52,536870400,1536,740,192,requested_gbps_median,3756.471459162542,5
+3,740 blocks (5S),tma-tma_tensor_1d_throughput--256-0a2e58352d99,536870912,2048,740,256,requested_gbps_median,4875.810090514747,5
+3,888 blocks (6S),tma-tma_tensor_1d_throughput--64-997dea7f267e,536870912,512,888,64,requested_gbps_median,1629.0511652204177,5
+3,888 blocks (6S),tma-tma_tensor_1d_throughput--96-8510a9c065ed,536870400,768,888,96,requested_gbps_median,2393.6164936524096,5
+3,888 blocks (6S),tma-tma_tensor_1d_throughput--128-8edd45c0e0f6,536870912,1024,888,128,requested_gbps_median,3104.636546736067,5
+3,888 blocks (6S),tma-tma_tensor_1d_throughput--160-b2e2e49edebc,536870400,1280,888,160,requested_gbps_median,3791.9025901871423,5
+3,888 blocks (6S),tma-tma_tensor_1d_throughput--192-bfe0c15b4387,536870400,1536,888,192,requested_gbps_median,4487.622617706235,5
+3,888 blocks (6S),tma-tma_tensor_1d_throughput--256-b2b9b9baf435,536870912,2048,888,256,requested_gbps_median,5767.085055247002,5
+3,148 blocks (1S),tma-tma_tensor_2d_throughput--16x16-51221481b326,536870912,1024,148,16x16,requested_gbps_median,522.6971621999578,5
+3,148 blocks (1S),tma-tma_tensor_2d_throughput--32x16-2a30fc222af3,536870912,2048,148,32x16,requested_gbps_median,1019.2262503613756,5
+3,148 blocks (1S),tma-tma_tensor_2d_throughput--32x32-458a45a68a83,536870912,4096,148,32x32,requested_gbps_median,1755.680261882822,5
+3,148 blocks (1S),tma-tma_tensor_2d_throughput--64x32-5e66dc85175c,536870912,8192,148,64x32,requested_gbps_median,3294.3482281007205,5
+3,148 blocks (1S),tma-tma_tensor_2d_throughput--96x32-28b69467d426,536862720,12288,148,96x32,requested_gbps_median,4828.360779858486,5
+3,148 blocks (1S),tma-tma_tensor_2d_throughput--64x64-b9227ea84148,536870912,16384,148,64x64,requested_gbps_median,4188.623043230452,5
+3,296 blocks (2S),tma-tma_tensor_2d_throughput--16x16-2dc8e1c592ec,536870912,1024,296,16x16,requested_gbps_median,1031.318445775942,5
+3,296 blocks (2S),tma-tma_tensor_2d_throughput--32x16-b57e35f805c9,536870912,2048,296,32x16,requested_gbps_median,2007.667826461193,5
+3,296 blocks (2S),tma-tma_tensor_2d_throughput--32x32-b02aab0d9959,536870912,4096,296,32x32,requested_gbps_median,3374.8217760007774,5
+3,296 blocks (2S),tma-tma_tensor_2d_throughput--64x32-c45e1139fdbf,536870912,8192,296,64x32,requested_gbps_median,6173.425921045002,5
+3,296 blocks (2S),tma-tma_tensor_2d_throughput--96x32-20362ad889ae,536862720,12288,296,96x32,requested_gbps_median,8914.823577717665,5
+3,296 blocks (2S),tma-tma_tensor_2d_throughput--64x64-62fa7f41b71d,536870912,16384,296,64x64,requested_gbps_median,8110.430701133754,5
+3,444 blocks (3S),tma-tma_tensor_2d_throughput--16x16-ef98a5fdeb05,536870912,1024,444,16x16,requested_gbps_median,1531.6054956164999,5
+3,444 blocks (3S),tma-tma_tensor_2d_throughput--32x16-1674d08aee25,536870912,2048,444,32x16,requested_gbps_median,2975.2460311563436,5
+3,444 blocks (3S),tma-tma_tensor_2d_throughput--32x32-3f8b347572dd,536870912,4096,444,32x32,requested_gbps_median,4202.985045724895,5
+3,444 blocks (3S),tma-tma_tensor_2d_throughput--64x32-720f42837224,536870912,8192,444,64x32,requested_gbps_median,7746.137515369598,5
+3,444 blocks (3S),tma-tma_tensor_2d_throughput--96x32-7e0e7957a739,536862720,12288,444,96x32,requested_gbps_median,10619.828630180758,5
+3,444 blocks (3S),tma-tma_tensor_2d_throughput--64x64-122828666740,536870912,16384,444,64x64,requested_gbps_median,8010.66138532026,5
+3,592 blocks (4S),tma-tma_tensor_2d_throughput--16x16-c22df68079c1,536870912,1024,592,16x16,requested_gbps_median,2027.3990589646567,5
+3,592 blocks (4S),tma-tma_tensor_2d_throughput--32x16-a2bf42167070,536870912,2048,592,32x16,requested_gbps_median,3839.646116063491,5
+3,592 blocks (4S),tma-tma_tensor_2d_throughput--32x32-83a6d09f030a,536870912,4096,592,32x32,requested_gbps_median,4180.360454485967,5
+3,592 blocks (4S),tma-tma_tensor_2d_throughput--64x32-5ea21ab5dced,536870912,8192,592,64x32,requested_gbps_median,7668.69510480119,5
+3,592 blocks (4S),tma-tma_tensor_2d_throughput--96x32-e00c347d8e31,536862720,12288,592,96x32,requested_gbps_median,10774.76743031129,5
+3,592 blocks (4S),tma-tma_tensor_2d_throughput--64x64-e03e1c2089fa,536870912,16384,592,64x64,requested_gbps_median,7900.905580820472,5
+3,740 blocks (5S),tma-tma_tensor_2d_throughput--16x16-0fb621ec220e,536870912,1024,740,16x16,requested_gbps_median,2510.4775856210645,5
+3,740 blocks (5S),tma-tma_tensor_2d_throughput--32x16-0a2e58352d99,536870912,2048,740,32x16,requested_gbps_median,4688.93301523826,5
+3,740 blocks (5S),tma-tma_tensor_2d_throughput--32x32-664f4f853ba4,536870912,4096,740,32x32,requested_gbps_median,4220.720393133308,5
+3,740 blocks (5S),tma-tma_tensor_2d_throughput--64x32-9e01200d3fda,536870912,8192,740,64x32,requested_gbps_median,7967.272242067295,5
+3,740 blocks (5S),tma-tma_tensor_2d_throughput--96x32-23d66b4e27aa,536862720,12288,740,96x32,requested_gbps_median,10286.334739737646,5
+3,740 blocks (5S),tma-tma_tensor_2d_throughput--64x64-35a61ec44821,536870912,16384,740,64x64,requested_gbps_median,7806.106373210378,5
+3,888 blocks (6S),tma-tma_tensor_2d_throughput--16x16-8edd45c0e0f6,536870912,1024,888,16x16,requested_gbps_median,2928.7500456873886,5
+3,888 blocks (6S),tma-tma_tensor_2d_throughput--32x16-b2b9b9baf435,536870912,2048,888,32x16,requested_gbps_median,5488.1222543194,5
+3,888 blocks (6S),tma-tma_tensor_2d_throughput--32x32-7178e481f477,536870912,4096,888,32x32,requested_gbps_median,4354.032625850642,5
+3,888 blocks (6S),tma-tma_tensor_2d_throughput--64x32-a43fef52e1f7,536870912,8192,888,64x32,requested_gbps_median,8186.904206255119,5
+3,888 blocks (6S),tma-tma_tensor_2d_throughput--96x32-b8d2219966e0,536862720,12288,888,96x32,requested_gbps_median,10904.85062296057,5
+3,888 blocks (6S),tma-tma_tensor_2d_throughput--64x64-5da040708bab,536870912,16384,888,64x64,requested_gbps_median,7759.116185145214,5
+3,148 blocks (1S),tma-tma_tensor_3d_throughput--8x8x4-51221481b326,536870912,1024,148,8x8x4,requested_gbps_median,477.2798422035463,5
+3,148 blocks (1S),tma-tma_tensor_3d_throughput--8x8x8-2a30fc222af3,536870912,2048,148,8x8x8,requested_gbps_median,763.7393468080123,5
+3,148 blocks (1S),tma-tma_tensor_3d_throughput--16x8x8-458a45a68a83,536870912,4096,148,16x8x8,requested_gbps_median,1357.8461049777147,5
+3,148 blocks (1S),tma-tma_tensor_3d_throughput--16x16x8-5e66dc85175c,536870912,8192,148,16x16x8,requested_gbps_median,2092.0338026766362,5
+3,148 blocks (1S),tma-tma_tensor_3d_throughput--16x16x12-28b69467d426,536862720,12288,148,16x16x12,requested_gbps_median,2211.90950336927,5
+3,148 blocks (1S),tma-tma_tensor_3d_throughput--16x16x16-b9227ea84148,536870912,16384,148,16x16x16,requested_gbps_median,2818.4757504987083,5
+3,296 blocks (2S),tma-tma_tensor_3d_throughput--8x8x4-2dc8e1c592ec,536870912,1024,296,8x8x4,requested_gbps_median,943.6319854416091,5
+3,296 blocks (2S),tma-tma_tensor_3d_throughput--8x8x8-b57e35f805c9,536870912,2048,296,8x8x8,requested_gbps_median,1141.4695040907147,5
+3,296 blocks (2S),tma-tma_tensor_3d_throughput--16x8x8-b02aab0d9959,536870912,4096,296,16x8x8,requested_gbps_median,2204.577418427898,5
+3,296 blocks (2S),tma-tma_tensor_3d_throughput--16x16x8-c45e1139fdbf,536870912,8192,296,16x16x8,requested_gbps_median,2233.4833611928702,5
+3,296 blocks (2S),tma-tma_tensor_3d_throughput--16x16x12-20362ad889ae,536862720,12288,296,16x16x12,requested_gbps_median,2205.121744583211,5
+3,296 blocks (2S),tma-tma_tensor_3d_throughput--16x16x16-62fa7f41b71d,536870912,16384,296,16x16x16,requested_gbps_median,2913.9860908598894,5
+3,444 blocks (3S),tma-tma_tensor_3d_throughput--8x8x4-ef98a5fdeb05,536870912,1024,444,8x8x4,requested_gbps_median,1130.7075967841809,5
+3,444 blocks (3S),tma-tma_tensor_3d_throughput--8x8x8-1674d08aee25,536870912,2048,444,8x8x8,requested_gbps_median,1140.4874165900123,5
+3,444 blocks (3S),tma-tma_tensor_3d_throughput--16x8x8-3f8b347572dd,536870912,4096,444,16x8x8,requested_gbps_median,2241.772854071553,5
+3,444 blocks (3S),tma-tma_tensor_3d_throughput--16x16x8-720f42837224,536870912,8192,444,16x16x8,requested_gbps_median,2219.9999826608905,5
+3,444 blocks (3S),tma-tma_tensor_3d_throughput--16x16x12-7e0e7957a739,536862720,12288,444,16x16x12,requested_gbps_median,2217.215266333188,5
+3,444 blocks (3S),tma-tma_tensor_3d_throughput--16x16x16-122828666740,536870912,16384,444,16x16x16,requested_gbps_median,2935.675059331078,5
+3,592 blocks (4S),tma-tma_tensor_3d_throughput--8x8x4-c22df68079c1,536870912,1024,592,8x8x4,requested_gbps_median,1136.1785862973431,5
+3,592 blocks (4S),tma-tma_tensor_3d_throughput--8x8x8-a2bf42167070,536870912,2048,592,8x8x8,requested_gbps_median,1138.1921125941267,5
+3,592 blocks (4S),tma-tma_tensor_3d_throughput--16x8x8-83a6d09f030a,536870912,4096,592,16x8x8,requested_gbps_median,2219.6452689503217,5
+3,592 blocks (4S),tma-tma_tensor_3d_throughput--16x16x8-5ea21ab5dced,536870912,8192,592,16x16x8,requested_gbps_median,2212.379286021104,5
+3,592 blocks (4S),tma-tma_tensor_3d_throughput--16x16x12-e00c347d8e31,536862720,12288,592,16x16x12,requested_gbps_median,2203.7612881751074,5
+3,592 blocks (4S),tma-tma_tensor_3d_throughput--16x16x16-e03e1c2089fa,536870912,16384,592,16x16x16,requested_gbps_median,2887.303903124765,5
+3,740 blocks (5S),tma-tma_tensor_3d_throughput--8x8x4-0fb621ec220e,536870912,1024,740,8x8x4,requested_gbps_median,1146.8716791765003,5
+3,740 blocks (5S),tma-tma_tensor_3d_throughput--8x8x8-0a2e58352d99,536870912,2048,740,8x8x8,requested_gbps_median,1133.445711328894,5
+3,740 blocks (5S),tma-tma_tensor_3d_throughput--16x8x8-664f4f853ba4,536870912,4096,740,16x8x8,requested_gbps_median,2232.4066017103196,5
+3,740 blocks (5S),tma-tma_tensor_3d_throughput--16x16x8-9e01200d3fda,536870912,8192,740,16x16x8,requested_gbps_median,2226.5230213296772,5
+3,740 blocks (5S),tma-tma_tensor_3d_throughput--16x16x12-23d66b4e27aa,536862720,12288,740,16x16x12,requested_gbps_median,2230.0574732226,5
+3,740 blocks (5S),tma-tma_tensor_3d_throughput--16x16x16-35a61ec44821,536870912,16384,740,16x16x16,requested_gbps_median,2906.3994681130343,5
+3,888 blocks (6S),tma-tma_tensor_3d_throughput--8x8x4-8edd45c0e0f6,536870912,1024,888,8x8x4,requested_gbps_median,1144.5286043409624,5
+3,888 blocks (6S),tma-tma_tensor_3d_throughput--8x8x8-b2b9b9baf435,536870912,2048,888,8x8x8,requested_gbps_median,1141.131894928992,5
+3,888 blocks (6S),tma-tma_tensor_3d_throughput--16x8x8-7178e481f477,536870912,4096,888,16x8x8,requested_gbps_median,2240.6079107419305,5
+3,888 blocks (6S),tma-tma_tensor_3d_throughput--16x16x8-a43fef52e1f7,536870912,8192,888,16x16x8,requested_gbps_median,2245.1543556752463,5
+3,888 blocks (6S),tma-tma_tensor_3d_throughput--16x16x12-b8d2219966e0,536862720,12288,888,16x16x12,requested_gbps_median,2195.9337004040813,5
+3,888 blocks (6S),tma-tma_tensor_3d_throughput--16x16x16-5da040708bab,536870912,16384,888,16x16x16,requested_gbps_median,2900.1971513261806,5
+4,16 × 16 × 16,tma-tma_equal_bytes_shape_sweep--16x16x16-b9227ea84148,536870912,16384,148,16x16x16,requested_gbps_median,2796.475116906911,5
+4,16 × 16 × 16,tma-tma_equal_bytes_shape_sweep--16x16x16-62fa7f41b71d,536870912,16384,296,16x16x16,requested_gbps_median,2876.378124165469,5
+4,16 × 16 × 16,tma-tma_equal_bytes_shape_sweep--16x16x16-122828666740,536870912,16384,444,16x16x16,requested_gbps_median,2936.5023794123335,5
+4,16 × 16 × 16,tma-tma_equal_bytes_shape_sweep--16x16x16-e03e1c2089fa,536870912,16384,592,16x16x16,requested_gbps_median,2908.7052760321812,5
+4,16 × 16 × 16,tma-tma_equal_bytes_shape_sweep--16x16x16-35a61ec44821,536870912,16384,740,16x16x16,requested_gbps_median,2917.589964566747,5
+4,16 × 16 × 16,tma-tma_equal_bytes_shape_sweep--16x16x16-5da040708bab,536870912,16384,888,16x16x16,requested_gbps_median,2922.227003615881,5
+4,64 × 64 × 1,tma-tma_equal_bytes_shape_sweep--64x64x1-b9227ea84148,536870912,16384,148,64x64x1,requested_gbps_median,4190.448206341709,5
+4,64 × 64 × 1,tma-tma_equal_bytes_shape_sweep--64x64x1-62fa7f41b71d,536870912,16384,296,64x64x1,requested_gbps_median,7627.060209662598,5
+4,64 × 64 × 1,tma-tma_equal_bytes_shape_sweep--64x64x1-122828666740,536870912,16384,444,64x64x1,requested_gbps_median,7895.825601804325,5
+4,64 × 64 × 1,tma-tma_equal_bytes_shape_sweep--64x64x1-e03e1c2089fa,536870912,16384,592,64x64x1,requested_gbps_median,7779.625241055775,5
+4,64 × 64 × 1,tma-tma_equal_bytes_shape_sweep--64x64x1-35a61ec44821,536870912,16384,740,64x64x1,requested_gbps_median,7722.693078383513,5
+4,64 × 64 × 1,tma-tma_equal_bytes_shape_sweep--64x64x1-5da040708bab,536870912,16384,888,64x64x1,requested_gbps_median,7580.8160623779795,5
+4,256 × 16 × 1,tma-tma_equal_bytes_shape_sweep--256x16x1-b9227ea84148,536870912,16384,148,256x16x1,requested_gbps_median,5870.5228914538975,5
+4,256 × 16 × 1,tma-tma_equal_bytes_shape_sweep--256x16x1-62fa7f41b71d,536870912,16384,296,256x16x1,requested_gbps_median,10404.460750215712,5
+4,256 × 16 × 1,tma-tma_equal_bytes_shape_sweep--256x16x1-122828666740,536870912,16384,444,256x16x1,requested_gbps_median,11870.349941501627,5
+4,256 × 16 × 1,tma-tma_equal_bytes_shape_sweep--256x16x1-e03e1c2089fa,536870912,16384,592,256x16x1,requested_gbps_median,13712.559253077088,5
+4,256 × 16 × 1,tma-tma_equal_bytes_shape_sweep--256x16x1-35a61ec44821,536870912,16384,740,256x16x1,requested_gbps_median,13917.007360438674,5
+4,256 × 16 × 1,tma-tma_equal_bytes_shape_sweep--256x16x1-5da040708bab,536870912,16384,888,256x16x1,requested_gbps_median,14907.642247270032,5
+4,16 × 256 × 1,tma-tma_equal_bytes_shape_sweep--16x256x1-b9227ea84148,536870912,16384,148,16x256x1,requested_gbps_median,2816.063380181513,5
+4,16 × 256 × 1,tma-tma_equal_bytes_shape_sweep--16x256x1-62fa7f41b71d,536870912,16384,296,16x256x1,requested_gbps_median,2926.467666936365,5
+4,16 × 256 × 1,tma-tma_equal_bytes_shape_sweep--16x256x1-122828666740,536870912,16384,444,16x256x1,requested_gbps_median,2919.2247358799195,5
+4,16 × 256 × 1,tma-tma_equal_bytes_shape_sweep--16x256x1-e03e1c2089fa,536870912,16384,592,16x256x1,requested_gbps_median,2917.7902712716236,5
+4,16 × 256 × 1,tma-tma_equal_bytes_shape_sweep--16x256x1-35a61ec44821,536870912,16384,740,16x256x1,requested_gbps_median,2923.183473501673,5
+4,16 × 256 × 1,tma-tma_equal_bytes_shape_sweep--16x256x1-5da040708bab,536870912,16384,888,16x256x1,requested_gbps_median,2919.1566896243216,5
+4,4 × 4 × 256,tma-tma_equal_bytes_shape_sweep--4x4x256-b9227ea84148,536870912,16384,148,4x4x256,requested_gbps_median,2449.2713023156452,5
+4,4 × 4 × 256,tma-tma_equal_bytes_shape_sweep--4x4x256-62fa7f41b71d,536870912,16384,296,4x4x256,requested_gbps_median,2922.5000350796913,5
+4,4 × 4 × 256,tma-tma_equal_bytes_shape_sweep--4x4x256-122828666740,536870912,16384,444,4x4x256,requested_gbps_median,2954.9631347397317,5
+4,4 × 4 × 256,tma-tma_equal_bytes_shape_sweep--4x4x256-e03e1c2089fa,536870912,16384,592,4x4x256,requested_gbps_median,2925.8373690795866,5
+4,4 × 4 × 256,tma-tma_equal_bytes_shape_sweep--4x4x256-35a61ec44821,536870912,16384,740,4x4x256,requested_gbps_median,2911.543154642564,5
+4,4 × 4 × 256,tma-tma_equal_bytes_shape_sweep--4x4x256-5da040708bab,536870912,16384,888,4x4x256,requested_gbps_median,2912.7641105284642,5

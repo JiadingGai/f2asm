@@ -1,0 +1,40 @@
+{
+  "campaign_identity": "f47a6d7139b2a20f6bd40ffeb43b978ada17ff31c5ed58f5e111381610ed92e7",
+  "device": {
+    "name": "NVIDIA B200",
+    "compute_capability": [
+      10,
+      0
+    ],
+    "sm_count": 148,
+    "l2_bytes": 132644864,
+    "driver_version": 12080
+  },
+  "input_kind": "published_measurements",
+  "input_hashes": {
+    "summary.json": "5498b69fdcf49475cb23752de7e02f0b4fe43a9b356919fd322f6164e233865c",
+    "summary.csv": "8997904df22631b57f059341ad49fc592b0727e8c308a6ee30c288b9f71b514e",
+    "samples.csv.gz": "08d9e7c18beec235eff453316bea6efc1ecb27013d13a8af58f2156ce9701c96"
+  },
+  "plotter_sha256": "b36d51fdc77b7a4fcf0a8d3809017ae97c17f03adf26ce935050a3ac9838cc83",
+  "matplotlib_version": "3.11.2",
+  "points_by_figure": {
+    "2": 42,
+    "3": 144,
+    "4": 30
+  },
+  "statistic": "median of 5 samples",
+  "performance_claim_eligible": false,
+  "output_hashes": {
+    "figure2_b200_latency.png": "601b91d7f43e502b7274a85441deb5a16e052e4878f9b1e2112703b47802c513",
+    "figure2_b200_latency.svg": "9e97fe3905b34714c02c98b0faa0c0e4dc92ce30fa10a7f12bd5e5d39b933124",
+    "figure2_b200_latency.pdf": "3fec1a6015977315e03076d0225fd0d106df388f9cabca875397b99b55bd8fa5",
+    "figure3_b200_throughput.png": "e3fc241c3bf19050616f8aeb08d90810e754426ba076365b80d6b2ee8e2d6a98",
+    "figure3_b200_throughput.svg": "784817850bdaf601ea10dfbd8ac2fa22e4081b7bc9c9c74ff4181a5e55126194",
+    "figure3_b200_throughput.pdf": "226428e27bb32f988d024d2bd08c3c1266f62fa10a9cee9832289198aa4fd49d",
+    "figure4_b200_shapes.png": "fa943f9fb2e15f08886cfcb5b2ccdf7cbaa2c7ba02091afed8989f8b0c0878fd",
+    "figure4_b200_shapes.svg": "55188c8ad316615795b3d8e3d66414a3fbe05ba640713049c4e9f3ae1b71d53e",
+    "figure4_b200_shapes.pdf": "ef427fcac2ffd3b75e69367cac7ecb345e9c4d5107099e29399c50ae82f7b26f",
+    "plotted_points.csv": "4082c6476fbd7a7f8fbae259342b5057e15b603b551942675c601da006910ddf"
+  }
+}

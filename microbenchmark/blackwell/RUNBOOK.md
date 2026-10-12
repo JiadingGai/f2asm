@@ -108,10 +108,10 @@ launched no workers. B200: 148 SMs, 126.5 MiB L2; driver 570.211.01, Python 3.12
 An initial Python large-buffer overflow was fixed with chunked input generation;
 both attempts were preserved. All 81 CPU tests passed; SASS and CUBINs were unchanged.
 
-Local results:
+Published [measurements and Figures 2–4](results/b200-20261011/README.md) can be
+verified and replotted without the private raw archive. Local full results remain at
 `artifacts/runpod-b200-20261011/f2asm-tma-20261011-v2/results/tma-b200-campaign/`
-(relative to this runbook). The [downloaded archive](artifacts/runpod-b200-20261011/f2asm-tma-20261011-v2-results.tar.gz)
-was verified locally against SHA-256
+(relative to this runbook). The locally retained archive was verified against SHA-256
 `894a027c9ff20e73205f98ed1ef0f5569d7ccdbf8ef404e988c875fe40d16ef9`.
 
 ## Measurement limits

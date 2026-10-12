@@ -10,6 +10,8 @@ The assembler implementation in `src/f2asm/` is unchanged.
 
 See [RUNBOOK.md](RUNBOOK.md) for the Runpod deployment, commands, failure recovery,
 result retrieval, and the first B200 session's execution record.
+The [B200 baseline results](results/b200-20261011/README.md) include all 1,080
+samples, Figures 2–4 and commands to verify/replot them without a GPU.
 
 `python3 -m microbenchmark.blackwell.campaign` is the run-all entry point.
 The `tma` suite includes its ordinary-load latency reference. With default buffer
