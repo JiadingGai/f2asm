@@ -102,25 +102,32 @@ def controls(raw):
             "read_slot":(raw>>8)&7,"wait_mask":(raw>>11)&63}
 
 
+def _control_opcode(row):
+    op = opcode(row)
+    # Only the known trap form terminates execution. Other BPT modifiers can
+    # have debugger/breakpoint semantics and must remain explicitly unknown.
+    return "TRAP" if op == "BPT.TRAP" else op.split(".")[0]
+
+
 def cfg(rows):
     pcs = {r["pc"] for r in rows}
     if [r["pc"] for r in rows] != list(range(0,len(rows)*16,16)): raise ValueError("Noncontiguous instructions")
     leaders, targets, errors, unknown = {0}, {}, [], []
     for r in rows:
-        op, pc = opcode(r).split(".")[0], r["pc"]
+        op, pc = _control_opcode(r), r["pc"]
         if op in ("BRA","CALL"):
             m = re.search(r"\b(?:BRA|CALL)(?:\.\w+)*\s+(?:!?(?:UP|P)(?:\d+|T)\s*,\s*)?(0x[0-9a-fA-F]+);$",r["sass"])
             if not m: errors.append(f"Unresolved direct branch at {pc:#x}"); continue
             dest = int(m[1],16)
             if dest not in pcs: errors.append(f"Out-of-text branch at {pc:#x}"); continue
             leaders.add(dest); targets[pc] = dest
-        elif op in ("BRX","JMP","JMX","RET","BSSY","BSYNC"):
-            unknown.append(f"Control instruction {op} at {pc:#x} requires additional interpretation")
-        if op in ("BRA","CALL","EXIT","TRAP","RET","JMP","BRX","JMX") and pc+16 in pcs: leaders.add(pc+16)
+        elif op in ("BRX","JMP","JMX","RET","BSSY","BSYNC","BPT"):
+            unknown.append(f"Control instruction {opcode(r)} at {pc:#x} requires additional interpretation")
+        if op in ("BRA","CALL","EXIT","TRAP","RET","JMP","BRX","JMX","BPT") and pc+16 in pcs: leaders.add(pc+16)
     boundaries = sorted(leaders)+[len(rows)*16]
     blocks=[]
     for lo,hi in zip(boundaries,boundaries[1:]):
-        last=rows[hi//16-1]; op=opcode(last).split(".")[0]
+        last=rows[hi//16-1]; op=_control_opcode(last)
         pred=last["sass"].startswith("@") or bool(re.search(r"\bBRA(?:\.\w+)*\s+!?(?:UP|P)\d+\s*,",last["sass"]))
         succ=[]
         if last["pc"] in targets: succ.append(targets[last["pc"]])

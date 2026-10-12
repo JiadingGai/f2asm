@@ -21,7 +21,7 @@ def plan(variant, sm_count, *, l2_bytes, global_bytes=512 * 1024 * 1024, seed=17
             if size <= global_bytes and size // p["transfer_bytes"] <= 1 << 24:
                 add(count=size // p["transfer_bytes"], repetitions=1048576)
     else:
-        for multiplier in (1, 2, 3, 4):
+        for multiplier in (1, 2, 3, 4, 5, 6):
             blocks = sm_count * multiplier
             reps = max(1, (4_000_000_000 + blocks * p["transfer_bytes"] - 1)
                        // (blocks * p["transfer_bytes"]))

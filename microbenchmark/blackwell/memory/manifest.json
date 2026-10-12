@@ -1,0 +1,27 @@
+{
+  "schema": "f2asm-memory-baseline-v1",
+  "source_commit": "5d910e01d32d2c2faa87475e650d0ee96e3f12b9",
+  "target": "sm_100a",
+  "model_sha256": "911a2782abded58497455c243515ce08a59e416685a36df4dc3cf9f8db4bc929",
+  "supplement_sha256": "cdcb9d008ee4815fc73f2c0de2e60e30fb408a87a1cc407216894e2ee9aea94b",
+  "hardware_correctness": "NOT_RUN",
+  "performance": "NOT_MEASURED",
+  "variants": [
+    {
+      "id": "memory_l1_pointer_chase",
+      "case": "memory_l1_pointer_chase",
+      "family": "pointer",
+      "parameters": {
+        "level": "l1",
+        "fine": false,
+        "stride": 32
+      },
+      "source_sha256": "e83815f0ace249642da7659f584433b8d1ef2a3388765485d854ee252a71a16f",
+      "candidate_sha256": "010cee1a59696982d0a5ae8f955af611692168cca621079d398a97c842170cb4",
+      "instruction_words": 112,
+      "base_model_words": 105,
+      "compiler_evidence_words": 7,
+      "ptx_sha256": "3493e3e47ba1f904ca33a9816ed1af827a060e1fc339c8da63dd2c2c7581cf50"
+    }
+  ]
+}

@@ -1,18 +1,6 @@
 """Only the 30 pinned TMA variants; other families belong in sibling packages."""
-from dataclasses import asdict, dataclass
+from ..common.types import Variant
 import json
-
-
-@dataclass(frozen=True)
-class Variant:
-    id: str
-    case: str
-    family: str
-    parameters: dict
-
-    def to_dict(self):
-        return asdict(self)
-
 
 
 def variants():

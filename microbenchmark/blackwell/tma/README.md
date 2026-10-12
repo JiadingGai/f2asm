@@ -27,8 +27,10 @@ arbitrary SASS changes until their metadata/resource/scheduling contract is revi
 - All 30 original artifacts were statically reconstructed. Their 10,616 instruction
   words include 137 occurrences encoded by a separate compiler-evidence supplement.
   This is reconstruction with compiler evidence, not held-out prediction.
-- Hardware correctness is **NOT_RUN**; performance is **NOT_MEASURED**. CPU tests,
-  encoding equality and retained protocol instructions do not establish either.
+- At import, hardware correctness was **NOT_RUN** and performance **NOT_MEASURED**.
+  The first full B200 run subsequently passed all 195 TMA configurations, with
+  five timed samples each; see the [session runbook](../RUNBOOK.md). The immutable
+  import records remain historical. Passing outputs do not establish timing accuracy.
 - Throughput CTAs use `(iteration + block) % count`, so streams overlap. Requested
   transfer bytes, including the planned decimal 4 GB campaign, are not distinct HBM
   traffic. Do not label these results peak HBM bandwidth.
@@ -36,11 +38,20 @@ arbitrary SASS changes until their metadata/resource/scheduling contract is revi
   work is inside the cycle interval; CUDA-event timing also includes setup and final
   tile export. Clock serialization, cache residency and async semantics need B200 tests.
 - The checker verifies every byte of the final tile plus a chain/checksum result,
-  not every byte of every transfer. Full paper-style plots/reporting are not included.
+  not every byte of every transfer. The [campaign runner](../README.md#run-the-complete-tma-campaign)
+  produces latency/throughput plots without upgrading these validation limits.
+- Expected checksums/final tiles are prepared once per input/launch and reused;
+  every sample is still checked. See the [lightweight-checking policy](../README.md#lightweight-correctness-checks).
 - This extraction does not fix those protocols. Keep measurement fixes separate
   from the import so comparisons remain auditable.
 
 ## Runbook
+
+For a concrete descriptor-to-launch walkthrough, see [3D tensor maps](TENSOR_MAP.md).
+
+For a single command covering all latency and throughput configurations plus the
+ordinary-load reference, use the [complete campaign runbook](../README.md#run-the-complete-tma-campaign).
+The commands below are useful for preparing artifacts or running individual cases.
 
 Run commands from the F2Asm checkout root with Python 3.10+. Use fresh output
 directories for each attempt; never overwrite prior evidence. Paths below are
@@ -99,7 +110,8 @@ models are provided. No user-specific path is embedded in these commands or code
 
 ### 3. Smoke-test on an isolated B200
 
-This step is **not yet hardware-tested**. Use Linux with compatible NVIDIA drivers.
+This optional individual check is hardware-tested on B200; the full campaign
+already performs per-configuration checks. Use Linux with compatible NVIDIA drivers.
 Copy the `microbenchmark/` tree and qualified artifacts to the GPU host, retaining
 their relative layout, and run from the checkout root. F2Asm assembly is **not**
 called per run.
@@ -140,10 +152,22 @@ reuse step 3 with its `launch.blocks`, `count`, `repetitions`, `seed`, and
 `--memory-limit`. Use `--samples 5 --max-seconds 60` and a fresh `--output` for
 each configuration. Run sequentially on the same device, stopping on any failure.
 
-Each throughput variant has four grid sizes: **S, 2S, 3S, 4S** blocks, where S is
-the device SM count. Repeat for all 29 throughput variants for **116 configurations**;
-the completion-latency variant instead sweeps working-set size. Grid size does not
-guarantee a particular per-SM residency. The planner is not a campaign executor.
+Each throughput variant has six grid sizes: **S, 2S, 3S, 4S, 5S, 6S** blocks, where S
+is the device SM count. Repeat for all 29 throughput variants for **174 configurations**.
+The completion-latency variant instead sweeps working-set size: with the default
+512-MiB buffer budget, its node-count limit gives 21 points from 256 B through
+256 MiB, for **195 total configurations** before repeated samples or correctness runs.
+Grid size does not guarantee a particular per-SM residency. The planner is not
+a campaign executor.
+
+The 5S and 6S grid points extend the original imported S–4S sweep; kernel binaries
+are unchanged. [VALIDATION.json](VALIDATION.json) records the original extraction,
+not GPU validation of these additional grid points.
+
+The separate [ordinary-load reference](../memory/README.md) adds the non-TMA
+latency curve at the same 21 working-set sizes, for **216 combined configurations**.
+Its node spacing and warm-up differ; do not interpret curve subtraction as pure
+TMA overhead. Both families share the host/build infrastructure in `../common/`.
 
 ### 5. Inspect and retain results
 
@@ -151,6 +175,8 @@ guarantee a particular per-SM residency. The planner is not a campaign executor.
   of `raw_samples`, and each sample's `numerical_check: passed` in `run.json`.
 - Inspect `event_ms_statistics`, per-sample `rates`/`cycles`, and telemetry.
   These remain experimental requested-transfer metrics, not peak HBM bandwidth.
+- `cpu_oracle_setup_seconds` and per-sample `cpu_check_seconds` report host checking
+  costs separately; neither is part of GPU event or instruction-cycle timing.
 - Keep the entire run directory and qualification reports. On failure inspect
   `stderr.txt`, `run.json` (if created), or `timeout.json`; after a timeout, inspect
   the isolated GPU before retrying. Do not bypass correctness or hash checks.

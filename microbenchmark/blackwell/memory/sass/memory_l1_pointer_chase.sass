@@ -1,0 +1,227 @@
+# Explicit instruction/control source; compiler-derived ABI and benchmark template.
+# F2Asm is required to encode every instruction. No copied word fallback.
+# Static encoding qualification is NOT hardware semantic/timing validation.
+pc_0000:
+0x00718 | LDC R1, c[0x0][0x37c];
+pc_0010:
+0x00731 | LDC R17, c[0x0][0x394];
+pc_0020:
+0x007f1 | IMAD.MOV.U32 R0, RZ, RZ, RZ;
+pc_0030:
+0x00751 | LDCU.64 UR4, c[0x0][0x358];
+pc_0040:
+0x00771 | S2R R11, SR_CTAID.X;
+pc_0050:
+0x007f1 | IMAD.MOV.U32 R15, RZ, RZ, RZ;
+pc_0060:
+0x017ed | ISETP.GT.U32.AND P0, PT, R17, RZ, PT;
+pc_0070:
+0x00731 | @!P0 LDC.64 R2, c[0x0][0x380];
+pc_0080:
+0x007e5 | @!P0 IMAD.MOV.U32 R0, RZ, RZ, 0x1;
+pc_0090:
+0x007f2 | ISETP.GE.U32.AND P1, PT, R0.reuse, R17.reuse, PT;
+pc_00a0:
+0x007e4 | IADD3 R4, PT, PT, -R0, R17, RZ;
+pc_00b0:
+0x007f1 | ISETP.LE.U32.OR P1, PT, R4, 0x3, P1;
+pc_00c0:
+0x017e5 | @!P0 IMAD.WIDE.U32 R2, R15, 0x20, R2;
+pc_00d0:
+0x021b7 | @!P0 LDG.E.STRONG.SM R15, desc[UR4][R2.64];
+pc_00e0:
+0x04ff5 | @P1 BRA 0x1d0;
+pc_00f0:
+0x007f1 | PLOP3.LUT P0, PT, PT, PT, PT, 0x8, 0x80;
+pc_0100:
+0x007ec | VIADD R13, R17, 0xfffffffd;
+pc_0110:
+0x00f12 | LDC.64 R8, c[0x0][0x380];
+pc_0120:
+0x11fe6 | IMAD.WIDE.U32 R2, R15, 0x20, R8;
+pc_0130:
+0x00752 | LDG.E.STRONG.SM R3, desc[UR4][R2.64];
+pc_0140:
+0x027e6 | IMAD.WIDE.U32 R4, R3, 0x20, R8;
+pc_0150:
+0x00751 | LDG.E.STRONG.SM R5, desc[UR4][R4.64];
+pc_0160:
+0x007f1 | IADD3 R0, PT, PT, R0, 0x4, RZ;
+pc_0170:
+0x027e6 | IMAD.WIDE.U32 R6, R5, 0x20, R8;
+pc_0180:
+0x00751 | LDG.E.STRONG.SM R7, desc[UR4][R6.64];
+pc_0190:
+0x007f1 | ISETP.GE.U32.AND P1, PT, R0, R13, PT;
+pc_01a0:
+0x027e5 | IMAD.WIDE.U32 R8, R7, 0x20, R8;
+pc_01b0:
+0x000b7 | LDG.E.STRONG.SM R15, desc[UR4][R8.64];
+pc_01c0:
+0x007f5 | @!P1 BRA 0x110;
+pc_01d0:
+0x017f1 | IMAD.IADD R2, R17, 0x1, -R0;
+pc_01e0:
+0x007e4 | ISETP.GE.U32.AND P1, PT, R0, R17, PT;
+pc_01f0:
+0x007ed | ISETP.LE.U32.OR P1, PT, R2, 0x1, P1;
+pc_0200:
+0x007f5 | @P1 BRA 0x280;
+pc_0210:
+0x00732 | LDC.64 R2, c[0x0][0x380];
+pc_0220:
+0x117e6 | IMAD.WIDE.U32 R4, R15, 0x20, R2;
+pc_0230:
+0x00752 | LDG.E.STRONG.SM R5, desc[UR4][R4.64];
+pc_0240:
+0x027e5 | IMAD.WIDE.U32 R2, R5, 0x20, R2;
+pc_0250:
+0x001b1 | LDG.E.STRONG.SM R15, desc[UR4][R2.64];
+pc_0260:
+0x007f2 | PLOP3.LUT P0, PT, PT, PT, PT, 0x8, 0x80;
+pc_0270:
+0x007eb | IADD3 R0, PT, PT, R0, 0x2, RZ;
+pc_0280:
+0x007ed | ISETP.LT.U32.OR P0, PT, R0, R17, P0;
+pc_0290:
+0x01732 | @P0 LDC.64 R2, c[0x0][0x380];
+pc_02a0:
+0x117e6 | @P0 IMAD.WIDE.U32 R4, R15, 0x20, R2;
+pc_02b0:
+0x00731 | LDC.64 R2, c[0x0][0x388];
+pc_02c0:
+0x00271 | @P0 LDG.E.STRONG.SM R15, desc[UR4][R4.64];
+pc_02d0:
+0x007f2 | IMAD.MOV.U32 R0, RZ, RZ, RZ;
+pc_02e0:
+0x017f1 | IMAD.WIDE.U32 R2, R11, 0x20, R2;
+pc_02f0:
+0x027e3 | CS2R R4, SR_CLOCKLO;
+pc_0300:
+0x00732 | LDC R19, c[0x0][0x390];
+pc_0310:
+0x017ed | ISETP.GT.U32.AND P0, PT, R19, RZ, PT;
+pc_0320:
+0x00771 | @!P0 LDC.64 R6, c[0x0][0x380];
+pc_0330:
+0x007e4 | @!P0 MOV R0, 0x1;
+pc_0340:
+0x007f1 | ISETP.GE.U32.AND P1, PT, R0, R19, PT;
+pc_0350:
+0x00fe5 | IMAD.IADD R8, R19, 0x1, -R0;
+pc_0360:
+0x007f1 | ISETP.LE.U32.OR P1, PT, R8, 0x3, P1;
+pc_0370:
+0x047e5 | @!P0 IMAD.WIDE.U32 R6, R15, 0x20, R6;
+pc_0380:
+0x000b7 | @!P0 LDG.E.STRONG.SM R15, desc[UR4][R6.64];
+pc_0390:
+0x007f5 | @P1 BRA 0x480;
+pc_03a0:
+0x007f2 | PLOP3.LUT P0, PT, PT, PT, PT, 0x8, 0x80;
+pc_03b0:
+0x007eb | IADD3 R17, PT, PT, R19, -0x3, RZ;
+pc_03c0:
+0x01732 | LDC.64 R10, c[0x0][0x380];
+pc_03d0:
+0x117e5 | IMAD.WIDE.U32 R12, R15, 0x20, R10;
+pc_03e0:
+0x00f52 | LDG.E.STRONG.SM R7, desc[UR4][R12.64];
+pc_03f0:
+0x027e6 | IMAD.WIDE.U32 R6, R7, 0x20, R10;
+pc_0400:
+0x00751 | LDG.E.STRONG.SM R7, desc[UR4][R6.64];
+pc_0410:
+0x007f2 | VIADD R0, R0, 0x4;
+pc_0420:
+0x027e6 | IMAD.WIDE.U32 R8, R7, 0x20, R10;
+pc_0430:
+0x00751 | LDG.E.STRONG.SM R9, desc[UR4][R8.64];
+pc_0440:
+0x007f1 | ISETP.GE.U32.AND P1, PT, R0, R17, PT;
+pc_0450:
+0x027e5 | IMAD.WIDE.U32 R10, R9, 0x20, R10;
+pc_0460:
+0x001b7 | LDG.E.STRONG.SM R15, desc[UR4][R10.64];
+pc_0470:
+0x007f5 | @!P1 BRA 0x3c0;
+pc_0480:
+0x007f2 | ISETP.GE.U32.AND P1, PT, R0.reuse, R19.reuse, PT;
+pc_0490:
+0x00fe4 | IADD3 R6, PT, PT, -R0, R19, RZ;
+pc_04a0:
+0x007ed | ISETP.LE.U32.OR P1, PT, R6, 0x1, P1;
+pc_04b0:
+0x007f5 | @P1 BRA 0x530;
+pc_04c0:
+0x00712 | LDC.64 R6, c[0x0][0x380];
+pc_04d0:
+0x10fe6 | IMAD.WIDE.U32 R8, R15, 0x20, R6;
+pc_04e0:
+0x00752 | LDG.E.STRONG.SM R9, desc[UR4][R8.64];
+pc_04f0:
+0x027e5 | IMAD.WIDE.U32 R6, R9, 0x20, R6;
+pc_0500:
+0x000b1 | LDG.E.STRONG.SM R15, desc[UR4][R6.64];
+pc_0510:
+0x007f1 | PLOP3.LUT P0, PT, PT, PT, PT, 0x8, 0x80;
+pc_0520:
+0x007ec | VIADD R0, R0, 0x2;
+pc_0530:
+0x007ed | ISETP.LT.U32.OR P0, PT, R0, R19, P0;
+pc_0540:
+0x00f12 | @P0 LDC.64 R6, c[0x0][0x380];
+pc_0550:
+0x10fe5 | @P0 IMAD.WIDE.U32 R6, R15, 0x20, R6;
+pc_0560:
+0x00052 | @P0 LDG.E.STRONG.SM R15, desc[UR4][R6.64];
+pc_0570:
+0x00ff1 | CS2R R6, SR_CLOCKLO;
+pc_0580:
+0x00715 | S2R R9, SR_VIRTUALSMID;
+pc_0590:
+0x007f1 | IADD3 R4, P0, PT, -R4, R6, RZ;
+pc_05a0:
+0x027f3 | STG.E desc[UR4][R2.64+0x8], R15;
+pc_05b0:
+0x007f1 | IADD3.X R5, PT, PT, ~R5, R7, RZ, P0, !PT;
+pc_05c0:
+0x007f4 | STG.E desc[UR4][R2.64+0xc], RZ;
+pc_05d0:
+0x007f4 | STG.E.64 desc[UR4][R2.64], R4;
+pc_05e0:
+0x00ff1 | STG.E desc[UR4][R2.64+0x10], R9;
+pc_05f0:
+0x007f5 | EXIT;
+pc_0600:
+0x007e0 | BRA 0x600;
+pc_0610:
+0x007e0 | NOP;
+pc_0620:
+0x007e0 | NOP;
+pc_0630:
+0x007e0 | NOP;
+pc_0640:
+0x007e0 | NOP;
+pc_0650:
+0x007e0 | NOP;
+pc_0660:
+0x007e0 | NOP;
+pc_0670:
+0x007e0 | NOP;
+pc_0680:
+0x007e0 | NOP;
+pc_0690:
+0x007e0 | NOP;
+pc_06a0:
+0x007e0 | NOP;
+pc_06b0:
+0x007e0 | NOP;
+pc_06c0:
+0x007e0 | NOP;
+pc_06d0:
+0x007e0 | NOP;
+pc_06e0:
+0x007e0 | NOP;
+pc_06f0:
+0x007e0 | NOP;

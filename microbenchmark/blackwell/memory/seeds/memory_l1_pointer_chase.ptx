@@ -1,0 +1,30 @@
+.version 8.7
+.target sm_100a
+.address_size 64
+.visible .entry bench(.param .u64 input, .param .u64 output,
+ .param .u32 repetitions, .param .u32 count, .param .u64 tensor_map)
+.reqntid 1, 1, 1
+{
+ .reg .pred %p<16>;
+ .reg .b32 %r<128>;
+ .reg .b64 %d<32>;
+ .reg .f32 %f<32>;
+ 
+ 
+ ld.param.u64 %d0, [input]; ld.param.u64 %d1, [output];
+ ld.param.u32 %r0, [repetitions]; ld.param.u32 %r1, [count];
+ mov.u32 %r2, %tid.x; mov.u32 %r3, %ctaid.x;
+ mad.lo.u32 %r4, %r3, 1, %r2;
+ mul.wide.u32 %d2, %r4, 32; add.u64 %d1, %d1, %d2;
+ mov.u32 %r5, 0; mov.u32 %r6, 0;
+ mov.u32 %r10, 0; warm_loop: mul.wide.u32 %d3, %r6, 32; add.u64 %d3, %d0, %d3; ld.global.ca.u32 %r6, [%d3]; add.u32 %r10,%r10,1; setp.lt.u32 %p0,%r10,%r1; @%p0 bra warm_loop;
+ mov.u32 %r10, 0; mov.u64 %d4,%clock64;
+ measure_loop: 
+ mul.wide.u32 %d3, %r6, 32; add.u64 %d3, %d0, %d3; ld.global.ca.u32 %r6, [%d3]; 
+ add.u32 %r10,%r10,1; setp.lt.u32 %p0,%r10,%r0; @%p0 bra measure_loop;
+ mov.u64 %d5, %clock64; sub.u64 %d6, %d5, %d4;
+ st.global.u64 [%d1], %d6; st.global.u32 [%d1+8], %r6;
+ st.global.u32 [%d1+12], %r5;
+ mov.u32 %r7, %smid; st.global.u32 [%d1+16], %r7; ret;
+ 
+}

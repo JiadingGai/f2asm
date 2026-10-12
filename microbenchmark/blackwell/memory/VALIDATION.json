@@ -1,0 +1,56 @@
+{
+  "schema": "f2asm-memory-reference-validation-v1",
+  "validation_date": "2026-10-11",
+  "target": "sm_100a",
+  "source_commit": "5d910e01d32d2c2faa87475e650d0ee96e3f12b9",
+  "tests": {
+    "benchmark_tests": 32,
+    "memory_tests": 14,
+    "tma_tests": 18,
+    "python_versions": [
+      "3.10",
+      "3.12",
+      "3.14"
+    ],
+    "core_tests_python_3_14": 15,
+    "sequential_sass_data_flow_cases": 160,
+    "status": "passed",
+    "data_flow_scope": "Pinned integer/load/control-flow subset; no GPU timing or scoreboard simulation"
+  },
+  "ordinary_reference": {
+    "id": "memory_l1_pointer_chase",
+    "instruction_words": 112,
+    "base_model_words": 105,
+    "compiler_evidence_words": 7,
+    "byte_exact_cubin": true,
+    "candidate_sha256": "010cee1a59696982d0a5ae8f955af611692168cca621079d398a97c842170cb4",
+    "qualification_report": "microbenchmark/blackwell/artifacts/memory-reference-20261011/qualification-report.json",
+    "qualification_report_sha256": "a282f6c285bd44554e8f52b7e6f37f39501bfdaa601c919182d0ad5b9e1f799f"
+  },
+  "tma_regression": {
+    "variants": 30,
+    "instruction_words": 10616,
+    "all_byte_exact": true,
+    "qualification_report": "microbenchmark/blackwell/artifacts/tma-memory-refactor-20261011/qualification-report.json",
+    "qualification_report_sha256": "57d2c44a78f9222c38bea088dd26caa80321a1d1285c7b1ba2dd395bbbcd7e91"
+  },
+  "model_sha256": "911a2782abded58497455c243515ce08a59e416685a36df4dc3cf9f8db4bc929",
+  "supplement_sha256": "cdcb9d008ee4815fc73f2c0de2e60e30fb408a87a1cc407216894e2ee9aea94b",
+  "default_plans": {
+    "ordinary_latency": 21,
+    "tma_latency": 21,
+    "tma_throughput": 174,
+    "total": 216,
+    "geometry_used_for_cpu_test": "synthetic 128 SMs, 64 MiB L2; not hardware evidence"
+  },
+  "fresh_compilation": false,
+  "compiler_seed_reused_and_authenticated": true,
+  "training_performed": false,
+  "hardware_correctness": "NOT_RUN",
+  "performance": "NOT_MEASURED",
+  "limits": [
+    "Ordinary reference uses 4-byte loads at 32-byte node spacing and a full-chain warmup; TMA uses 16-byte nodes and a different completion/warmup protocol.",
+    "Cycles per iteration include address/loop overhead; event time includes warmup. Curve subtraction is not isolated TMA overhead.",
+    "Static assembly and data-flow checks do not establish clock serialization, cache residency or on-GPU correctness."
+  ]
+}

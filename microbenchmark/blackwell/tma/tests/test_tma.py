@@ -17,7 +17,7 @@ from microbenchmark.blackwell.common.metrics import rates, summarize
 from microbenchmark.blackwell.common.provenance import inspect as inspect_import
 from microbenchmark.blackwell.common.sass import cfg, parse_source
 from microbenchmark.blackwell.tma.catalog import variants
-from microbenchmark.blackwell.tma.inputs import Launch, check, cycle, prepare, tma_tile, validate_launch
+from microbenchmark.blackwell.tma.inputs import Launch, check, cycle, make_checker, prepare, tma_tile, validate_launch
 from microbenchmark.blackwell.tma.run import execute, work
 from microbenchmark.blackwell.tma.seeds import generate
 from microbenchmark.blackwell.tma.sweeps import plan
@@ -144,6 +144,31 @@ class InputTests(unittest.TestCase):
         expected = struct.pack("<8I", 2, 3, 8, 9, 14, 15, 20, 21)
         self.assertEqual(tma_tile(data, p, 3, 1), expected)
 
+    def test_reused_checker_retains_oracle_and_rejects_corrupt_samples(self):
+        selected = [variants()[0], next(v for v in variants() if v.id == "tma_tensor_3d_throughput--8x8x8")]
+        for variant in selected:
+            with self.subTest(variant=variant.id):
+                launch = Launch(count=7, repetitions=9, blocks=1 if variant.parameters["fine"] else 3)
+                data, _ = prepare(variant, launch)
+                raw = fake_output(variant, launch, data)
+                with patch("microbenchmark.blackwell.tma.inputs.tma_tile", wraps=tma_tile) as oracle:
+                    checker = make_checker(variant, launch, data)
+                    setup_calls = oracle.call_count
+                    self.assertGreater(setup_calls, 0)
+                    self.assertTrue(checker(raw)["passed"])
+                    for offset in (0, 8, 12, len(raw) - 1):
+                        corrupted = bytearray(raw)
+                        if offset == 0:
+                            corrupted[:8] = bytes(8)
+                        else:
+                            corrupted[offset] ^= 1
+                        with self.assertRaises(ValueError):
+                            checker(corrupted)
+                    with self.assertRaises(ValueError):
+                        checker(raw[:-1])
+                    self.assertTrue(checker(raw)["passed"])
+                    self.assertEqual(oracle.call_count, setup_calls)
+
     def test_launch_bounds(self):
         variant = variants()[0]
         for launch in (Launch(blocks=2), Launch(count=0), Launch(repetitions=0),
@@ -158,10 +183,23 @@ class InputTests(unittest.TestCase):
             self.assertTrue(jobs)
             self.assertTrue(all(job["status"] == "not_run" for job in jobs))
             if not variant.parameters["fine"]:
-                self.assertEqual([j["launch"]["blocks"] for j in jobs], [8, 16, 24, 32])
+                self.assertEqual([j["launch"]["blocks"] for j in jobs], [8, 16, 24, 32, 40, 48])
                 for job in jobs:
                     launch = Launch(**job["launch"])
                     self.assertGreaterEqual(work(variant, launch)["transferred_bytes"], 4_000_000_000)
+
+    def test_default_sweep_counts(self):
+        # Synthetic device geometry; this checks planning, not GPU execution.
+        latency, throughput = [], []
+        for variant in variants():
+            jobs = plan(variant, 128, l2_bytes=64 * 1024 * 1024)
+            (latency if variant.parameters["fine"] else throughput).extend(jobs)
+        self.assertEqual(len(throughput), 174)
+        self.assertEqual(len(latency), 21)
+        self.assertEqual(len(latency) + len(throughput), 195)
+        self.assertTrue(all(job["launch"]["blocks"] == 1 for job in latency))
+        self.assertEqual([job["memory"]["input_bytes"] for job in latency],
+                         [1 << exponent for exponent in range(8, 29)])
 
 
 class ArtifactTests(unittest.TestCase):
@@ -257,14 +295,24 @@ class HostTests(unittest.TestCase):
             qualified.mkdir(); output.mkdir()
             fixture(qualified, variant, (TMA / "sass" / (variant.id + ".sass")).read_bytes())
             args = SimpleNamespace(qualified=qualified, device=0, samples=2, max_seconds=10)
-            with patch("microbenchmark.blackwell.tma.run.telemetry", return_value={"synthetic": True}):
+            with patch("microbenchmark.blackwell.tma.run.telemetry", return_value={"synthetic": True}), \
+                    patch("microbenchmark.blackwell.tma.run.make_checker", wraps=make_checker) as factory:
                 report = execute(args, variant, launch, output, lambda _: driver)
+            self.assertEqual(factory.call_count, 2)
+            self.assertEqual([call.args[1].repetitions for call in factory.call_args_list], [2, 3])
             self.assertEqual(driver.calls, [2, 3, 3])
             self.assertTrue(driver.closed)
             self.assertEqual(len(report["raw_samples"]), 2)
             self.assertFalse(report["performance_claim_eligible"])
             self.assertEqual(report["campaign_status"], "requested_batches_completed")
             self.assertTrue((output / "run.json").is_file())
+            self.assertIsInstance(report["cpu_oracle_setup_seconds"], float)
+            self.assertGreaterEqual(report["cpu_oracle_setup_seconds"], 0)
+            for sample in report["raw_samples"]:
+                self.assertIsInstance(sample["cpu_check_seconds"], float)
+                self.assertGreaterEqual(sample["cpu_check_seconds"], 0)
+                self.assertEqual(sample["event_ms"], 1.0)
+                self.assertEqual(sample["numerical_check"], "passed")
 
     def test_unit_explicit_statistics(self):
         self.assertEqual(rates({"transferred_bytes": 1024}, 1)["transferred_bytes_per_second"], 1024000)
